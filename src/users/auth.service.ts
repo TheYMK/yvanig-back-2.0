@@ -780,8 +780,21 @@ export class AuthService {
     return user;
   }
 
-  async passwordReset(email: string, newPassword: string) {
-    const [user] = await this.usersService.find(email);
+  async passwordReset(token: string, newPassword: string) {
+    let decodedToken;
+
+    try {
+      decodedToken = await this.jwtService.verify(token);
+    } catch (err) {
+      throw new BadRequestException('Invalid token');
+    }
+
+    // extra check just in case
+    if (!decodedToken && !decodedToken.email) {
+      throw new BadRequestException('Invalid token');
+    }
+
+    const [user] = await this.usersService.find(decodedToken.email);
 
     if (!user) {
       throw new NotFoundException('user not found');

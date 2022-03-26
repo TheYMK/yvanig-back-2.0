@@ -43,7 +43,7 @@ export class UsersController {
   @HttpCode(200)
   async passwordReset(@Body() body: PasswordResetDto, @Session() session: any) {
     session.userId = null;
-    return this.authService.passwordReset(body.email, body.newPassword);
+    return this.authService.passwordReset(body.token, body.newPassword);
   }
 
   @Post('/register')
