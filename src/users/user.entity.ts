@@ -13,9 +13,6 @@ import {
 export enum UserRole {
   ADMIN = 'sysadmin',
   CUSTOMER = 'customer',
-  FLIGHT_MANAGER = 'flight_manager',
-  RESTAURANT_MANAGER = 'restaurant_manager',
-  HOTEL_MANAGER = 'hotel_manager',
 }
 @Entity()
 @Unique(['email'])
