@@ -5,24 +5,62 @@ import {
   Column,
   Entity,
   PrimaryGeneratedColumn,
+  Unique,
+  CreateDateColumn,
+  UpdateDateColumn,
 } from 'typeorm';
 
+export enum UserRole {
+  ADMIN = 'sysadmin',
+  CUSTOMER = 'customer',
+  FLIGHT_MANAGER = 'flight_manager',
+  RESTAURANT_MANAGER = 'restaurant_manager',
+  HOTEL_MANAGER = 'hotel_manager',
+}
 @Entity()
+@Unique(['email'])
 export class User {
   @PrimaryGeneratedColumn()
-  id: number;
+  public id: number;
 
   @Column()
-  first_name: string;
+  public first_name: string;
 
   @Column()
-  last_name: string;
+  public last_name: string;
+
+  @Column({
+    unique: true,
+  })
+  public email: string;
 
   @Column()
-  email: string;
+  public password: string;
 
-  @Column()
-  password: string;
+  @Column({
+    type: 'enum',
+    enum: UserRole,
+    default: UserRole.CUSTOMER,
+  })
+  public role: UserRole;
+
+  @CreateDateColumn({
+    type: 'timestamp',
+    default: () => 'CURRENT_TIMESTAMP(6)',
+  })
+  public created_at: Date;
+
+  @UpdateDateColumn({
+    type: 'timestamp',
+    default: () => 'CURRENT_TIMESTAMP(6)',
+    onUpdate: 'CURRENT_TIMESTAMP(6)',
+  })
+  public updated_at: Date;
+
+  @Column({
+    default: false,
+  })
+  public is_email_verified: boolean;
 
   @AfterInsert()
   logInsert() {
