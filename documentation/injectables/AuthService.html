@@ -1,0 +1,1468 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>backend documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">backend documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Injectables</li>
+  <li >AuthService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/users/auth.service.ts</code>
+        </p>
+
+
+
+
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#passwordReset" >passwordReset</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#register" >register</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#sendEmailVerification" >sendEmailVerification</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#sendPasswordResetEmail" >sendPasswordResetEmail</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#signin" >signin</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(usersService: <a href="../injectables/UsersService.html" target="_self">UsersService</a>, configService: ConfigService, jwtService: JwtService)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/users/auth.service.ts:18</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>usersService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UsersService.html" target="_self" >UsersService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>configService</td>
+                                                  
+                                                        <td>
+                                                                    <code>ConfigService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>jwtService</td>
+                                                  
+                                                        <td>
+                                                                    <code>JwtService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="passwordReset"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>passwordReset</b></span>
+                        <a href="#passwordReset"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>passwordReset(token: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, newPassword: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="783"
+                            class="link-to-prism">src/users/auth.service.ts:783</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>token</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>newPassword</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>unknown</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="register"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>register</b></span>
+                        <a href="#register"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>register(data: <a href="../classes/CreateUserDto.html" target="_self">CreateUserDto</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="720"
+                            class="link-to-prism">src/users/auth.service.ts:720</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>data</td>
+                                    <td>
+                                                <code><a href="../classes/CreateUserDto.html" target="_self" >CreateUserDto</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>unknown</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sendEmailVerification"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>sendEmailVerification</b></span>
+                        <a href="#sendEmailVerification"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>sendEmailVerification(email: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">src/users/auth.service.ts:25</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>email</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>unknown</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sendPasswordResetEmail"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>sendPasswordResetEmail</b></span>
+                        <a href="#sendPasswordResetEmail"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>sendPasswordResetEmail(email: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="369"
+                            class="link-to-prism">src/users/auth.service.ts:369</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>email</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>unknown</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="signin"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>signin</b></span>
+                        <a href="#signin"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>signin(email: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, password: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="766"
+                            class="link-to-prism">src/users/auth.service.ts:766</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>email</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>password</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>unknown</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  BadRequestException,
+  Injectable,
+  NotFoundException,
+  UnauthorizedException,
+} from &#x27;@nestjs/common&#x27;;
+import { UsersService } from &#x27;./users.service&#x27;;
+import { JwtService } from &#x27;@nestjs/jwt&#x27;;
+import { ConfigService } from &#x27;@nestjs/config&#x27;;
+import { sendEmailWithNodemailer } from &#x27;../helpers/email&#x27;;
+import { CreateUserDto } from &#x27;./dtos/create-user.dto&#x27;;
+import { randomBytes, scrypt as _scrypt } from &#x27;crypto&#x27;;
+import { promisify } from &#x27;util&#x27;;
+
+const scrypt &#x3D; promisify(_scrypt);
+
+@Injectable()
+export class AuthService {
+  constructor(
+    private usersService: UsersService,
+    private configService: ConfigService,
+    private jwtService: JwtService,
+  ) {}
+
+  async sendEmailVerification(email: string) {
+    const token &#x3D; this.jwtService.sign({ email });
+
+    const emailData &#x3D; {
+      from: process.env.EMAIL,
+      to: email,
+      subject: &#x60;YVANIG TOUR | Veuillez confirmer votre email&#x60;,
+      text: &#x60;Merci d&#x27;avoir rejoint YVANIG TOUR. Nous avons besoin d&#x27;un peu plus d&#x27;informations pour compléter votre inscription, y compris une confirmation de votre adresse e-mail.&#x60;,
+      html: &#x60;
+      &lt;html ⚡4email data-css-strict&gt;
+
+      &lt;head&gt;
+        &lt;meta charset&#x3D;&quot;utf-8&quot;&gt;
+        &lt;meta name&#x3D;&quot;x-apple-disable-message-reformatting&quot;&gt;
+        &lt;style amp4email-boilerplate&gt;
+          body {
+            visibility: hidden
+          }
+        &lt;/style&gt;
+      
+        &lt;script async src&#x3D;&quot;https://cdn.ampproject.org/v0.js&quot;&gt;&lt;/script&gt;
+      
+      
+        &lt;style amp-custom&gt;
+          .u-row {
+            display: flex;
+            flex-wrap: nowrap;
+            margin-left: 0;
+            margin-right: 0;
+          }
+          
+          .u-row .u-col {
+            position: relative;
+            width: 100%;
+            padding-right: 0;
+            padding-left: 0;
+          }
+          
+          .u-row .u-col.u-col-100 {
+            flex: 0 0 100%;
+            max-width: 100%;
+          }
+          
+          @media (max-width: 767px) {
+            .u-row:not(.no-stack) {
+              flex-wrap: wrap;
+            }
+            .u-row:not(.no-stack) .u-col {
+              flex: 0 0 100%;
+              max-width: 100%;
+            }
+          }
+          
+          body {
+            margin: 0;
+            padding: 0;
+          }
+          
+          table,
+          tr,
+          td {
+            vertical-align: top;
+            border-collapse: collapse;
+          }
+          
+          p {
+            margin: 0;
+          }
+          
+          .ie-container table,
+          .mso-container table {
+            table-layout: fixed;
+          }
+          
+          * {
+            line-height: inherit;
+          }
+          
+          table,
+          td {
+            color: #000000;
+          }
+          
+          a {
+            color: #0000ee;
+            text-decoration: underline;
+          }
+        &lt;/style&gt;
+      
+      
+      &lt;/head&gt;
+      
+      &lt;body class&#x3D;&quot;clean-body u_body&quot; style&#x3D;&quot;margin: 0;padding: 0;background-color: #f9f9f9;color: #000000&quot;&gt;
+        &lt;!--[if IE]&gt;&lt;div class&#x3D;&quot;ie-container&quot;&gt;&lt;![endif]--&gt;
+        &lt;!--[if mso]&gt;&lt;div class&#x3D;&quot;mso-container&quot;&gt;&lt;![endif]--&gt;
+        &lt;table style&#x3D;&quot;border-collapse: collapse;table-layout: fixed;border-spacing: 0;vertical-align: top;min-width: 320px;Margin: 0 auto;background-color: #f9f9f9;width:100%&quot; cellpadding&#x3D;&quot;0&quot; cellspacing&#x3D;&quot;0&quot;&gt;
+          &lt;tbody&gt;
+            &lt;tr style&#x3D;&quot;vertical-align: top&quot;&gt;
+              &lt;td style&#x3D;&quot;word-break: break-word;border-collapse: collapse;vertical-align: top&quot;&gt;
+                &lt;!--[if (mso)|(IE)]&gt;&lt;table width&#x3D;&quot;100%&quot; cellpadding&#x3D;&quot;0&quot; cellspacing&#x3D;&quot;0&quot; border&#x3D;&quot;0&quot;&gt;&lt;tr&gt;&lt;td align&#x3D;&quot;center&quot; style&#x3D;&quot;background-color: #f9f9f9;&quot;&gt;&lt;![endif]--&gt;
+      
+                &lt;div style&#x3D;&quot;padding: 0px;&quot;&gt;
+                  &lt;div style&#x3D;&quot;max-width: 600px;margin: 0 auto;&quot;&gt;
+                    &lt;div class&#x3D;&quot;u-row&quot;&gt;
+      
+                      &lt;div class&#x3D;&quot;u-col u-col-100&quot;&gt;
+                        &lt;div style&#x3D;&quot;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;&quot;&gt;
+      
+                          &lt;table style&#x3D;&quot;font-family:&#x27;Cabin&#x27;,sans-serif;&quot; role&#x3D;&quot;presentation&quot; cellpadding&#x3D;&quot;0&quot; cellspacing&#x3D;&quot;0&quot; width&#x3D;&quot;100%&quot; border&#x3D;&quot;0&quot;&gt;
+                            &lt;tbody&gt;
+                              &lt;tr&gt;
+                                &lt;td style&#x3D;&quot;overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:&#x27;Cabin&#x27;,sans-serif;&quot; align&#x3D;&quot;left&quot;&gt;
+      
+                                  &lt;div style&#x3D;&quot;color: #afb0c7; line-height: 170%; text-align: center; word-wrap: break-word;&quot;&gt;
+                                    &lt;p style&#x3D;&quot;font-size: 14px; line-height: 170%;&quot;&gt;&lt;span style&#x3D;&quot;font-size: 14px; line-height: 23.8px;&quot;&gt;View Email in Browser&lt;/span&gt;&lt;/p&gt;
+                                  &lt;/div&gt;
+      
+                                &lt;/td&gt;
+                              &lt;/tr&gt;
+                            &lt;/tbody&gt;
+                          &lt;/table&gt;
+      
+                        &lt;/div&gt;
+                      &lt;/div&gt;
+      
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+      
+                &lt;div style&#x3D;&quot;padding: 0px;&quot;&gt;
+                  &lt;div style&#x3D;&quot;max-width: 600px;margin: 0 auto;background-color: #ffffff;&quot;&gt;
+                    &lt;div class&#x3D;&quot;u-row&quot;&gt;
+      
+                      &lt;div class&#x3D;&quot;u-col u-col-100&quot;&gt;
+                        &lt;div style&#x3D;&quot;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;&quot;&gt;
+      
+                          &lt;table style&#x3D;&quot;font-family:&#x27;Cabin&#x27;,sans-serif;&quot; role&#x3D;&quot;presentation&quot; cellpadding&#x3D;&quot;0&quot; cellspacing&#x3D;&quot;0&quot; width&#x3D;&quot;100%&quot; border&#x3D;&quot;0&quot;&gt;
+                            &lt;tbody&gt;
+                              &lt;tr&gt;
+                                &lt;td style&#x3D;&quot;overflow-wrap:break-word;word-break:break-word;padding:20px;font-family:&#x27;Cabin&#x27;,sans-serif;&quot; align&#x3D;&quot;left&quot;&gt;
+      
+                                  &lt;table width&#x3D;&quot;100%&quot; cellpadding&#x3D;&quot;0&quot; cellspacing&#x3D;&quot;0&quot; border&#x3D;&quot;0&quot;&gt;
+                                    &lt;tr&gt;
+                                      &lt;td style&#x3D;&quot;padding-right: 0px;padding-left: 0px;&quot; align&#x3D;&quot;center&quot;&gt;
+      
+                                        &lt;amp-img alt&#x3D;&quot;Image&quot; src&#x3D;&quot;https://images.unlayer.com/projects/71375/1648302815498-logo.png&quot; width&#x3D;&quot;2000&quot; height&#x3D;&quot;1500&quot; layout&#x3D;&quot;intrinsic&quot; style&#x3D;&quot;width: 32%;max-width: 32%;&quot;&gt;
+      
+                                        &lt;/amp-img&gt;
+                                      &lt;/td&gt;
+                                    &lt;/tr&gt;
+                                  &lt;/table&gt;
+      
+                                &lt;/td&gt;
+                              &lt;/tr&gt;
+                            &lt;/tbody&gt;
+                          &lt;/table&gt;
+      
+                        &lt;/div&gt;
+                      &lt;/div&gt;
+      
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+      
+                &lt;div style&#x3D;&quot;padding: 0px;&quot;&gt;
+                  &lt;div style&#x3D;&quot;max-width: 600px;margin: 0 auto;background-color: #008080;&quot;&gt;
+                    &lt;div class&#x3D;&quot;u-row&quot;&gt;
+      
+                      &lt;div class&#x3D;&quot;u-col u-col-100&quot;&gt;
+                        &lt;div style&#x3D;&quot;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;&quot;&gt;
+      
+                          &lt;table style&#x3D;&quot;font-family:&#x27;Cabin&#x27;,sans-serif;&quot; role&#x3D;&quot;presentation&quot; cellpadding&#x3D;&quot;0&quot; cellspacing&#x3D;&quot;0&quot; width&#x3D;&quot;100%&quot; border&#x3D;&quot;0&quot;&gt;
+                            &lt;tbody&gt;
+                              &lt;tr&gt;
+                                &lt;td style&#x3D;&quot;overflow-wrap:break-word;word-break:break-word;padding:40px 10px 10px;font-family:&#x27;Cabin&#x27;,sans-serif;&quot; align&#x3D;&quot;left&quot;&gt;
+      
+                                  &lt;table width&#x3D;&quot;100%&quot; cellpadding&#x3D;&quot;0&quot; cellspacing&#x3D;&quot;0&quot; border&#x3D;&quot;0&quot;&gt;
+                                    &lt;tr&gt;
+                                      &lt;td style&#x3D;&quot;padding-right: 0px;padding-left: 0px;&quot; align&#x3D;&quot;center&quot;&gt;
+      
+                                        &lt;amp-img alt&#x3D;&quot;Image&quot; src&#x3D;&quot;https://cdn.templates.unlayer.com/assets/1597218650916-xxxxc.png&quot; width&#x3D;&quot;335&quot; height&#x3D;&quot;93&quot; layout&#x3D;&quot;intrinsic&quot; style&#x3D;&quot;width: 26%;max-width: 26%;&quot;&gt;
+      
+                                        &lt;/amp-img&gt;
+                                      &lt;/td&gt;
+                                    &lt;/tr&gt;
+                                  &lt;/table&gt;
+      
+                                &lt;/td&gt;
+                              &lt;/tr&gt;
+                            &lt;/tbody&gt;
+                          &lt;/table&gt;
+      
+                          &lt;table style&#x3D;&quot;font-family:&#x27;Cabin&#x27;,sans-serif;&quot; role&#x3D;&quot;presentation&quot; cellpadding&#x3D;&quot;0&quot; cellspacing&#x3D;&quot;0&quot; width&#x3D;&quot;100%&quot; border&#x3D;&quot;0&quot;&gt;
+                            &lt;tbody&gt;
+                              &lt;tr&gt;
+                                &lt;td style&#x3D;&quot;overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:&#x27;Cabin&#x27;,sans-serif;&quot; align&#x3D;&quot;left&quot;&gt;
+      
+                                  &lt;div style&#x3D;&quot;color: #e5eaf5; line-height: 140%; text-align: center; word-wrap: break-word;&quot;&gt;
+                                    &lt;p style&#x3D;&quot;font-size: 14px; line-height: 140%;&quot;&gt;&lt;strong&gt;Merci de nous avoir rejoint !&lt;/strong&gt;&lt;/p&gt;
+                                  &lt;/div&gt;
+      
+                                &lt;/td&gt;
+                              &lt;/tr&gt;
+                            &lt;/tbody&gt;
+                          &lt;/table&gt;
+      
+                          &lt;table style&#x3D;&quot;font-family:&#x27;Cabin&#x27;,sans-serif;&quot; role&#x3D;&quot;presentation&quot; cellpadding&#x3D;&quot;0&quot; cellspacing&#x3D;&quot;0&quot; width&#x3D;&quot;100%&quot; border&#x3D;&quot;0&quot;&gt;
+                            &lt;tbody&gt;
+                              &lt;tr&gt;
+                                &lt;td style&#x3D;&quot;overflow-wrap:break-word;word-break:break-word;padding:0px 10px 31px;font-family:&#x27;Cabin&#x27;,sans-serif;&quot; align&#x3D;&quot;left&quot;&gt;
+      
+                                  &lt;div style&#x3D;&quot;color: #e5eaf5; line-height: 140%; text-align: center; word-wrap: break-word;&quot;&gt;
+                                    &lt;p style&#x3D;&quot;font-size: 14px; line-height: 140%;&quot;&gt;&lt;span style&#x3D;&quot;font-size: 28px; line-height: 39.2px;&quot;&gt;&lt;strong&gt;&lt;span style&#x3D;&quot;line-height: 39.2px; font-size: 28px;&quot;&gt;V&amp;eacute;rifier votre adresse email&lt;/span&gt;&lt;/strong&gt;
+                                      &lt;/span&gt;
+                                    &lt;/p&gt;
+                                  &lt;/div&gt;
+      
+                                &lt;/td&gt;
+                              &lt;/tr&gt;
+                            &lt;/tbody&gt;
+                          &lt;/table&gt;
+      
+                        &lt;/div&gt;
+                      &lt;/div&gt;
+      
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+      
+                &lt;div style&#x3D;&quot;padding: 0px;&quot;&gt;
+                  &lt;div style&#x3D;&quot;max-width: 600px;margin: 0 auto;background-color: #ffffff;&quot;&gt;
+                    &lt;div class&#x3D;&quot;u-row&quot;&gt;
+      
+                      &lt;div class&#x3D;&quot;u-col u-col-100&quot;&gt;
+                        &lt;div style&#x3D;&quot;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;&quot;&gt;
+      
+                          &lt;table style&#x3D;&quot;font-family:&#x27;Cabin&#x27;,sans-serif;&quot; role&#x3D;&quot;presentation&quot; cellpadding&#x3D;&quot;0&quot; cellspacing&#x3D;&quot;0&quot; width&#x3D;&quot;100%&quot; border&#x3D;&quot;0&quot;&gt;
+                            &lt;tbody&gt;
+                              &lt;tr&gt;
+                                &lt;td style&#x3D;&quot;overflow-wrap:break-word;word-break:break-word;padding:33px 55px;font-family:&#x27;Cabin&#x27;,sans-serif;&quot; align&#x3D;&quot;left&quot;&gt;
+      
+                                  &lt;div style&#x3D;&quot;line-height: 160%; text-align: center; word-wrap: break-word;&quot;&gt;
+                                    &lt;p style&#x3D;&quot;font-size: 14px; line-height: 160%;&quot;&gt;Bonjour,&lt;br /&gt;Merci d&amp;rsquo;avoir rejoint YVANIG TOUR.&lt;/p&gt;
+                                    &lt;p style&#x3D;&quot;font-size: 14px; line-height: 160%;&quot;&gt;Pour finaliser votre inscription, cliquez sur le lien ci-dessous.&lt;/p&gt;
+                                    &lt;p style&#x3D;&quot;font-size: 14px; line-height: 160%;&quot;&gt;Si vous rencontrez des difficult&amp;eacute;s pour vous connecter &amp;agrave; votre compte, contactez-nous &amp;agrave; yvanig-tour@gmail.com&lt;/p&gt;
+                                  &lt;/div&gt;
+      
+                                &lt;/td&gt;
+                              &lt;/tr&gt;
+                            &lt;/tbody&gt;
+                          &lt;/table&gt;
+      
+                          &lt;table style&#x3D;&quot;font-family:&#x27;Cabin&#x27;,sans-serif;&quot; role&#x3D;&quot;presentation&quot; cellpadding&#x3D;&quot;0&quot; cellspacing&#x3D;&quot;0&quot; width&#x3D;&quot;100%&quot; border&#x3D;&quot;0&quot;&gt;
+                            &lt;tbody&gt;
+                              &lt;tr&gt;
+                                &lt;td style&#x3D;&quot;overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:&#x27;Cabin&#x27;,sans-serif;&quot; align&#x3D;&quot;left&quot;&gt;
+      
+                                  &lt;div align&#x3D;&quot;center&quot;&gt;
+                                    &lt;!--[if mso]&gt;&lt;table width&#x3D;&quot;100%&quot; cellpadding&#x3D;&quot;0&quot; cellspacing&#x3D;&quot;0&quot; border&#x3D;&quot;0&quot; style&#x3D;&quot;border-spacing: 0; border-collapse: collapse;  font-family:&#x27;Cabin&#x27;,sans-serif;&quot;&gt;&lt;tr&gt;&lt;td style&#x3D;&quot;font-family:&#x27;Cabin&#x27;,sans-serif;&quot; align&#x3D;&quot;center&quot;&gt;&lt;v:roundrect xmlns:v&#x3D;&quot;urn:schemas-microsoft-com:vml&quot; xmlns:w&#x3D;&quot;urn:schemas-microsoft-com:office:word&quot; href&#x3D;&quot;http://kaymkassai.com&quot; style&#x3D;&quot;height:46px; v-text-anchor:middle; width:214px;&quot; arcsize&#x3D;&quot;8.5%&quot; stroke&#x3D;&quot;f&quot; fillcolor&#x3D;&quot;#ff5f46&quot;&gt;&lt;w:anchorlock/&gt;&lt;center style&#x3D;&quot;color:#FFFFFF;font-family:&#x27;Cabin&#x27;,sans-serif;&quot;&gt;&lt;![endif]--&gt;
+                                    &lt;a href&#x3D;&quot;${this.configService.get(
+                                      &#x27;WEBSITE_URL&#x27;,
+                                    )}/auth/register/complete/?token&#x3D;${token}&quot; target&#x3D;&quot;_blank&quot; style&#x3D;&quot;box-sizing: border-box;display: inline-block;font-family:&#x27;Cabin&#x27;,sans-serif;text-decoration: none;text-align: center;color: #FFFFFF; background-color: #ff5f46; border-radius: 4px;  width:auto; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word; &quot;&gt;
+                                      &lt;span style&#x3D;&quot;display:block;padding:14px 44px 13px;line-height:120%;&quot;&gt;&lt;span style&#x3D;&quot;font-size: 16px; line-height: 19.2px;&quot;&gt;&lt;strong&gt;&lt;span style&#x3D;&quot;line-height: 19.2px; font-size: 16px;&quot;&gt;V&amp;eacute;rifier mon email&lt;/span&gt;&lt;/strong&gt;
+                                      &lt;/span&gt;
+                                      &lt;/span&gt;
+                                    &lt;/a&gt;
+                                    &lt;!--[if mso]&gt;&lt;/center&gt;&lt;/v:roundrect&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;![endif]--&gt;
+                                  &lt;/div&gt;
+      
+                                &lt;/td&gt;
+                              &lt;/tr&gt;
+                            &lt;/tbody&gt;
+                          &lt;/table&gt;
+      
+                          &lt;table style&#x3D;&quot;font-family:&#x27;Cabin&#x27;,sans-serif;&quot; role&#x3D;&quot;presentation&quot; cellpadding&#x3D;&quot;0&quot; cellspacing&#x3D;&quot;0&quot; width&#x3D;&quot;100%&quot; border&#x3D;&quot;0&quot;&gt;
+                            &lt;tbody&gt;
+                              &lt;tr&gt;
+                                &lt;td style&#x3D;&quot;overflow-wrap:break-word;word-break:break-word;padding:33px 55px 60px;font-family:&#x27;Cabin&#x27;,sans-serif;&quot; align&#x3D;&quot;left&quot;&gt;
+      
+                                  &lt;div style&#x3D;&quot;line-height: 160%; text-align: center; word-wrap: break-word;&quot;&gt;
+                                    &lt;p style&#x3D;&quot;line-height: 160%; font-size: 14px;&quot;&gt;&lt;span style&#x3D;&quot;font-size: 18px; line-height: 28.8px;&quot;&gt;Cordialement,&lt;/span&gt;&lt;/p&gt;
+                                    &lt;p style&#x3D;&quot;line-height: 160%; font-size: 14px;&quot;&gt;&lt;span style&#x3D;&quot;font-size: 18px; line-height: 28.8px;&quot;&gt;L&#x27;&amp;eacute;quipe YVANIG&lt;/span&gt;&lt;/p&gt;
+                                  &lt;/div&gt;
+      
+                                &lt;/td&gt;
+                              &lt;/tr&gt;
+                            &lt;/tbody&gt;
+                          &lt;/table&gt;
+      
+                        &lt;/div&gt;
+                      &lt;/div&gt;
+      
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+      
+                &lt;div style&#x3D;&quot;padding: 0px;&quot;&gt;
+                  &lt;div style&#x3D;&quot;max-width: 600px;margin: 0 auto;background-color: #e5eaf5;&quot;&gt;
+                    &lt;div class&#x3D;&quot;u-row&quot;&gt;
+      
+                      &lt;div class&#x3D;&quot;u-col u-col-100&quot;&gt;
+                        &lt;div style&#x3D;&quot;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;&quot;&gt;
+      
+                        &lt;/div&gt;
+                      &lt;/div&gt;
+      
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+      
+                &lt;div style&#x3D;&quot;padding: 0px;&quot;&gt;
+                  &lt;div style&#x3D;&quot;max-width: 600px;margin: 0 auto;background-color: #008080;&quot;&gt;
+                    &lt;div class&#x3D;&quot;u-row&quot;&gt;
+      
+                      &lt;div class&#x3D;&quot;u-col u-col-100&quot;&gt;
+                        &lt;div style&#x3D;&quot;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;&quot;&gt;
+      
+                        &lt;/div&gt;
+                      &lt;/div&gt;
+      
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+      
+                &lt;!--[if (mso)|(IE)]&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;![endif]--&gt;
+              &lt;/td&gt;
+            &lt;/tr&gt;
+          &lt;/tbody&gt;
+        &lt;/table&gt;
+        &lt;!--[if mso]&gt;&lt;/div&gt;&lt;![endif]--&gt;
+        &lt;!--[if IE]&gt;&lt;/div&gt;&lt;![endif]--&gt;
+      &lt;/body&gt;
+      
+      &lt;/html&gt;
+      &#x60;,
+    };
+
+    await sendEmailWithNodemailer(emailData);
+
+    return {
+      success: true,
+    };
+  }
+
+  async sendPasswordResetEmail(email: string) {
+    // check if user exists
+    const [user] &#x3D; await this.usersService.find(email);
+
+    if (!user) {
+      throw new NotFoundException(&#x27;user not found&#x27;);
+    }
+
+    const token &#x3D; this.jwtService.sign({ email });
+
+    const emailData &#x3D; {
+      from: process.env.EMAIL,
+      to: email,
+      subject: &#x60;YVANIG TOUR | Réinitialisation de votre mot de passe&#x60;,
+      text: &#x60;Vous recevez cet email car vous avez demandé une réinitialisation de votre mot de passe.&#x60;,
+      html: &#x60;
+      &lt;html ⚡4email data-css-strict&gt;
+
+      &lt;head&gt;
+        &lt;meta charset&#x3D;&quot;utf-8&quot;&gt;
+        &lt;meta name&#x3D;&quot;x-apple-disable-message-reformatting&quot;&gt;
+        &lt;style amp4email-boilerplate&gt;
+          body {
+            visibility: hidden
+          }
+        &lt;/style&gt;
+      
+        &lt;script async src&#x3D;&quot;https://cdn.ampproject.org/v0.js&quot;&gt;&lt;/script&gt;
+      
+      
+        &lt;style amp-custom&gt;
+          .u-row {
+            display: flex;
+            flex-wrap: nowrap;
+            margin-left: 0;
+            margin-right: 0;
+          }
+          
+          .u-row .u-col {
+            position: relative;
+            width: 100%;
+            padding-right: 0;
+            padding-left: 0;
+          }
+          
+          .u-row .u-col.u-col-100 {
+            flex: 0 0 100%;
+            max-width: 100%;
+          }
+          
+          @media (max-width: 767px) {
+            .u-row:not(.no-stack) {
+              flex-wrap: wrap;
+            }
+            .u-row:not(.no-stack) .u-col {
+              flex: 0 0 100%;
+              max-width: 100%;
+            }
+          }
+          
+          body {
+            margin: 0;
+            padding: 0;
+          }
+          
+          table,
+          tr,
+          td {
+            vertical-align: top;
+            border-collapse: collapse;
+          }
+          
+          p {
+            margin: 0;
+          }
+          
+          .ie-container table,
+          .mso-container table {
+            table-layout: fixed;
+          }
+          
+          * {
+            line-height: inherit;
+          }
+          
+          table,
+          td {
+            color: #000000;
+          }
+          
+          a {
+            color: #0000ee;
+            text-decoration: underline;
+          }
+        &lt;/style&gt;
+      
+      
+      &lt;/head&gt;
+      
+      &lt;body class&#x3D;&quot;clean-body u_body&quot; style&#x3D;&quot;margin: 0;padding: 0;background-color: #f9f9f9;color: #000000&quot;&gt;
+        &lt;!--[if IE]&gt;&lt;div class&#x3D;&quot;ie-container&quot;&gt;&lt;![endif]--&gt;
+        &lt;!--[if mso]&gt;&lt;div class&#x3D;&quot;mso-container&quot;&gt;&lt;![endif]--&gt;
+        &lt;table style&#x3D;&quot;border-collapse: collapse;table-layout: fixed;border-spacing: 0;vertical-align: top;min-width: 320px;Margin: 0 auto;background-color: #f9f9f9;width:100%&quot; cellpadding&#x3D;&quot;0&quot; cellspacing&#x3D;&quot;0&quot;&gt;
+          &lt;tbody&gt;
+            &lt;tr style&#x3D;&quot;vertical-align: top&quot;&gt;
+              &lt;td style&#x3D;&quot;word-break: break-word;border-collapse: collapse;vertical-align: top&quot;&gt;
+                &lt;!--[if (mso)|(IE)]&gt;&lt;table width&#x3D;&quot;100%&quot; cellpadding&#x3D;&quot;0&quot; cellspacing&#x3D;&quot;0&quot; border&#x3D;&quot;0&quot;&gt;&lt;tr&gt;&lt;td align&#x3D;&quot;center&quot; style&#x3D;&quot;background-color: #f9f9f9;&quot;&gt;&lt;![endif]--&gt;
+      
+                &lt;div style&#x3D;&quot;padding: 0px;&quot;&gt;
+                  &lt;div style&#x3D;&quot;max-width: 600px;margin: 0 auto;&quot;&gt;
+                    &lt;div class&#x3D;&quot;u-row&quot;&gt;
+      
+                      &lt;div class&#x3D;&quot;u-col u-col-100&quot;&gt;
+                        &lt;div style&#x3D;&quot;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;&quot;&gt;
+      
+                          &lt;table style&#x3D;&quot;font-family:&#x27;Cabin&#x27;,sans-serif;&quot; role&#x3D;&quot;presentation&quot; cellpadding&#x3D;&quot;0&quot; cellspacing&#x3D;&quot;0&quot; width&#x3D;&quot;100%&quot; border&#x3D;&quot;0&quot;&gt;
+                            &lt;tbody&gt;
+                              &lt;tr&gt;
+                                &lt;td style&#x3D;&quot;overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:&#x27;Cabin&#x27;,sans-serif;&quot; align&#x3D;&quot;left&quot;&gt;
+      
+                                  &lt;div style&#x3D;&quot;color: #afb0c7; line-height: 170%; text-align: center; word-wrap: break-word;&quot;&gt;
+                                    &lt;p style&#x3D;&quot;font-size: 14px; line-height: 170%;&quot;&gt;&lt;span style&#x3D;&quot;font-size: 14px; line-height: 23.8px;&quot;&gt;View Email in Browser&lt;/span&gt;&lt;/p&gt;
+                                  &lt;/div&gt;
+      
+                                &lt;/td&gt;
+                              &lt;/tr&gt;
+                            &lt;/tbody&gt;
+                          &lt;/table&gt;
+      
+                        &lt;/div&gt;
+                      &lt;/div&gt;
+      
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+      
+                &lt;div style&#x3D;&quot;padding: 0px;&quot;&gt;
+                  &lt;div style&#x3D;&quot;max-width: 600px;margin: 0 auto;background-color: #ffffff;&quot;&gt;
+                    &lt;div class&#x3D;&quot;u-row&quot;&gt;
+      
+                      &lt;div class&#x3D;&quot;u-col u-col-100&quot;&gt;
+                        &lt;div style&#x3D;&quot;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;&quot;&gt;
+      
+                          &lt;table style&#x3D;&quot;font-family:&#x27;Cabin&#x27;,sans-serif;&quot; role&#x3D;&quot;presentation&quot; cellpadding&#x3D;&quot;0&quot; cellspacing&#x3D;&quot;0&quot; width&#x3D;&quot;100%&quot; border&#x3D;&quot;0&quot;&gt;
+                            &lt;tbody&gt;
+                              &lt;tr&gt;
+                                &lt;td style&#x3D;&quot;overflow-wrap:break-word;word-break:break-word;padding:20px;font-family:&#x27;Cabin&#x27;,sans-serif;&quot; align&#x3D;&quot;left&quot;&gt;
+      
+                                  &lt;table width&#x3D;&quot;100%&quot; cellpadding&#x3D;&quot;0&quot; cellspacing&#x3D;&quot;0&quot; border&#x3D;&quot;0&quot;&gt;
+                                    &lt;tr&gt;
+                                      &lt;td style&#x3D;&quot;padding-right: 0px;padding-left: 0px;&quot; align&#x3D;&quot;center&quot;&gt;
+      
+                                        &lt;amp-img alt&#x3D;&quot;Image&quot; src&#x3D;&quot;https://images.unlayer.com/projects/71375/1648302815498-logo.png&quot; width&#x3D;&quot;2000&quot; height&#x3D;&quot;1500&quot; layout&#x3D;&quot;intrinsic&quot; style&#x3D;&quot;width: 32%;max-width: 32%;&quot;&gt;
+      
+                                        &lt;/amp-img&gt;
+                                      &lt;/td&gt;
+                                    &lt;/tr&gt;
+                                  &lt;/table&gt;
+      
+                                &lt;/td&gt;
+                              &lt;/tr&gt;
+                            &lt;/tbody&gt;
+                          &lt;/table&gt;
+      
+                        &lt;/div&gt;
+                      &lt;/div&gt;
+      
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+      
+                &lt;div style&#x3D;&quot;padding: 0px;&quot;&gt;
+                  &lt;div style&#x3D;&quot;max-width: 600px;margin: 0 auto;background-color: #008080;&quot;&gt;
+                    &lt;div class&#x3D;&quot;u-row&quot;&gt;
+      
+                      &lt;div class&#x3D;&quot;u-col u-col-100&quot;&gt;
+                        &lt;div style&#x3D;&quot;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;&quot;&gt;
+      
+                          &lt;table style&#x3D;&quot;font-family:&#x27;Cabin&#x27;,sans-serif;&quot; role&#x3D;&quot;presentation&quot; cellpadding&#x3D;&quot;0&quot; cellspacing&#x3D;&quot;0&quot; width&#x3D;&quot;100%&quot; border&#x3D;&quot;0&quot;&gt;
+                            &lt;tbody&gt;
+                              &lt;tr&gt;
+                                &lt;td style&#x3D;&quot;overflow-wrap:break-word;word-break:break-word;padding:40px 10px 10px;font-family:&#x27;Cabin&#x27;,sans-serif;&quot; align&#x3D;&quot;left&quot;&gt;
+      
+                                  &lt;table width&#x3D;&quot;100%&quot; cellpadding&#x3D;&quot;0&quot; cellspacing&#x3D;&quot;0&quot; border&#x3D;&quot;0&quot;&gt;
+                                    &lt;tr&gt;
+                                      &lt;td style&#x3D;&quot;padding-right: 0px;padding-left: 0px;&quot; align&#x3D;&quot;center&quot;&gt;
+      
+                                        &lt;amp-img alt&#x3D;&quot;Image&quot; src&#x3D;&quot;https://cdn.templates.unlayer.com/assets/1597218650916-xxxxc.png&quot; width&#x3D;&quot;335&quot; height&#x3D;&quot;93&quot; layout&#x3D;&quot;intrinsic&quot; style&#x3D;&quot;width: 26%;max-width: 26%;&quot;&gt;
+      
+                                        &lt;/amp-img&gt;
+                                      &lt;/td&gt;
+                                    &lt;/tr&gt;
+                                  &lt;/table&gt;
+      
+                                &lt;/td&gt;
+                              &lt;/tr&gt;
+                            &lt;/tbody&gt;
+                          &lt;/table&gt;
+      
+                          &lt;table style&#x3D;&quot;font-family:&#x27;Cabin&#x27;,sans-serif;&quot; role&#x3D;&quot;presentation&quot; cellpadding&#x3D;&quot;0&quot; cellspacing&#x3D;&quot;0&quot; width&#x3D;&quot;100%&quot; border&#x3D;&quot;0&quot;&gt;
+                            &lt;tbody&gt;
+                              &lt;tr&gt;
+                                &lt;td style&#x3D;&quot;overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:&#x27;Cabin&#x27;,sans-serif;&quot; align&#x3D;&quot;left&quot;&gt;
+      
+                                  &lt;div style&#x3D;&quot;color: #e5eaf5; line-height: 140%; text-align: center; word-wrap: break-word;&quot;&gt;
+                                    &lt;p style&#x3D;&quot;font-size: 14px; line-height: 140%;&quot;&gt;&lt;strong&gt;Merci de nous avoir rejoint !&lt;/strong&gt;&lt;/p&gt;
+                                  &lt;/div&gt;
+      
+                                &lt;/td&gt;
+                              &lt;/tr&gt;
+                            &lt;/tbody&gt;
+                          &lt;/table&gt;
+      
+                          &lt;table style&#x3D;&quot;font-family:&#x27;Cabin&#x27;,sans-serif;&quot; role&#x3D;&quot;presentation&quot; cellpadding&#x3D;&quot;0&quot; cellspacing&#x3D;&quot;0&quot; width&#x3D;&quot;100%&quot; border&#x3D;&quot;0&quot;&gt;
+                            &lt;tbody&gt;
+                              &lt;tr&gt;
+                                &lt;td style&#x3D;&quot;overflow-wrap:break-word;word-break:break-word;padding:0px 10px 31px;font-family:&#x27;Cabin&#x27;,sans-serif;&quot; align&#x3D;&quot;left&quot;&gt;
+      
+                                  &lt;div style&#x3D;&quot;color: #e5eaf5; line-height: 140%; text-align: center; word-wrap: break-word;&quot;&gt;
+                                    &lt;p style&#x3D;&quot;font-size: 14px; line-height: 140%;&quot;&gt;&lt;span style&#x3D;&quot;font-size: 28px; line-height: 39.2px;&quot;&gt;&lt;strong&gt;&lt;span style&#x3D;&quot;line-height: 39.2px; font-size: 28px;&quot;&gt;Réinitialiser votre mot de passe&lt;/span&gt;&lt;/strong&gt;
+                                      &lt;/span&gt;
+                                    &lt;/p&gt;
+                                  &lt;/div&gt;
+      
+                                &lt;/td&gt;
+                              &lt;/tr&gt;
+                            &lt;/tbody&gt;
+                          &lt;/table&gt;
+      
+                        &lt;/div&gt;
+                      &lt;/div&gt;
+      
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+      
+                &lt;div style&#x3D;&quot;padding: 0px;&quot;&gt;
+                  &lt;div style&#x3D;&quot;max-width: 600px;margin: 0 auto;background-color: #ffffff;&quot;&gt;
+                    &lt;div class&#x3D;&quot;u-row&quot;&gt;
+      
+                      &lt;div class&#x3D;&quot;u-col u-col-100&quot;&gt;
+                        &lt;div style&#x3D;&quot;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;&quot;&gt;
+      
+                          &lt;table style&#x3D;&quot;font-family:&#x27;Cabin&#x27;,sans-serif;&quot; role&#x3D;&quot;presentation&quot; cellpadding&#x3D;&quot;0&quot; cellspacing&#x3D;&quot;0&quot; width&#x3D;&quot;100%&quot; border&#x3D;&quot;0&quot;&gt;
+                            &lt;tbody&gt;
+                              &lt;tr&gt;
+                                &lt;td style&#x3D;&quot;overflow-wrap:break-word;word-break:break-word;padding:33px 55px;font-family:&#x27;Cabin&#x27;,sans-serif;&quot; align&#x3D;&quot;left&quot;&gt;
+      
+                                  &lt;div style&#x3D;&quot;line-height: 160%; text-align: center; word-wrap: break-word;&quot;&gt;
+                                    &lt;p style&#x3D;&quot;font-size: 14px; line-height: 160%;&quot;&gt;Bonjour,&lt;br /&gt;Nous avons reçu votre demande de reinitialisation de mot de passe.&lt;/p&gt;
+                                    &lt;p style&#x3D;&quot;font-size: 14px; line-height: 160%;&quot;&gt;Pour finaliser votre demande, cliquez sur le lien ci-dessous.&lt;/p&gt;
+                                    &lt;p style&#x3D;&quot;font-size: 14px; line-height: 160%;&quot;&gt;Si vous rencontrez des difficult&amp;eacute;s pour vous connecter &amp;agrave; votre compte, contactez-nous &amp;agrave; yvanig-tour@gmail.com&lt;/p&gt;
+                                  &lt;/div&gt;
+      
+                                &lt;/td&gt;
+                              &lt;/tr&gt;
+                            &lt;/tbody&gt;
+                          &lt;/table&gt;
+      
+                          &lt;table style&#x3D;&quot;font-family:&#x27;Cabin&#x27;,sans-serif;&quot; role&#x3D;&quot;presentation&quot; cellpadding&#x3D;&quot;0&quot; cellspacing&#x3D;&quot;0&quot; width&#x3D;&quot;100%&quot; border&#x3D;&quot;0&quot;&gt;
+                            &lt;tbody&gt;
+                              &lt;tr&gt;
+                                &lt;td style&#x3D;&quot;overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:&#x27;Cabin&#x27;,sans-serif;&quot; align&#x3D;&quot;left&quot;&gt;
+      
+                                  &lt;div align&#x3D;&quot;center&quot;&gt;
+                                    &lt;!--[if mso]&gt;&lt;table width&#x3D;&quot;100%&quot; cellpadding&#x3D;&quot;0&quot; cellspacing&#x3D;&quot;0&quot; border&#x3D;&quot;0&quot; style&#x3D;&quot;border-spacing: 0; border-collapse: collapse;  font-family:&#x27;Cabin&#x27;,sans-serif;&quot;&gt;&lt;tr&gt;&lt;td style&#x3D;&quot;font-family:&#x27;Cabin&#x27;,sans-serif;&quot; align&#x3D;&quot;center&quot;&gt;&lt;v:roundrect xmlns:v&#x3D;&quot;urn:schemas-microsoft-com:vml&quot; xmlns:w&#x3D;&quot;urn:schemas-microsoft-com:office:word&quot; href&#x3D;&quot;http://kaymkassai.com&quot; style&#x3D;&quot;height:46px; v-text-anchor:middle; width:214px;&quot; arcsize&#x3D;&quot;8.5%&quot; stroke&#x3D;&quot;f&quot; fillcolor&#x3D;&quot;#ff5f46&quot;&gt;&lt;w:anchorlock/&gt;&lt;center style&#x3D;&quot;color:#FFFFFF;font-family:&#x27;Cabin&#x27;,sans-serif;&quot;&gt;&lt;![endif]--&gt;
+                                    &lt;a href&#x3D;&quot;${this.configService.get(
+                                      &#x27;WEBSITE_URL&#x27;,
+                                    )}/auth/password/reset/?token&#x3D;${token}&quot; target&#x3D;&quot;_blank&quot; style&#x3D;&quot;box-sizing: border-box;display: inline-block;font-family:&#x27;Cabin&#x27;,sans-serif;text-decoration: none;text-align: center;color: #FFFFFF; background-color: #ff5f46; border-radius: 4px;  width:auto; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word; &quot;&gt;
+                                      &lt;span style&#x3D;&quot;display:block;padding:14px 44px 13px;line-height:120%;&quot;&gt;&lt;span style&#x3D;&quot;font-size: 16px; line-height: 19.2px;&quot;&gt;&lt;strong&gt;&lt;span style&#x3D;&quot;line-height: 19.2px; font-size: 16px;&quot;&gt;V&amp;eacute;rifier mon email&lt;/span&gt;&lt;/strong&gt;
+                                      &lt;/span&gt;
+                                      &lt;/span&gt;
+                                    &lt;/a&gt;
+                                    &lt;!--[if mso]&gt;&lt;/center&gt;&lt;/v:roundrect&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;![endif]--&gt;
+                                  &lt;/div&gt;
+      
+                                &lt;/td&gt;
+                              &lt;/tr&gt;
+                            &lt;/tbody&gt;
+                          &lt;/table&gt;
+      
+                          &lt;table style&#x3D;&quot;font-family:&#x27;Cabin&#x27;,sans-serif;&quot; role&#x3D;&quot;presentation&quot; cellpadding&#x3D;&quot;0&quot; cellspacing&#x3D;&quot;0&quot; width&#x3D;&quot;100%&quot; border&#x3D;&quot;0&quot;&gt;
+                            &lt;tbody&gt;
+                              &lt;tr&gt;
+                                &lt;td style&#x3D;&quot;overflow-wrap:break-word;word-break:break-word;padding:33px 55px 60px;font-family:&#x27;Cabin&#x27;,sans-serif;&quot; align&#x3D;&quot;left&quot;&gt;
+      
+                                  &lt;div style&#x3D;&quot;line-height: 160%; text-align: center; word-wrap: break-word;&quot;&gt;
+                                    &lt;p style&#x3D;&quot;line-height: 160%; font-size: 14px;&quot;&gt;&lt;span style&#x3D;&quot;font-size: 18px; line-height: 28.8px;&quot;&gt;Cordialement,&lt;/span&gt;&lt;/p&gt;
+                                    &lt;p style&#x3D;&quot;line-height: 160%; font-size: 14px;&quot;&gt;&lt;span style&#x3D;&quot;font-size: 18px; line-height: 28.8px;&quot;&gt;L&#x27;&amp;eacute;quipe YVANIG&lt;/span&gt;&lt;/p&gt;
+                                  &lt;/div&gt;
+      
+                                &lt;/td&gt;
+                              &lt;/tr&gt;
+                            &lt;/tbody&gt;
+                          &lt;/table&gt;
+      
+                        &lt;/div&gt;
+                      &lt;/div&gt;
+      
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+      
+                &lt;div style&#x3D;&quot;padding: 0px;&quot;&gt;
+                  &lt;div style&#x3D;&quot;max-width: 600px;margin: 0 auto;background-color: #e5eaf5;&quot;&gt;
+                    &lt;div class&#x3D;&quot;u-row&quot;&gt;
+      
+                      &lt;div class&#x3D;&quot;u-col u-col-100&quot;&gt;
+                        &lt;div style&#x3D;&quot;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;&quot;&gt;
+      
+                        &lt;/div&gt;
+                      &lt;/div&gt;
+      
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+      
+                &lt;div style&#x3D;&quot;padding: 0px;&quot;&gt;
+                  &lt;div style&#x3D;&quot;max-width: 600px;margin: 0 auto;background-color: #008080;&quot;&gt;
+                    &lt;div class&#x3D;&quot;u-row&quot;&gt;
+      
+                      &lt;div class&#x3D;&quot;u-col u-col-100&quot;&gt;
+                        &lt;div style&#x3D;&quot;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;&quot;&gt;
+      
+                        &lt;/div&gt;
+                      &lt;/div&gt;
+      
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+      
+                &lt;!--[if (mso)|(IE)]&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;![endif]--&gt;
+              &lt;/td&gt;
+            &lt;/tr&gt;
+          &lt;/tbody&gt;
+        &lt;/table&gt;
+        &lt;!--[if mso]&gt;&lt;/div&gt;&lt;![endif]--&gt;
+        &lt;!--[if IE]&gt;&lt;/div&gt;&lt;![endif]--&gt;
+      &lt;/body&gt;
+      
+      &lt;/html&gt;
+      &#x60;,
+    };
+
+    await sendEmailWithNodemailer(emailData);
+
+    return {
+      success: true,
+    };
+  }
+
+  async register(data: CreateUserDto) {
+    // check if email has been verified
+    let decodedToken;
+
+    try {
+      decodedToken &#x3D; await this.jwtService.verify(data.token);
+    } catch (err) {
+      throw new BadRequestException(&#x27;Invalid token&#x27;);
+    }
+
+    // extra check just in case
+    if (!decodedToken &amp;&amp; !decodedToken.email) {
+      throw new BadRequestException(&#x27;Invalid token&#x27;);
+    }
+
+    // check if user already exists
+    const users &#x3D; await this.usersService.find(decodedToken.email);
+
+    if (users.length) {
+      throw new BadRequestException(&#x27;email in use&#x27;);
+    }
+
+    // Hash the user&#x27;s password
+
+    // 1- Generate a salt
+    const salt &#x3D; randomBytes(8).toString(&#x27;hex&#x27;);
+    // 2- Generate a password hash
+    const hash &#x3D; (await scrypt(data.password, salt, 32)) as Buffer;
+    // 3- Join the hash and the salt
+    const result &#x3D; salt + &#x27;.&#x27; + hash.toString(&#x27;hex&#x27;);
+    // 4- Create a new user and save it to the database
+
+    const userData &#x3D; {
+      ...data,
+      email: decodedToken.email,
+      is_email_verified: true,
+      password: result,
+    };
+
+    delete userData.token;
+
+    const user &#x3D; await this.usersService.create(userData);
+
+    return user;
+  }
+
+  async signin(email: string, password: string) {
+    const [user] &#x3D; await this.usersService.find(email);
+
+    if (!user) {
+      throw new NotFoundException(&#x27;user not found&#x27;);
+    }
+
+    const [salt, storedHash] &#x3D; user.password.split(&#x27;.&#x27;);
+    const hash &#x3D; (await scrypt(password, salt, 32)) as Buffer;
+
+    if (storedHash !&#x3D;&#x3D; hash.toString(&#x27;hex&#x27;)) {
+      throw new UnauthorizedException(&#x27;bad email/password combination&#x27;);
+    }
+
+    return user;
+  }
+
+  async passwordReset(token: string, newPassword: string) {
+    let decodedToken;
+
+    try {
+      decodedToken &#x3D; await this.jwtService.verify(token);
+    } catch (err) {
+      throw new BadRequestException(&#x27;Invalid token&#x27;);
+    }
+
+    // extra check just in case
+    if (!decodedToken &amp;&amp; !decodedToken.email) {
+      throw new BadRequestException(&#x27;Invalid token&#x27;);
+    }
+
+    const [user] &#x3D; await this.usersService.find(decodedToken.email);
+
+    if (!user) {
+      throw new NotFoundException(&#x27;user not found&#x27;);
+    }
+
+    // 1- Generate a salt
+    const salt &#x3D; randomBytes(8).toString(&#x27;hex&#x27;);
+    // 2- Generate a password hash
+    const hash &#x3D; (await scrypt(newPassword, salt, 32)) as Buffer;
+    // 3- Join the hash and the salt
+    const result &#x3D; salt + &#x27;.&#x27; + hash.toString(&#x27;hex&#x27;);
+
+    // modify user&#x27;s password
+    const updatedUser &#x3D; await this.usersService.update(user.id, {
+      password: result,
+    });
+
+    return updatedUser;
+  }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'AuthService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
