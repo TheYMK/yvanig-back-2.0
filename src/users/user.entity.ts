@@ -20,30 +20,35 @@ export class User {
   @PrimaryGeneratedColumn()
   public id: number;
 
-  @Column()
+  @Column({ type: 'varchar', length: 200, nullable: false })
   public first_name: string;
 
-  @Column()
+  @Column({ type: 'varchar', length: 200, nullable: false })
   public last_name: string;
 
   @Column({
+    type: 'varchar',
     unique: true,
+    length: 200,
+    nullable: false,
   })
   public email: string;
 
-  @Column()
+  @Column({ type: 'varchar', length: 200, nullable: false })
   public password: string;
 
   @Column({
     type: 'enum',
     enum: UserRole,
     default: UserRole.CUSTOMER,
+    nullable: false,
   })
   public role: UserRole;
 
   @CreateDateColumn({
     type: 'timestamp',
     default: () => 'CURRENT_TIMESTAMP(6)',
+    nullable: false,
   })
   public created_at: Date;
 
@@ -51,11 +56,14 @@ export class User {
     type: 'timestamp',
     default: () => 'CURRENT_TIMESTAMP(6)',
     onUpdate: 'CURRENT_TIMESTAMP(6)',
+    nullable: false,
   })
   public updated_at: Date;
 
   @Column({
+    type: 'boolean',
     default: false,
+    nullable: false,
   })
   public is_email_verified: boolean;
 

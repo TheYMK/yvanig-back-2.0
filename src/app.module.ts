@@ -6,6 +6,7 @@ const cookieSession = require('cookie-session');
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
+import { FlightsModule } from './flights/flights.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { UsersModule } from './users/users.module';
     }),
     TypeOrmModule.forRoot(),
     UsersModule,
+    FlightsModule,
   ],
   controllers: [AppController],
   providers: [
