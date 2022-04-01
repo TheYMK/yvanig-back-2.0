@@ -7,6 +7,7 @@ import {
   Param,
   Patch,
   Post,
+  Query,
   UseGuards,
 } from '@nestjs/common';
 import {
@@ -18,6 +19,7 @@ import {
 } from '@nestjs/swagger';
 import { AdminGuard } from '../guards/admin.guard';
 import { CreateFlightDto } from './dtos/create-flight.dto';
+import { GetFlightsDto } from './dtos/get-flights.dto';
 import { UpdateFlightDto } from './dtos/update-flight.dto';
 import { FlightsService } from './flights.service';
 
@@ -64,8 +66,8 @@ export class FlightsController {
   @ApiBadRequestResponse({
     description: 'Failed to find the flights',
   })
-  async getFlights() {
-    return this.flightsService.findAll();
+  async getFlights(@Query() query: GetFlightsDto) {
+    return this.flightsService.findAll(query);
   }
 
   // Returns a flight by id

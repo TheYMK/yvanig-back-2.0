@@ -6,6 +6,7 @@ import {
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CreateFlightDto } from './dtos/create-flight.dto';
+import { GetFlightsDto } from './dtos/get-flights.dto';
 import { UpdateFlightDto } from './dtos/update-flight.dto';
 import { Flight } from './flight.entity';
 
@@ -50,13 +51,21 @@ export class FlightsService {
     return flight;
   }
 
-  async findAll() {
-    const flights = await this.repo.find();
-    if (!flights) {
+  async findAll(options: Partial<GetFlightsDto>) {
+    const page = parseInt(options.page) || 0;
+    const limit = parseInt(options.limit) || 10;
+
+    const flights = await this.repo.find({ skip: page * limit, take: limit });
+    const totalCount = await (await this.repo.find()).length;
+
+    if (!flights || !totalCount) {
       throw new NotFoundException('flights not found');
     }
 
-    return flights;
+    return {
+      flights,
+      total_count: totalCount,
+    };
   }
 
   async delete(id: number) {
