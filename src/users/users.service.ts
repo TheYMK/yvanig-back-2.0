@@ -1,4 +1,8 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import {
+  BadRequestException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CreateUserDto } from './dtos/create-user.dto';
@@ -8,20 +12,32 @@ import { User } from './user.entity';
 export class UsersService {
   constructor(@InjectRepository(User) private repo: Repository<User>) {}
 
-  create(user: CreateUserDto) {
-    const newUser = this.repo.create(user);
-
-    return this.repo.save(newUser);
+  async create(user: CreateUserDto) {
+    try {
+      const newUser = this.repo.create(user);
+      return this.repo.save(newUser);
+    } catch (err) {
+      console.log(err);
+      throw new BadRequestException('Failed to create a new user');
+    }
   }
 
-  findOne(id: number) {
-    const user = this.repo.findOne(id);
+  async findOne(id: number) {
+    const user = await this.repo.findOne(id);
+
+    if (!user) {
+      throw new NotFoundException('user not found');
+    }
 
     return user;
   }
 
-  find(email: string) {
-    const users = this.repo.find({ email });
+  async find(email: string) {
+    const users = await this.repo.find({ email });
+
+    if (!users) {
+      throw new NotFoundException('users not found');
+    }
 
     return users;
   }

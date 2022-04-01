@@ -31,7 +31,7 @@ export class AuthService {
       subject: `YVANIG TOUR | Veuillez confirmer votre email`,
       text: `Merci d'avoir rejoint YVANIG TOUR. Nous avons besoin d'un peu plus d'informations pour compléter votre inscription, y compris une confirmation de votre adresse e-mail.`,
       html: `
-      <html ⚡4email data-css-strict>
+      <html>
 
       <head>
         <meta charset="utf-8">
@@ -167,9 +167,7 @@ export class AuthService {
                                     <tr>
                                       <td style="padding-right: 0px;padding-left: 0px;" align="center">
       
-                                        <amp-img alt="Image" src="https://images.unlayer.com/projects/71375/1648302815498-logo.png" width="2000" height="1500" layout="intrinsic" style="width: 32%;max-width: 32%;">
-      
-                                        </amp-img>
+                                        <img alt="Image" src="https://images.unlayer.com/projects/71375/1648302815498-logo.png" style="width: 100px"/>
                                       </td>
                                     </tr>
                                   </table>
