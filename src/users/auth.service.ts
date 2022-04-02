@@ -1,6 +1,7 @@
 import {
   BadRequestException,
   Injectable,
+  InternalServerErrorException,
   NotFoundException,
   UnauthorizedException,
 } from '@nestjs/common';
@@ -11,6 +12,7 @@ import { sendEmailWithNodemailer } from '../helpers/email';
 import { CreateUserDto } from './dtos/create-user.dto';
 import { randomBytes, scrypt as _scrypt } from 'crypto';
 import { promisify } from 'util';
+import { User } from './user.entity';
 
 const scrypt = promisify(_scrypt);
 
@@ -359,9 +361,9 @@ export class AuthService {
 
     await sendEmailWithNodemailer(emailData);
 
-    return {
+    return JSON.stringify({
       success: true,
-    };
+    });
   }
 
   async sendPasswordResetEmail(email: string) {
@@ -369,7 +371,7 @@ export class AuthService {
     const [user] = await this.usersService.find(email);
 
     if (!user) {
-      throw new NotFoundException('user not found');
+      throw new NotFoundException('User not found');
     }
 
     const token = this.jwtService.sign({ email });
@@ -710,9 +712,9 @@ export class AuthService {
 
     await sendEmailWithNodemailer(emailData);
 
-    return {
+    return JSON.stringify({
       success: true,
-    };
+    });
   }
 
   async register(data: CreateUserDto) {
@@ -734,7 +736,7 @@ export class AuthService {
     const users = await this.usersService.find(decodedToken.email);
 
     if (users.length) {
-      throw new BadRequestException('email in use');
+      throw new BadRequestException('Email in use');
     }
 
     // Hash the user's password
@@ -756,30 +758,33 @@ export class AuthService {
 
     delete userData.token;
 
-    const user = await this.usersService.create(userData);
-
-    return user;
+    try {
+      const user = await this.usersService.create(userData);
+      return user;
+    } catch (err) {
+      throw new BadRequestException('Failed to create user');
+    }
   }
 
   async signin(email: string, password: string) {
     const [user] = await this.usersService.find(email);
 
     if (!user) {
-      throw new NotFoundException('user not found');
+      throw new NotFoundException('User not found');
     }
 
     const [salt, storedHash] = user.password.split('.');
     const hash = (await scrypt(password, salt, 32)) as Buffer;
 
     if (storedHash !== hash.toString('hex')) {
-      throw new UnauthorizedException('bad email/password combination');
+      throw new UnauthorizedException('Incorrect credentials');
     }
 
     return user;
   }
 
-  async passwordReset(token: string, newPassword: string) {
-    let decodedToken;
+  async passwordReset(token: string, newPassword: string): Promise<User> {
+    let decodedToken: any;
 
     try {
       decodedToken = await this.jwtService.verify(token);
@@ -795,7 +800,7 @@ export class AuthService {
     const [user] = await this.usersService.find(decodedToken.email);
 
     if (!user) {
-      throw new NotFoundException('user not found');
+      throw new NotFoundException('User not found');
     }
 
     // 1- Generate a salt
@@ -806,10 +811,14 @@ export class AuthService {
     const result = salt + '.' + hash.toString('hex');
 
     // modify user's password
-    const updatedUser = await this.usersService.update(user.id, {
-      password: result,
-    });
+    try {
+      const updatedUser = await this.usersService.update(user.id, {
+        password: result,
+      });
 
-    return updatedUser;
+      return updatedUser;
+    } catch (err) {
+      throw new BadRequestException('Failed to update password of the user');
+    }
   }
 }

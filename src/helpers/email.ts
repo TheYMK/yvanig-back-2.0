@@ -23,6 +23,6 @@ export function sendEmailWithNodemailer(emailData: any) {
       return info;
     })
     .catch((err) => {
-      throw new BadRequestException('Failed to send email verification');
+      throw new BadRequestException('Failed to send email');
     });
 }
