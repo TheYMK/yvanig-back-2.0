@@ -1,16 +1,18 @@
+import { Seat } from 'src/seats/seat.entity';
 import {
   AfterInsert,
   AfterRemove,
   AfterUpdate,
   Column,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 
 @Entity()
 export class Flight {
   @PrimaryGeneratedColumn()
-  id: string;
+  id: number;
 
   @Column({
     type: 'varchar',
@@ -87,6 +89,7 @@ export class Flight {
   @Column({
     type: 'boolean',
     nullable: false,
+    default: false,
   })
   refundable: boolean;
 
@@ -120,6 +123,10 @@ export class Flight {
     nullable: false,
   })
   seat_price_first_class: number;
+
+  // The first argument is only for solving circular dependency issue
+  @OneToMany(() => Seat, (seat) => seat.flight)
+  seats: Seat[];
 
   @AfterInsert()
   logInsert() {

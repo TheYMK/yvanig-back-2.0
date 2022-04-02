@@ -44,7 +44,6 @@ export class FlightsController {
   // Update flight and returns the updated flight only for admin user
   @Patch('/:id')
   @UseGuards(AdminGuard)
-  @HttpCode(200)
   @ApiOkResponse({
     description: 'The flight was updated successfully',
   })

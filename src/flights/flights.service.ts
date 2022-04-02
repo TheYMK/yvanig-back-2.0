@@ -7,7 +7,6 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CreateFlightDto } from './dtos/create-flight.dto';
 import { GetFlightsDto } from './dtos/get-flights.dto';
-import { UpdateFlightDto } from './dtos/update-flight.dto';
 import { Flight } from './flight.entity';
 
 @Injectable()

@@ -7,6 +7,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
 import { FlightsModule } from './flights/flights.module';
+import { SeatsModule } from './seats/seats.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { FlightsModule } from './flights/flights.module';
     TypeOrmModule.forRoot(),
     UsersModule,
     FlightsModule,
+    SeatsModule,
   ],
   controllers: [AppController],
   providers: [
