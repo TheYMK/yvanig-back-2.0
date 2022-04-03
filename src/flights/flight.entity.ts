@@ -4,11 +4,26 @@ import {
   AfterRemove,
   AfterUpdate,
   Column,
+  CreateDateColumn,
   Entity,
   OneToMany,
   PrimaryGeneratedColumn,
+  UpdateDateColumn,
 } from 'typeorm';
 
+export enum FlightStatuses {
+  SCHEDULED = 'scheduled',
+  DELAYED = 'delayed',
+  IN_AIR = 'in_air',
+  EXPECTED = 'expected',
+  DIVERTED = 'diverted',
+  RECOVERY = 'recovery',
+  LANDED = 'landed',
+  ARRIVED = 'arrived',
+  CANCELLED = 'cancelled',
+  NO_TAKEOFF_INFO = 'no_takeoff_info',
+  PAST_FLIGHT = 'past_flight',
+}
 @Entity()
 export class Flight {
   @PrimaryGeneratedColumn()
@@ -123,6 +138,29 @@ export class Flight {
     nullable: false,
   })
   seat_price_first_class: number;
+
+  @Column({
+    type: 'enum',
+    enum: FlightStatuses,
+    default: FlightStatuses.SCHEDULED,
+    nullable: false,
+  })
+  status: FlightStatuses;
+
+  @CreateDateColumn({
+    type: 'timestamp',
+    default: () => 'CURRENT_TIMESTAMP(6)',
+    nullable: false,
+  })
+  created_at: Date;
+
+  @UpdateDateColumn({
+    type: 'timestamp',
+    default: () => 'CURRENT_TIMESTAMP(6)',
+    onUpdate: 'CURRENT_TIMESTAMP(6)',
+    nullable: false,
+  })
+  updated_at: Date;
 
   // The first argument is only for solving circular dependency issue
   @OneToMany(() => Seat, (seat) => seat.flight)

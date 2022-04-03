@@ -2,11 +2,13 @@ import { ApiProperty } from '@nestjs/swagger';
 import {
   IsBoolean,
   IsDecimal,
+  IsEnum,
   IsNotEmpty,
   IsNumber,
   IsString,
   Length,
 } from 'class-validator';
+import { FlightStatuses } from '../flight.entity';
 
 export class CreateFlightDto {
   @ApiProperty({
@@ -169,4 +171,15 @@ export class CreateFlightDto {
   @IsDecimal()
   @IsNotEmpty()
   seat_price_first_class: number;
+
+  @ApiProperty({
+    type: String,
+    description: 'the status of the flight',
+    enum: FlightStatuses,
+    default: FlightStatuses.SCHEDULED,
+  })
+  @IsString()
+  @IsNotEmpty()
+  @IsEnum(FlightStatuses)
+  status: FlightStatuses;
 }
