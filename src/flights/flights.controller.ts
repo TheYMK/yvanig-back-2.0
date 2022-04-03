@@ -1,10 +1,14 @@
 import {
+  BadRequestException,
   Body,
   Controller,
   Delete,
   Get,
   HttpCode,
+  InternalServerErrorException,
+  NotFoundException,
   Param,
+  ParseIntPipe,
   Patch,
   Post,
   Query,
@@ -13,6 +17,7 @@ import {
 import {
   ApiBadRequestResponse,
   ApiCreatedResponse,
+  ApiInternalServerErrorResponse,
   ApiNotFoundResponse,
   ApiOkResponse,
   ApiTags,
@@ -28,6 +33,7 @@ import { FlightsService } from './flights.service';
 export class FlightsController {
   constructor(private flightsService: FlightsService) {}
 
+  // LAST TIME REVIEWED: 2022-04-03
   // Creates a new flight and returns the created flight only for admin user
   @Post()
   @UseGuards(AdminGuard)
@@ -35,12 +41,30 @@ export class FlightsController {
     description: 'The flight was created successfully',
   })
   @ApiBadRequestResponse({
-    description: 'Failed to create the flight',
+    description: 'Failed to create a new flight',
+  })
+  @ApiInternalServerErrorResponse({
+    description: 'Something went wrong while creating a new flight',
   })
   async createFlight(@Body() body: CreateFlightDto) {
-    return this.flightsService.create(body);
+    return this.flightsService
+      .create(body)
+      .then((res) => {
+        return res;
+      })
+      .catch((err) => {
+        switch (err.response?.statusCode) {
+          case 400:
+            throw new BadRequestException('Failed to create a new flight');
+          default:
+            throw new InternalServerErrorException(
+              'Something went wrong while creating a new flight',
+            );
+        }
+      });
   }
 
+  // LAST TIME REVIEWED: 2022-04-03
   // Update flight and returns the updated flight only for admin user
   @Patch('/:id')
   @UseGuards(AdminGuard)
@@ -53,22 +77,63 @@ export class FlightsController {
   @ApiBadRequestResponse({
     description: 'Failed to update the flight',
   })
-  async updateFlight(@Param('id') id: string, @Body() body: UpdateFlightDto) {
-    return this.flightsService.update(body, parseInt(id));
+  @ApiInternalServerErrorResponse({
+    description: 'Something went wrong while updating the flight',
+  })
+  async updateFlight(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() body: UpdateFlightDto,
+  ) {
+    return this.flightsService
+      .update(body, id)
+      .then((res) => {
+        return res;
+      })
+      .catch((err) => {
+        switch (err.response?.statusCode) {
+          case 400:
+            throw new BadRequestException('Failed to update the flight');
+          case 404:
+            throw new NotFoundException('Flight not found');
+          default:
+            throw new InternalServerErrorException(
+              'Something went wrong while updating the flight',
+            );
+        }
+      });
   }
 
+  // LAST TIME REVIEWED: 2022-04-03
   // Returns all flights
   @Get()
   @ApiOkResponse({
     description: 'The flights were found successfully',
   })
   @ApiBadRequestResponse({
-    description: 'Failed to find the flights',
+    description: 'Failed to find flights',
+  })
+  @ApiInternalServerErrorResponse({
+    description: 'Something went wrong while finding the flights',
   })
   async getFlights(@Query() query: GetFlightsDto) {
-    return this.flightsService.findAll(query);
+    return this.flightsService
+      .findAll(query)
+      .then((res) => {
+        return res;
+      })
+      .catch((err) => {
+        switch (err.response?.statusCode) {
+          case 400:
+            throw new BadRequestException('Failed to find flights');
+          default:
+            throw new InternalServerErrorException(
+              'Something went wrong while finding the flights',
+            );
+        }
+      });
   }
 
+  // LAST TIME REVIEWED: 2022-04-03
   // Returns a flight by id
   @Get('/:id')
   @ApiOkResponse({
@@ -77,13 +142,28 @@ export class FlightsController {
   @ApiNotFoundResponse({
     description: 'Flight not found',
   })
-  @ApiBadRequestResponse({
-    description: 'Failed to find the flight',
+  @ApiInternalServerErrorResponse({
+    description: 'Something went wrong while finding the flight',
   })
-  async getFlight(@Param('id') id: string) {
-    return this.flightsService.findOne(parseInt(id));
+  async getFlight(@Param('id', ParseIntPipe) id: number) {
+    return this.flightsService
+      .findOne(id)
+      .then((res) => {
+        return res;
+      })
+      .catch((err) => {
+        switch (err.response?.statusCode) {
+          case 404:
+            throw new NotFoundException('Flight not found');
+          default:
+            throw new InternalServerErrorException(
+              'Something went wrong while finding the flight',
+            );
+        }
+      });
   }
 
+  // LAST TIME REVIEWED: 2022-04-03
   // Deletes a flight by id
   @Delete('/:id')
   @UseGuards(AdminGuard)
@@ -97,7 +177,26 @@ export class FlightsController {
   @ApiBadRequestResponse({
     description: 'Failed to delete the flight',
   })
-  async deleteFlight(@Param('id') id: string) {
-    return this.flightsService.delete(parseInt(id));
+  @ApiInternalServerErrorResponse({
+    description: 'Something went wrong while deleting the flight',
+  })
+  async deleteFlight(@Param('id', ParseIntPipe) id: number) {
+    return this.flightsService
+      .delete(id)
+      .then((res) => {
+        return res;
+      })
+      .catch((err) => {
+        switch (err.response?.statusCode) {
+          case 404:
+            throw new NotFoundException('Flight not found');
+          case 400:
+            throw new BadRequestException('Failed to delete the flight');
+          default:
+            throw new InternalServerErrorException(
+              'Something went wrong while deleting the flight',
+            );
+        }
+      });
   }
 }
