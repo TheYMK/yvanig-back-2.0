@@ -10,6 +10,7 @@
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 	   <link rel="stylesheet" href="../styles/style.css">
         <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="stylesheet" href="../styles/material.css">
     </head>
     <body>
 
@@ -89,6 +90,18 @@
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
+                                <a href="#deleteFlight" >deleteFlight</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#getFlight" >getFlight</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#getFlights" >getFlights</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#updateFlight" >updateFlight</a>
                             </li>
                         </ul>
@@ -131,14 +144,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Post()<br />@UseGuards(AdminGuard)<br />@ApiCreatedResponse({description: &#x27;The flight was created successfully&#x27;})<br />@ApiBadRequestResponse({description: &#x27;Failed to create the flight&#x27;})<br /></code>
+                    <code>@Post()<br />@UseGuards(AdminGuard)<br />@ApiCreatedResponse({description: &#x27;The flight was created successfully&#x27;})<br />@ApiBadRequestResponse({description: &#x27;Failed to create a new flight&#x27;})<br />@ApiInternalServerErrorResponse({description: &#x27;Something went wrong while creating a new flight&#x27;})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="33"
-                            class="link-to-prism">src/flights/flights.controller.ts:33</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="49"
+                            class="link-to-prism">src/flights/flights.controller.ts:49</a></div>
                 </td>
             </tr>
 
@@ -190,18 +203,18 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="updateFlight"></a>
+                    <a name="deleteFlight"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
-                        <span ><b>updateFlight</b></span>
-                        <a href="#updateFlight"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>deleteFlight</b></span>
+                        <a href="#deleteFlight"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>updateFlight(body: <a href="../classes/UpdateFlightDto.html" target="_self">UpdateFlightDto</a>)</code>
+                    <code>deleteFlight(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
                 </td>
             </tr>
 
@@ -209,14 +222,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Patch(&#x27;/:id&#x27;)<br />@UseGuards(AdminGuard)<br />@HttpCode(200)<br />@ApiCreatedResponse({description: &#x27;The flight was updated successfully&#x27;})<br />@ApiBadRequestResponse({description: &#x27;Failed to update the flight&#x27;})<br /></code>
+                    <code>@Delete(&#x27;/:id&#x27;)<br />@UseGuards(AdminGuard)<br />@HttpCode(200)<br />@ApiOkResponse({description: &#x27;The flight was deleted successfully&#x27;})<br />@ApiNotFoundResponse({description: &#x27;Flight not found&#x27;})<br />@ApiBadRequestResponse({description: &#x27;Failed to delete the flight&#x27;})<br />@ApiInternalServerErrorResponse({description: &#x27;Something went wrong while deleting the flight&#x27;})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="47"
-                            class="link-to-prism">src/flights/flights.controller.ts:47</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="183"
+                            class="link-to-prism">src/flights/flights.controller.ts:183</a></div>
                 </td>
             </tr>
 
@@ -236,6 +249,252 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>unknown</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getFlight"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>getFlight</b></span>
+                        <a href="#getFlight"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getFlight(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get(&#x27;/:id&#x27;)<br />@ApiOkResponse({description: &#x27;The flight was found successfully&#x27;})<br />@ApiNotFoundResponse({description: &#x27;Flight not found&#x27;})<br />@ApiInternalServerErrorResponse({description: &#x27;Something went wrong while finding the flight&#x27;})<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="148"
+                            class="link-to-prism">src/flights/flights.controller.ts:148</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>unknown</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getFlights"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>getFlights</b></span>
+                        <a href="#getFlights"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getFlights(query: <a href="../classes/GetFlightsDto.html" target="_self">GetFlightsDto</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get()<br />@ApiOkResponse({description: &#x27;The flights were found successfully&#x27;})<br />@ApiBadRequestResponse({description: &#x27;Failed to find the flights&#x27;})<br />@ApiInternalServerErrorResponse({description: &#x27;Something went wrong while finding the flights&#x27;})<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="118"
+                            class="link-to-prism">src/flights/flights.controller.ts:118</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>query</td>
+                                    <td>
+                                                <code><a href="../classes/GetFlightsDto.html" target="_self" >GetFlightsDto</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>unknown</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateFlight"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>updateFlight</b></span>
+                        <a href="#updateFlight"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateFlight(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, body: <a href="../classes/UpdateFlightDto.html" target="_self">UpdateFlightDto</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Patch(&#x27;/:id&#x27;)<br />@UseGuards(AdminGuard)<br />@ApiOkResponse({description: &#x27;The flight was updated successfully&#x27;})<br />@ApiNotFoundResponse({description: &#x27;Flight not found&#x27;})<br />@ApiBadRequestResponse({description: &#x27;Failed to update the flight&#x27;})<br />@ApiInternalServerErrorResponse({description: &#x27;Something went wrong while updating the flight&#x27;})<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="83"
+                            class="link-to-prism">src/flights/flights.controller.ts:83</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
                                 <tr>
                                     <td>body</td>
                                     <td>
@@ -269,20 +528,32 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  BadRequestException,
   Body,
   Controller,
+  Delete,
+  Get,
   HttpCode,
+  InternalServerErrorException,
+  NotFoundException,
+  Param,
+  ParseIntPipe,
   Patch,
   Post,
+  Query,
   UseGuards,
 } from &#x27;@nestjs/common&#x27;;
 import {
   ApiBadRequestResponse,
   ApiCreatedResponse,
+  ApiInternalServerErrorResponse,
+  ApiNotFoundResponse,
+  ApiOkResponse,
   ApiTags,
 } from &#x27;@nestjs/swagger&#x27;;
 import { AdminGuard } from &#x27;../guards/admin.guard&#x27;;
 import { CreateFlightDto } from &#x27;./dtos/create-flight.dto&#x27;;
+import { GetFlightsDto } from &#x27;./dtos/get-flights.dto&#x27;;
 import { UpdateFlightDto } from &#x27;./dtos/update-flight.dto&#x27;;
 import { FlightsService } from &#x27;./flights.service&#x27;;
 
@@ -291,6 +562,7 @@ import { FlightsService } from &#x27;./flights.service&#x27;;
 export class FlightsController {
   constructor(private flightsService: FlightsService) {}
 
+  // LAST TIME REVIEWED: 2022-04-03
   // Creates a new flight and returns the created flight only for admin user
   @Post()
   @UseGuards(AdminGuard)
@@ -298,24 +570,163 @@ export class FlightsController {
     description: &#x27;The flight was created successfully&#x27;,
   })
   @ApiBadRequestResponse({
-    description: &#x27;Failed to create the flight&#x27;,
+    description: &#x27;Failed to create a new flight&#x27;,
+  })
+  @ApiInternalServerErrorResponse({
+    description: &#x27;Something went wrong while creating a new flight&#x27;,
   })
   async createFlight(@Body() body: CreateFlightDto) {
-    return this.flightsService.create(body);
+    return this.flightsService
+      .create(body)
+      .then((res) &#x3D;&gt; {
+        return res;
+      })
+      .catch((err) &#x3D;&gt; {
+        switch (err.response?.statusCode) {
+          case 400:
+            throw new BadRequestException(&#x27;Failed to create a new flight&#x27;);
+          default:
+            throw new InternalServerErrorException(
+              &#x27;Something went wrong while creating a new flight&#x27;,
+            );
+        }
+      });
   }
 
+  // LAST TIME REVIEWED: 2022-04-03
   // Update flight and returns the updated flight only for admin user
   @Patch(&#x27;/:id&#x27;)
   @UseGuards(AdminGuard)
-  @HttpCode(200)
-  @ApiCreatedResponse({
+  @ApiOkResponse({
     description: &#x27;The flight was updated successfully&#x27;,
+  })
+  @ApiNotFoundResponse({
+    description: &#x27;Flight not found&#x27;,
   })
   @ApiBadRequestResponse({
     description: &#x27;Failed to update the flight&#x27;,
   })
-  async updateFlight(@Body() body: UpdateFlightDto) {
-    return this.flightsService.update(body);
+  @ApiInternalServerErrorResponse({
+    description: &#x27;Something went wrong while updating the flight&#x27;,
+  })
+  async updateFlight(
+    @Param(&#x27;id&#x27;, ParseIntPipe) id: number,
+    @Body() body: UpdateFlightDto,
+  ) {
+    return this.flightsService
+      .update(body, id)
+      .then((res) &#x3D;&gt; {
+        return res;
+      })
+      .catch((err) &#x3D;&gt; {
+        switch (err.response?.statusCode) {
+          case 400:
+            throw new BadRequestException(&#x27;Failed to update the flight&#x27;);
+          case 404:
+            throw new NotFoundException(&#x27;Flight not found&#x27;);
+          default:
+            throw new InternalServerErrorException(
+              &#x27;Something went wrong while updating the flight&#x27;,
+            );
+        }
+      });
+  }
+
+  // LAST TIME REVIEWED: 2022-04-03
+  // Returns all flights
+  @Get()
+  @ApiOkResponse({
+    description: &#x27;The flights were found successfully&#x27;,
+  })
+  @ApiBadRequestResponse({
+    description: &#x27;Failed to find the flights&#x27;,
+  })
+  @ApiInternalServerErrorResponse({
+    description: &#x27;Something went wrong while finding the flights&#x27;,
+  })
+  async getFlights(@Query() query: GetFlightsDto) {
+    return this.flightsService
+      .findAll(query)
+      .then((res) &#x3D;&gt; {
+        return res;
+      })
+      .catch((err) &#x3D;&gt; {
+        switch (err.response?.statusCode) {
+          case 400:
+            throw new BadRequestException(&#x27;Failed to find the flights&#x27;);
+          default:
+            throw new InternalServerErrorException(
+              &#x27;Something went wrong while finding the flights&#x27;,
+            );
+        }
+      });
+  }
+
+  // LAST TIME REVIEWED: 2022-04-03
+  // Returns a flight by id
+  @Get(&#x27;/:id&#x27;)
+  @ApiOkResponse({
+    description: &#x27;The flight was found successfully&#x27;,
+  })
+  @ApiNotFoundResponse({
+    description: &#x27;Flight not found&#x27;,
+  })
+  @ApiInternalServerErrorResponse({
+    description: &#x27;Something went wrong while finding the flight&#x27;,
+  })
+  async getFlight(@Param(&#x27;id&#x27;, ParseIntPipe) id: number) {
+    return this.flightsService
+      .findOne(id)
+      .then((res) &#x3D;&gt; {
+        return res;
+      })
+      .catch((err) &#x3D;&gt; {
+        switch (err.response?.statusCode) {
+          case 404:
+            throw new NotFoundException(&#x27;Flight not found&#x27;);
+          default:
+            throw new InternalServerErrorException(
+              &#x27;Something went wrong while finding the flight&#x27;,
+            );
+        }
+      });
+  }
+
+  // LAST TIME REVIEWED: 2022-04-03
+  // Deletes a flight by id
+  @Delete(&#x27;/:id&#x27;)
+  @UseGuards(AdminGuard)
+  @HttpCode(200)
+  @ApiOkResponse({
+    description: &#x27;The flight was deleted successfully&#x27;,
+  })
+  @ApiNotFoundResponse({
+    description: &#x27;Flight not found&#x27;,
+  })
+  @ApiBadRequestResponse({
+    description: &#x27;Failed to delete the flight&#x27;,
+  })
+  @ApiInternalServerErrorResponse({
+    description: &#x27;Something went wrong while deleting the flight&#x27;,
+  })
+  async deleteFlight(@Param(&#x27;id&#x27;, ParseIntPipe) id: number) {
+    return this.flightsService
+      .delete(id)
+      .then((res) &#x3D;&gt; {
+        return res;
+      })
+      .catch((err) &#x3D;&gt; {
+        switch (err.response?.statusCode) {
+          case 404:
+            throw new NotFoundException(&#x27;Flight not found&#x27;);
+          case 400:
+            throw new BadRequestException(&#x27;Failed to delete the flight&#x27;);
+          default:
+            throw new InternalServerErrorException(
+              &#x27;Something went wrong while deleting the flight&#x27;,
+            );
+        }
+      });
   }
 }
 </code></pre>

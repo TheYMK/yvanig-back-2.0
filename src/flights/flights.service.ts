@@ -27,7 +27,7 @@ export class FlightsService {
     const foundFlight = await this.findOne(id);
 
     if (!foundFlight) {
-      throw new NotFoundException('flight not found');
+      throw new NotFoundException('Flight not found');
     }
 
     Object.assign(foundFlight, attrs);
@@ -44,7 +44,7 @@ export class FlightsService {
     const flight = await this.repo.findOne(id);
 
     if (!flight) {
-      throw new NotFoundException('flight not found');
+      throw new NotFoundException('Flight not found');
     }
 
     return flight;
@@ -53,18 +53,17 @@ export class FlightsService {
   async findAll(options: Partial<GetFlightsDto>) {
     const page = parseInt(options.page) || 0;
     const limit = parseInt(options.limit) || 10;
+    try {
+      const flights = await this.repo.find({ skip: page * limit, take: limit });
+      const totalCount = await (await this.repo.find()).length;
 
-    const flights = await this.repo.find({ skip: page * limit, take: limit });
-    const totalCount = await (await this.repo.find()).length;
-
-    if (!flights || !totalCount) {
-      throw new NotFoundException('flights not found');
+      return {
+        flights,
+        total_count: totalCount,
+      };
+    } catch (err) {
+      throw new BadRequestException('Failed to get the flights');
     }
-
-    return {
-      flights,
-      total_count: totalCount,
-    };
   }
 
   async delete(id: number) {

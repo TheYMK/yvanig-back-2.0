@@ -40,6 +40,7 @@ export class UpdateSeatDto {
   @ApiProperty({
     type: String,
     description: 'the class type of the seat',
+    enum: ['first', 'business', 'economy'],
     default: 'economy',
   })
   @IsString()
@@ -47,13 +48,4 @@ export class UpdateSeatDto {
   @IsEnum(['first', 'business', 'economy'])
   @IsOptional()
   class_type: ClassTypes;
-
-  @ApiProperty({
-    type: Number,
-    description: 'the flight id',
-  })
-  @IsNotEmpty()
-  @IsNumber()
-  @IsOptional()
-  flightId: number;
 }

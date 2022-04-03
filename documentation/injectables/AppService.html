@@ -10,6 +10,7 @@
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 	   <link rel="stylesheet" href="../styles/style.css">
         <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="stylesheet" href="../styles/material.css">
     </head>
     <body>
 
@@ -79,7 +80,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#getHello" >getHello</a>
+                                <a href="#getWelcomeMessage" >getWelcomeMessage</a>
                             </li>
                         </ul>
                     </td>
@@ -103,16 +104,16 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getHello"></a>
+                    <a name="getWelcomeMessage"></a>
                     <span class="name">
-                        <span ><b>getHello</b></span>
-                        <a href="#getHello"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>getWelcomeMessage</b></span>
+                        <a href="#getWelcomeMessage"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>getHello()</code>
+<code>getWelcomeMessage()</code>
                 </td>
             </tr>
 
@@ -129,7 +130,7 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                        <b>Returns : </b>    <code>literal type</code>
 
                     </div>
                 </td>
@@ -146,8 +147,10 @@
 
 @Injectable()
 export class AppService {
-  getHello(): string {
-    return &#x27;Hello World!&#x27;;
+  getWelcomeMessage(): { message: string } {
+    return {
+      message: &#x27;Welcome to the YVANIG Tour API&#x27;,
+    };
   }
 }
 </code></pre>

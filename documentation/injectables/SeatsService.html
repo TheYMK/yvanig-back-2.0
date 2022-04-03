@@ -41,7 +41,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li >UsersService</li>
+  <li >SeatsService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -59,7 +59,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/users/users.service.ts</code>
+            <code>src/seats/seats.service.ts</code>
         </p>
 
 
@@ -85,15 +85,15 @@
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#find" >find</a>
+                                <a href="#delete" >delete</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findAll" >findAll</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
                                 <a href="#findOne" >findOne</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#remove" >remove</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
@@ -117,12 +117,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(repo: <a href="../classes/User.html" target="_self">Repository&lt;User&gt;</a>)</code>
+<code>constructor(repo: <a href="../classes/Seat.html" target="_self">Repository&lt;Seat&gt;</a>, flightsService: <a href="../injectables/FlightsService.html" target="_self">FlightsService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/users/users.service.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/seats/seats.service.ts:13</a></div>
                             </td>
                         </tr>
 
@@ -143,7 +143,19 @@
                                                         <td>repo</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../classes/User.html" target="_self" >Repository&lt;User&gt;</a></code>
+                                                                        <code><a href="../classes/Seat.html" target="_self" >Repository&lt;Seat&gt;</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>flightsService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/FlightsService.html" target="_self" >FlightsService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -180,15 +192,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>create(user: <a href="../classes/CreateUserDto.html" target="_self">CreateUserDto</a>)</code>
+                    <code>create(seat: <a href="../classes/CreateSeatDto.html" target="_self">CreateSeatDto</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="15"
-                            class="link-to-prism">src/users/users.service.ts:15</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="19"
+                            class="link-to-prism">src/seats/seats.service.ts:19</a></div>
                 </td>
             </tr>
 
@@ -209,9 +221,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>user</td>
+                                    <td>seat</td>
                                     <td>
-                                                <code><a href="../classes/CreateUserDto.html" target="_self" >CreateUserDto</a></code>
+                                                <code><a href="../classes/CreateSeatDto.html" target="_self" >CreateSeatDto</a></code>
                                     </td>
 
                                     <td>
@@ -240,97 +252,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="find"></a>
+                    <a name="delete"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
-                        <span ><b>find</b></span>
-                        <a href="#find"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>delete</b></span>
+                        <a href="#delete"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>find(email: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>delete(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="34"
-                            class="link-to-prism">src/users/users.service.ts:34</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>email</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>unknown</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="findOne"></a>
-                    <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>findOne</b></span>
-                        <a href="#findOne"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findOne(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="24"
-                            class="link-to-prism">src/users/users.service.ts:24</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="77"
+                            class="link-to-prism">src/seats/seats.service.ts:77</a></div>
                 </td>
             </tr>
 
@@ -382,26 +323,65 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="remove"></a>
+                    <a name="findAll"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
-                        <span ><b>remove</b></span>
-                        <a href="#remove"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>findAll</b></span>
+                        <a href="#findAll"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>remove(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                    <code>findAll()</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="56"
-                            class="link-to-prism">src/users/users.service.ts:56</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="49"
+                            class="link-to-prism">src/seats/seats.service.ts:49</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>unknown</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findOne"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>findOne</b></span>
+                        <a href="#findOne"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findOne(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="37"
+                            class="link-to-prism">src/seats/seats.service.ts:37</a></div>
                 </td>
             </tr>
 
@@ -464,15 +444,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>update(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, attrs: <a href="../classes/User.html" target="_self">Partial&lt;User&gt;</a>)</code>
+                    <code>update(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, attrs: <a href="../classes/Seat.html" target="_self">Partial&lt;Seat&gt;</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="44"
-                            class="link-to-prism">src/users/users.service.ts:44</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="60"
+                            class="link-to-prism">src/seats/seats.service.ts:60</a></div>
                 </td>
             </tr>
 
@@ -507,7 +487,7 @@
                                 <tr>
                                     <td>attrs</td>
                                     <td>
-                                                <code><a href="../classes/User.html" target="_self" >Partial&lt;User&gt;</a></code>
+                                                <code><a href="../classes/Seat.html" target="_self" >Partial&lt;Seat&gt;</a></code>
                                     </td>
 
                                     <td>
@@ -544,63 +524,89 @@
   NotFoundException,
 } from &#x27;@nestjs/common&#x27;;
 import { InjectRepository } from &#x27;@nestjs/typeorm&#x27;;
+import { FlightsService } from &#x27;src/flights/flights.service&#x27;;
 import { Repository } from &#x27;typeorm&#x27;;
-import { CreateUserDto } from &#x27;./dtos/create-user.dto&#x27;;
-import { User } from &#x27;./user.entity&#x27;;
+import { CreateSeatDto } from &#x27;./dtos/create-seat.dto&#x27;;
+import { Seat } from &#x27;./seat.entity&#x27;;
 
 @Injectable()
-export class UsersService {
-  constructor(@InjectRepository(User) private repo: Repository&lt;User&gt;) {}
+export class SeatsService {
+  constructor(
+    @InjectRepository(Seat) private repo: Repository&lt;Seat&gt;,
+    private flightsService: FlightsService,
+  ) {}
 
-  async create(user: CreateUserDto) {
+  async create(seat: CreateSeatDto) {
+    // Check if the flight exists
+    const flight &#x3D; await this.flightsService.findOne(seat.flightId);
+
+    if (!flight) {
+      throw new NotFoundException(&#x27;Flight not found&#x27;);
+    }
+
     try {
-      const newUser &#x3D; this.repo.create(user);
-      return this.repo.save(newUser);
+      const newSeat &#x3D; this.repo.create(seat);
+      newSeat.flight &#x3D; flight;
+      return this.repo.save(newSeat);
     } catch (err) {
-      throw new BadRequestException(&#x27;Failed to create a new user&#x27;);
+      console.log(err);
+      throw new BadRequestException(&#x27;Failed to create the seat&#x27;);
     }
   }
 
   async findOne(id: number) {
-    const user &#x3D; await this.repo.findOne(id);
+    const seat &#x3D; await this.repo.findOne(id, {
+      relations: [&#x27;flight&#x27;],
+    });
 
-    if (!user) {
-      throw new NotFoundException(&#x27;User not found&#x27;);
+    if (!seat) {
+      throw new NotFoundException(&#x27;Seat not found&#x27;);
     }
 
-    return user;
+    return seat;
   }
 
-  async find(email: string) {
-    const users &#x3D; await this.repo.find({ email });
-
-    if (!users) {
-      throw new NotFoundException(&#x27;Users not found&#x27;);
+  async findAll() {
+    try {
+      const seats &#x3D; await this.repo.find({
+        relations: [&#x27;flight&#x27;],
+      });
+      return seats;
+    } catch (err) {
+      throw new BadRequestException(&#x27;Failed to get the seats&#x27;);
     }
-
-    return users;
   }
 
-  async update(id: number, attrs: Partial&lt;User&gt;) {
-    const user &#x3D; await this.findOne(id);
+  async update(id: number, attrs: Partial&lt;Seat&gt;) {
+    const foundSeat &#x3D; await this.findOne(id);
 
-    if (!user) {
-      throw new NotFoundException(&#x27;User not found&#x27;);
+    if (!foundSeat) {
+      throw new NotFoundException(&#x27;Seat not found&#x27;);
     }
 
-    Object.assign(user, attrs);
+    Object.assign(foundSeat, attrs);
 
-    return this.repo.save(user);
+    try {
+      return this.repo.save(foundSeat);
+    } catch (err) {
+      console.log(err);
+      throw new BadRequestException(&#x27;Failed to update the seat&#x27;);
+    }
   }
 
-  async remove(id: number) {
-    const user &#x3D; await this.findOne(id);
+  async delete(id: number) {
+    const seat &#x3D; await this.findOne(id);
 
-    if (!user) {
-      throw new NotFoundException(&#x27;User not found&#x27;);
+    if (!seat) {
+      throw new NotFoundException(&#x27;Seat not found&#x27;);
     }
 
-    return this.repo.remove(user);
+    try {
+      return this.repo.remove(seat);
+    } catch (err) {
+      console.log(err);
+      throw new BadRequestException(&#x27;Failed to delete the seat&#x27;);
+    }
   }
 }
 </code></pre>
@@ -646,7 +652,7 @@ export class UsersService {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'UsersService.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'SeatsService.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

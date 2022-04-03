@@ -17,7 +17,6 @@ export class UsersService {
       const newUser = this.repo.create(user);
       return this.repo.save(newUser);
     } catch (err) {
-      console.log(err);
       throw new BadRequestException('Failed to create a new user');
     }
   }
@@ -26,7 +25,7 @@ export class UsersService {
     const user = await this.repo.findOne(id);
 
     if (!user) {
-      throw new NotFoundException('user not found');
+      throw new NotFoundException('User not found');
     }
 
     return user;
@@ -36,7 +35,7 @@ export class UsersService {
     const users = await this.repo.find({ email });
 
     if (!users) {
-      throw new NotFoundException('users not found');
+      throw new NotFoundException('Users not found');
     }
 
     return users;
@@ -46,7 +45,7 @@ export class UsersService {
     const user = await this.findOne(id);
 
     if (!user) {
-      throw new NotFoundException('user not found');
+      throw new NotFoundException('User not found');
     }
 
     Object.assign(user, attrs);
@@ -58,7 +57,7 @@ export class UsersService {
     const user = await this.findOne(id);
 
     if (!user) {
-      throw new NotFoundException('user not found');
+      throw new NotFoundException('User not found');
     }
 
     return this.repo.remove(user);

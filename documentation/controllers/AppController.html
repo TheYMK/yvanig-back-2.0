@@ -10,6 +10,7 @@
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 	   <link rel="stylesheet" href="../styles/style.css">
         <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="stylesheet" href="../styles/material.css">
     </head>
     <body>
 
@@ -78,7 +79,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#getHello" >getHello</a>
+                                <a href="#welcomeMessage" >welcomeMessage</a>
                             </li>
                         </ul>
                     </td>
@@ -101,16 +102,16 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getHello"></a>
+                    <a name="welcomeMessage"></a>
                     <span class="name">
-                        <span ><b>getHello</b></span>
-                        <a href="#getHello"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>welcomeMessage</b></span>
+                        <a href="#welcomeMessage"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>getHello()</code>
+<code>welcomeMessage()</code>
                 </td>
             </tr>
 
@@ -134,7 +135,7 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                        <b>Returns : </b>    <code>literal type</code>
 
                     </div>
                 </td>
@@ -153,8 +154,8 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  welcomeMessage(): { message: string } {
+    return this.appService.getWelcomeMessage();
   }
 }
 </code></pre>

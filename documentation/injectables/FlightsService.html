@@ -10,6 +10,7 @@
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 	   <link rel="stylesheet" href="../styles/style.css">
         <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="stylesheet" href="../styles/material.css">
     </head>
     <body>
 
@@ -84,6 +85,18 @@
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
+                                <a href="#delete" >delete</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findAll" >findAll</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findOne" >findOne</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#update" >update</a>
                             </li>
                         </ul>
@@ -109,7 +122,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/flights/flights.service.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/flights/flights.service.ts:13</a></div>
                             </td>
                         </tr>
 
@@ -174,8 +187,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="12"
-                            class="link-to-prism">src/flights/flights.service.ts:12</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="16"
+                            class="link-to-prism">src/flights/flights.service.ts:16</a></div>
                 </td>
             </tr>
 
@@ -227,26 +240,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="update"></a>
+                    <a name="delete"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
-                        <span ><b>update</b></span>
-                        <a href="#update"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>delete</b></span>
+                        <a href="#delete"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>update(flight: <a href="../classes/UpdateFlightDto.html" target="_self">UpdateFlightDto</a>)</code>
+                    <code>delete(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="22"
-                            class="link-to-prism">src/flights/flights.service.ts:22</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="69"
+                            class="link-to-prism">src/flights/flights.service.ts:69</a></div>
                 </td>
             </tr>
 
@@ -267,9 +280,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>flight</td>
+                                    <td>id</td>
                                     <td>
-                                                <code><a href="../classes/UpdateFlightDto.html" target="_self" >UpdateFlightDto</a></code>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
                                     </td>
 
                                     <td>
@@ -284,7 +297,232 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                        <b>Returns : </b>    <code>unknown</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findAll"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>findAll</b></span>
+                        <a href="#findAll"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findAll(options: <a href="../classes/GetFlightsDto.html" target="_self">Partial&lt;GetFlightsDto&gt;</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="53"
+                            class="link-to-prism">src/flights/flights.service.ts:53</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>options</td>
+                                    <td>
+                                                <code><a href="../classes/GetFlightsDto.html" target="_self" >Partial&lt;GetFlightsDto&gt;</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>unknown</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findOne"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>findOne</b></span>
+                        <a href="#findOne"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findOne(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="43"
+                            class="link-to-prism">src/flights/flights.service.ts:43</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>unknown</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="update"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>update</b></span>
+                        <a href="#update"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>update(attrs: <a href="../entitys/Flight.html" target="_self">Partial&lt;Flight&gt;</a>, id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="26"
+                            class="link-to-prism">src/flights/flights.service.ts:26</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>attrs</td>
+                                    <td>
+                                                <code><a href="../entitys/Flight.html" target="_self" >Partial&lt;Flight&gt;</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>unknown</code>
 
                     </div>
                     <div class="io-description">
@@ -300,11 +538,15 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { BadRequestException, Injectable } from &#x27;@nestjs/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  BadRequestException,
+  Injectable,
+  NotFoundException,
+} from &#x27;@nestjs/common&#x27;;
 import { InjectRepository } from &#x27;@nestjs/typeorm&#x27;;
 import { Repository } from &#x27;typeorm&#x27;;
 import { CreateFlightDto } from &#x27;./dtos/create-flight.dto&#x27;;
-import { UpdateFlightDto } from &#x27;./dtos/update-flight.dto&#x27;;
+import { GetFlightsDto } from &#x27;./dtos/get-flights.dto&#x27;;
 import { Flight } from &#x27;./flight.entity&#x27;;
 
 @Injectable()
@@ -321,8 +563,62 @@ export class FlightsService {
     }
   }
 
-  async update(flight: UpdateFlightDto) {
-    console.log(&#x27;Hello&#x27;);
+  async update(attrs: Partial&lt;Flight&gt;, id: number) {
+    const foundFlight &#x3D; await this.findOne(id);
+
+    if (!foundFlight) {
+      throw new NotFoundException(&#x27;Flight not found&#x27;);
+    }
+
+    Object.assign(foundFlight, attrs);
+
+    try {
+      return this.repo.save(foundFlight);
+    } catch (err) {
+      console.log(err);
+      throw new BadRequestException(&#x27;Failed to update the flight&#x27;);
+    }
+  }
+
+  async findOne(id: number) {
+    const flight &#x3D; await this.repo.findOne(id);
+
+    if (!flight) {
+      throw new NotFoundException(&#x27;Flight not found&#x27;);
+    }
+
+    return flight;
+  }
+
+  async findAll(options: Partial&lt;GetFlightsDto&gt;) {
+    const page &#x3D; parseInt(options.page) || 0;
+    const limit &#x3D; parseInt(options.limit) || 10;
+    try {
+      const flights &#x3D; await this.repo.find({ skip: page * limit, take: limit });
+      const totalCount &#x3D; await (await this.repo.find()).length;
+
+      return {
+        flights,
+        total_count: totalCount,
+      };
+    } catch (err) {
+      throw new BadRequestException(&#x27;Failed to get the flights&#x27;);
+    }
+  }
+
+  async delete(id: number) {
+    const flight &#x3D; await this.findOne(id);
+
+    if (!flight) {
+      throw new NotFoundException(&#x27;flight not found&#x27;);
+    }
+
+    try {
+      return this.repo.remove(flight);
+    } catch (err) {
+      console.log(err);
+      throw new BadRequestException(&#x27;Failed to delete the flight&#x27;);
+    }
   }
 }
 </code></pre>

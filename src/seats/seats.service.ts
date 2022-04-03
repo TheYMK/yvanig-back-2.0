@@ -21,18 +21,16 @@ export class SeatsService {
     const flight = await this.flightsService.findOne(seat.flightId);
 
     if (!flight) {
-      throw new BadRequestException('Flight not found');
+      throw new NotFoundException('Flight not found');
     }
 
     try {
       const newSeat = this.repo.create(seat);
-
       newSeat.flight = flight;
-
       return this.repo.save(newSeat);
     } catch (err) {
       console.log(err);
-      throw new BadRequestException('Failed to create a new seat');
+      throw new BadRequestException('Failed to create the seat');
     }
   }
 
@@ -49,17 +47,14 @@ export class SeatsService {
   }
 
   async findAll() {
-    const seats = await this.repo.find({
-      relations: ['flight'],
-    });
-
-    console.log(seats);
-
-    if (!seats) {
-      throw new NotFoundException('Seats not found');
+    try {
+      const seats = await this.repo.find({
+        relations: ['flight'],
+      });
+      return seats;
+    } catch (err) {
+      throw new BadRequestException('Failed to get the seats');
     }
-
-    return seats;
   }
 
   async update(id: number, attrs: Partial<Seat>) {
