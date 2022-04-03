@@ -10,6 +10,7 @@
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 	   <link rel="stylesheet" href="../styles/style.css">
         <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="stylesheet" href="../styles/material.css">
     </head>
     <body>
 
@@ -121,7 +122,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/users/auth.service.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/users/auth.service.ts:20</a></div>
                             </td>
                         </tr>
 
@@ -210,8 +211,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="781"
-                            class="link-to-prism">src/users/auth.service.ts:781</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="786"
+                            class="link-to-prism">src/users/auth.service.ts:786</a></div>
                 </td>
             </tr>
 
@@ -261,7 +262,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>unknown</code>
+                        <b>Returns : </b>        <code><a href="../classes/User.html" target="_self" >Promise&lt;User&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -293,8 +294,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="718"
-                            class="link-to-prism">src/users/auth.service.ts:718</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="720"
+                            class="link-to-prism">src/users/auth.service.ts:720</a></div>
                 </td>
             </tr>
 
@@ -364,8 +365,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="25"
-                            class="link-to-prism">src/users/auth.service.ts:25</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="27"
+                            class="link-to-prism">src/users/auth.service.ts:27</a></div>
                 </td>
             </tr>
 
@@ -435,8 +436,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="367"
-                            class="link-to-prism">src/users/auth.service.ts:367</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="369"
+                            class="link-to-prism">src/users/auth.service.ts:369</a></div>
                 </td>
             </tr>
 
@@ -506,8 +507,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="764"
-                            class="link-to-prism">src/users/auth.service.ts:764</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="769"
+                            class="link-to-prism">src/users/auth.service.ts:769</a></div>
                 </td>
             </tr>
 
@@ -576,6 +577,7 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
   BadRequestException,
   Injectable,
+  InternalServerErrorException,
   NotFoundException,
   UnauthorizedException,
 } from &#x27;@nestjs/common&#x27;;
@@ -586,6 +588,7 @@ import { sendEmailWithNodemailer } from &#x27;../helpers/email&#x27;;
 import { CreateUserDto } from &#x27;./dtos/create-user.dto&#x27;;
 import { randomBytes, scrypt as _scrypt } from &#x27;crypto&#x27;;
 import { promisify } from &#x27;util&#x27;;
+import { User } from &#x27;./user.entity&#x27;;
 
 const scrypt &#x3D; promisify(_scrypt);
 
@@ -934,9 +937,9 @@ export class AuthService {
 
     await sendEmailWithNodemailer(emailData);
 
-    return {
+    return JSON.stringify({
       success: true,
-    };
+    });
   }
 
   async sendPasswordResetEmail(email: string) {
@@ -944,7 +947,7 @@ export class AuthService {
     const [user] &#x3D; await this.usersService.find(email);
 
     if (!user) {
-      throw new NotFoundException(&#x27;user not found&#x27;);
+      throw new NotFoundException(&#x27;User not found&#x27;);
     }
 
     const token &#x3D; this.jwtService.sign({ email });
@@ -1285,9 +1288,9 @@ export class AuthService {
 
     await sendEmailWithNodemailer(emailData);
 
-    return {
+    return JSON.stringify({
       success: true,
-    };
+    });
   }
 
   async register(data: CreateUserDto) {
@@ -1309,7 +1312,7 @@ export class AuthService {
     const users &#x3D; await this.usersService.find(decodedToken.email);
 
     if (users.length) {
-      throw new BadRequestException(&#x27;email in use&#x27;);
+      throw new BadRequestException(&#x27;Email in use&#x27;);
     }
 
     // Hash the user&#x27;s password
@@ -1331,30 +1334,33 @@ export class AuthService {
 
     delete userData.token;
 
-    const user &#x3D; await this.usersService.create(userData);
-
-    return user;
+    try {
+      const user &#x3D; await this.usersService.create(userData);
+      return user;
+    } catch (err) {
+      throw new BadRequestException(&#x27;Failed to create user&#x27;);
+    }
   }
 
   async signin(email: string, password: string) {
     const [user] &#x3D; await this.usersService.find(email);
 
     if (!user) {
-      throw new NotFoundException(&#x27;user not found&#x27;);
+      throw new NotFoundException(&#x27;User not found&#x27;);
     }
 
     const [salt, storedHash] &#x3D; user.password.split(&#x27;.&#x27;);
     const hash &#x3D; (await scrypt(password, salt, 32)) as Buffer;
 
     if (storedHash !&#x3D;&#x3D; hash.toString(&#x27;hex&#x27;)) {
-      throw new UnauthorizedException(&#x27;bad email/password combination&#x27;);
+      throw new UnauthorizedException(&#x27;Incorrect credentials&#x27;);
     }
 
     return user;
   }
 
-  async passwordReset(token: string, newPassword: string) {
-    let decodedToken;
+  async passwordReset(token: string, newPassword: string): Promise&lt;User&gt; {
+    let decodedToken: any;
 
     try {
       decodedToken &#x3D; await this.jwtService.verify(token);
@@ -1370,7 +1376,7 @@ export class AuthService {
     const [user] &#x3D; await this.usersService.find(decodedToken.email);
 
     if (!user) {
-      throw new NotFoundException(&#x27;user not found&#x27;);
+      throw new NotFoundException(&#x27;User not found&#x27;);
     }
 
     // 1- Generate a salt
@@ -1381,11 +1387,15 @@ export class AuthService {
     const result &#x3D; salt + &#x27;.&#x27; + hash.toString(&#x27;hex&#x27;);
 
     // modify user&#x27;s password
-    const updatedUser &#x3D; await this.usersService.update(user.id, {
-      password: result,
-    });
+    try {
+      const updatedUser &#x3D; await this.usersService.update(user.id, {
+        password: result,
+      });
 
-    return updatedUser;
+      return updatedUser;
+    } catch (err) {
+      throw new BadRequestException(&#x27;Failed to update password of the user&#x27;);
+    }
   }
 }
 </code></pre>

@@ -62,7 +62,7 @@ export class FlightsService {
         total_count: totalCount,
       };
     } catch (err) {
-      throw new BadRequestException('Failed to get flights');
+      throw new BadRequestException('Failed to get the flights');
     }
   }
 

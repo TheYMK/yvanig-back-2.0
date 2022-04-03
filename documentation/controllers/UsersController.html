@@ -10,6 +10,7 @@
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 	   <link rel="stylesheet" href="../styles/style.css">
         <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="stylesheet" href="../styles/material.css">
     </head>
     <body>
 
@@ -149,14 +150,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Post(&#x27;/password-reset&#x27;)<br />@HttpCode(200)<br />@ApiOkResponse({description: &#x27;The password reset was successful&#x27;})<br />@ApiBadRequestResponse({description: &#x27;Invalid token&#x27;})<br />@ApiNotFoundResponse({description: &#x27;User not found&#x27;})<br /></code>
+                    <code>@Post(&#x27;/password-reset&#x27;)<br />@HttpCode(200)<br />@ApiOkResponse({description: &#x27;The password reset was successful&#x27;})<br />@ApiBadRequestResponse({description: &#x27;Invalid token // Failed to update password of the user&#x27;})<br />@ApiNotFoundResponse({description: &#x27;User not found&#x27;})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="68"
-                            class="link-to-prism">src/users/users.controller.ts:68</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="115"
+                            class="link-to-prism">src/users/users.controller.ts:115</a></div>
                 </td>
             </tr>
 
@@ -239,14 +240,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Post(&#x27;/register&#x27;)<br />@ApiCreatedResponse({description: &#x27;The user was created successfully&#x27;})<br />@ApiBadRequestResponse({description: &#x27;Invalid token&#x27;})<br />@ApiBadRequestResponse({description: &#x27;User already exists&#x27;})<br />@ApiNotFoundResponse({description: &#x27;User not found&#x27;})<br /></code>
+                    <code>@Post(&#x27;/register&#x27;)<br />@ApiCreatedResponse({description: &#x27;The user was created successfully&#x27;})<br />@ApiBadRequestResponse({description: &#x27;Invalid token // Email in use // Failed to create a user&#x27;})<br />@ApiInternalServerErrorResponse({description: &#x27;Something went wrong while creating the user&#x27;})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="80"
-                            class="link-to-prism">src/users/users.controller.ts:80</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="153"
+                            class="link-to-prism">src/users/users.controller.ts:153</a></div>
                 </td>
             </tr>
 
@@ -329,14 +330,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Post(&#x27;/send-email-verification&#x27;)<br />@HttpCode(200)<br />@ApiOkResponse({description: &#x27;The email verification email was sent successfully&#x27;})<br />@ApiBadRequestResponse({description: &#x27;Failed to send email verification email&#x27;})<br /></code>
+                    <code>@Post(&#x27;/send-email-verification&#x27;)<br />@HttpCode(200)<br />@ApiOkResponse({description: &#x27;The email verification email was sent successfully&#x27;})<br />@ApiBadRequestResponse({description: &#x27;Failed to send email verification email&#x27;})<br />@ApiInternalServerErrorResponse({description: &#x27;Something went wrong while sending email verification email&#x27;})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="47"
-                            class="link-to-prism">src/users/users.controller.ts:47</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="52"
+                            class="link-to-prism">src/users/users.controller.ts:52</a></div>
                 </td>
             </tr>
 
@@ -407,14 +408,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Post(&#x27;/send-password-reset-email&#x27;)<br />@HttpCode(200)<br />@ApiOkResponse({description: &#x27;The password reset email was sent successfully&#x27;})<br />@ApiBadRequestResponse({description: &#x27;Failed to send password reset email&#x27;})<br /></code>
+                    <code>@Post(&#x27;/send-password-reset-email&#x27;)<br />@HttpCode(200)<br />@ApiOkResponse({description: &#x27;The password reset email was sent successfully&#x27;})<br />@ApiBadRequestResponse({description: &#x27;Failed to send password reset email&#x27;})<br />@ApiInternalServerErrorResponse({description: &#x27;Something went wrong while sending password reset email&#x27;})<br />@ApiNotFoundResponse({description: &#x27;User not found&#x27;})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="57"
-                            class="link-to-prism">src/users/users.controller.ts:57</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="83"
+                            class="link-to-prism">src/users/users.controller.ts:83</a></div>
                 </td>
             </tr>
 
@@ -485,14 +486,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Post(&#x27;/signin&#x27;)<br />@HttpCode(200)<br />@ApiOkResponse({description: &#x27;The user was successfully logged in&#x27;})<br />@ApiNotFoundResponse({description: &#x27;User not found&#x27;})<br />@ApiUnauthorizedResponse({description: &#x27;Incorrect credentials&#x27;})<br /></code>
+                    <code>@Post(&#x27;/signin&#x27;)<br />@HttpCode(200)<br />@ApiOkResponse({description: &#x27;The user was successfully logged in&#x27;})<br />@ApiNotFoundResponse({description: &#x27;User not found&#x27;})<br />@ApiUnauthorizedResponse({description: &#x27;Incorrect credentials&#x27;})<br />@ApiInternalServerErrorResponse({description: &#x27;Something went wrong while logging in the user&#x27;})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="93"
-                            class="link-to-prism">src/users/users.controller.ts:93</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="189"
+                            class="link-to-prism">src/users/users.controller.ts:189</a></div>
                 </td>
             </tr>
 
@@ -579,8 +580,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="109"
-                            class="link-to-prism">src/users/users.controller.ts:109</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="222"
+                            class="link-to-prism">src/users/users.controller.ts:222</a></div>
                 </td>
             </tr>
 
@@ -655,8 +656,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="102"
-                            class="link-to-prism">src/users/users.controller.ts:102</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="214"
+                            class="link-to-prism">src/users/users.controller.ts:214</a></div>
                 </td>
             </tr>
 
@@ -709,17 +710,22 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  BadRequestException,
   Body,
   Controller,
   Get,
   HttpCode,
+  InternalServerErrorException,
+  NotFoundException,
   Post,
   Session,
+  UnauthorizedException,
   UseGuards,
 } from &#x27;@nestjs/common&#x27;;
 import {
   ApiBadRequestResponse,
   ApiCreatedResponse,
+  ApiInternalServerErrorResponse,
   ApiNotFoundResponse,
   ApiOkResponse,
   ApiTags,
@@ -735,17 +741,14 @@ import { PasswordResetDto } from &#x27;./dtos/password-reset.dto&#x27;;
 import { UserCredentialsDto } from &#x27;./dtos/user-credentials.dto&#x27;;
 import { UserDto } from &#x27;./dtos/user.dto&#x27;;
 import { User } from &#x27;./user.entity&#x27;;
-import { UsersService } from &#x27;./users.service&#x27;;
 
 @ApiTags(&#x27;users&#x27;)
 @Serialize(UserDto)
 @Controller(&#x27;api/auth&#x27;)
 export class UsersController {
-  constructor(
-    private usersService: UsersService,
-    private authService: AuthService,
-  ) {}
+  constructor(private authService: AuthService) {}
 
+  // LAST TIME REVIEWED: 2022-04-02
   @Post(&#x27;/send-email-verification&#x27;)
   @HttpCode(200)
   @ApiOkResponse({
@@ -754,45 +757,136 @@ export class UsersController {
   @ApiBadRequestResponse({
     description: &#x27;Failed to send email verification email&#x27;,
   })
+  @ApiInternalServerErrorResponse({
+    description: &#x27;Something went wrong while sending email verification email&#x27;,
+  })
   async sendEmailVerification(@Body() body: EmailVerificationDto) {
-    return this.authService.sendEmailVerification(body.email);
+    return this.authService
+      .sendEmailVerification(body.email)
+      .then((res) &#x3D;&gt; {
+        return res;
+      })
+      .catch((err) &#x3D;&gt; {
+        switch (err.response?.statusCode) {
+          case 400:
+            throw new BadRequestException(
+              &#x27;Failed to send email verification email&#x27;,
+            );
+          default:
+            throw new InternalServerErrorException(
+              &#x27;Something went wrong while sending email verification email&#x27;,
+            );
+        }
+      });
   }
 
+  // LAST TIME REVIEWED: 2022-04-02
   @Post(&#x27;/send-password-reset-email&#x27;)
   @HttpCode(200)
   @ApiOkResponse({
     description: &#x27;The password reset email was sent successfully&#x27;,
   })
   @ApiBadRequestResponse({ description: &#x27;Failed to send password reset email&#x27; })
+  @ApiInternalServerErrorResponse({
+    description: &#x27;Something went wrong while sending password reset email&#x27;,
+  })
+  @ApiNotFoundResponse({ description: &#x27;User not found&#x27; })
   async sendPasswordResetEmail(@Body() body: EmailVerificationDto) {
-    return this.authService.sendPasswordResetEmail(body.email);
+    return this.authService
+      .sendPasswordResetEmail(body.email)
+      .then((res) &#x3D;&gt; {
+        return res;
+      })
+      .catch((err) &#x3D;&gt; {
+        switch (err.response?.statusCode) {
+          case 400:
+            throw new BadRequestException(
+              &#x27;Failed to send password reset email&#x27;,
+            );
+          case 404:
+            throw new NotFoundException(&#x27;User not found&#x27;);
+          default:
+            throw new InternalServerErrorException(
+              &#x27;Something went wrong while sending password reset email&#x27;,
+            );
+        }
+      });
   }
 
+  // LAST TIME REVIEWED: 2022-04-02
   @Post(&#x27;/password-reset&#x27;)
   @HttpCode(200)
   @ApiOkResponse({
     description: &#x27;The password reset was successful&#x27;,
   })
-  @ApiBadRequestResponse({ description: &#x27;Invalid token&#x27; })
+  @ApiBadRequestResponse({
+    description: &#x27;Invalid token // Failed to update password of the user&#x27;,
+  })
   @ApiNotFoundResponse({ description: &#x27;User not found&#x27; })
   async passwordReset(@Body() body: PasswordResetDto, @Session() session: any) {
     session.userId &#x3D; null;
-    return this.authService.passwordReset(body.token, body.newPassword);
+    return this.authService
+      .passwordReset(body.token, body.newPassword)
+      .then((res) &#x3D;&gt; {
+        return res;
+      })
+      .catch((err) &#x3D;&gt; {
+        switch (err.response?.statusCode) {
+          case 400:
+            if (err.response?.message &#x3D;&#x3D;&#x3D; &#x27;Invalid token&#x27;) {
+              throw new BadRequestException(&#x27;Invalid token&#x27;);
+            } else {
+              throw new BadRequestException(
+                &#x27;Failed to update password of the user&#x27;,
+              );
+            }
+          case 404:
+            throw new NotFoundException(&#x27;User not found&#x27;);
+          default:
+            throw new InternalServerErrorException(
+              &#x27;Something went wrong while resetting password&#x27;,
+            );
+        }
+      });
   }
 
+  // LAST TIME REVIEWED: 2022-04-02
   @Post(&#x27;/register&#x27;)
   @ApiCreatedResponse({
     description: &#x27;The user was created successfully&#x27;,
   })
-  @ApiBadRequestResponse({ description: &#x27;Invalid token&#x27; })
-  @ApiBadRequestResponse({ description: &#x27;User already exists&#x27; })
-  @ApiNotFoundResponse({ description: &#x27;User not found&#x27; })
+  @ApiBadRequestResponse({
+    description: &#x27;Invalid token // Email in use // Failed to create a user&#x27;,
+  })
+  @ApiInternalServerErrorResponse({
+    description: &#x27;Something went wrong while creating the user&#x27;,
+  })
   async register(@Body() body: CreateUserDto, @Session() session: any) {
-    const user &#x3D; await this.authService.register(body);
-    session.userId &#x3D; user.id;
-    return user;
+    return this.authService
+      .register(body)
+      .then((user) &#x3D;&gt; {
+        session.userId &#x3D; user.id;
+        return user;
+      })
+      .catch((err) &#x3D;&gt; {
+        switch (err.response?.statusCode) {
+          case 400:
+            if (err.response?.message &#x3D;&#x3D;&#x3D; &#x27;Invalid token&#x27;) {
+              throw new BadRequestException(&#x27;Invalid token&#x27;);
+            } else if (err.response?.message &#x3D;&#x3D;&#x3D; &#x27;Email in use&#x27;) {
+              throw new BadRequestException(&#x27;Email in use&#x27;);
+            } else {
+              throw new BadRequestException(&#x27;Failed to create user&#x27;);
+            }
+          default:
+            throw new InternalServerErrorException(
+              &#x27;Something went wrong while creating the user&#x27;,
+            );
+        }
+      });
   }
 
+  // LAST TIME REVIEWED: 2022-04-02
   @Post(&#x27;/signin&#x27;)
   @HttpCode(200)
   @ApiOkResponse({
@@ -800,12 +894,31 @@ export class UsersController {
   })
   @ApiNotFoundResponse({ description: &#x27;User not found&#x27; })
   @ApiUnauthorizedResponse({ description: &#x27;Incorrect credentials&#x27; })
+  @ApiInternalServerErrorResponse({
+    description: &#x27;Something went wrong while logging in the user&#x27;,
+  })
   async signin(@Body() body: UserCredentialsDto, @Session() session: any) {
-    const user &#x3D; await this.authService.signin(body.email, body.password);
-    session.userId &#x3D; user.id;
-    return user;
+    return this.authService
+      .signin(body.email, body.password)
+      .then((user) &#x3D;&gt; {
+        session.userId &#x3D; user.id;
+        return user;
+      })
+      .catch((err) &#x3D;&gt; {
+        switch (err.response?.statusCode) {
+          case 404:
+            throw new NotFoundException(&#x27;User not found&#x27;);
+          case 401:
+            throw new UnauthorizedException(&#x27;Incorrect credentials&#x27;);
+          default:
+            throw new InternalServerErrorException(
+              &#x27;Something went wrong while logging in the user&#x27;,
+            );
+        }
+      });
   }
 
+  // LAST TIME REVIEWED: 2022-04-02
   @Get(&#x27;whoami&#x27;)
   @UseGuards(AuthGuard)
   @ApiOkResponse({ description: &#x27;The user was successfully fetched&#x27; })
@@ -813,6 +926,7 @@ export class UsersController {
     return user;
   }
 
+  // LAST TIME REVIEWED: 2022-04-02
   @Post(&#x27;/signout&#x27;)
   @HttpCode(200)
   @ApiOkResponse({ description: &#x27;The user was successfully logged out&#x27; })

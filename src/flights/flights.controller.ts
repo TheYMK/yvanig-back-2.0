@@ -110,7 +110,7 @@ export class FlightsController {
     description: 'The flights were found successfully',
   })
   @ApiBadRequestResponse({
-    description: 'Failed to find flights',
+    description: 'Failed to find the flights',
   })
   @ApiInternalServerErrorResponse({
     description: 'Something went wrong while finding the flights',
@@ -124,7 +124,7 @@ export class FlightsController {
       .catch((err) => {
         switch (err.response?.statusCode) {
           case 400:
-            throw new BadRequestException('Failed to find flights');
+            throw new BadRequestException('Failed to find the flights');
           default:
             throw new InternalServerErrorException(
               'Something went wrong while finding the flights',
