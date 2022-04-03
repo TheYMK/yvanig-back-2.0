@@ -37,11 +37,12 @@ export class CreateSeatDto {
   @ApiProperty({
     type: String,
     description: 'the class type of the seat',
+    enum: ClassTypes,
     default: 'economy',
   })
   @IsString()
   @IsNotEmpty()
-  @IsEnum(['first', 'business', 'economy'])
+  @IsEnum(ClassTypes)
   class_type: ClassTypes;
 
   @ApiProperty({
