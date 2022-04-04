@@ -8,6 +8,7 @@ import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
 import { FlightsModule } from './flights/flights.module';
 import { SeatsModule } from './seats/seats.module';
+import { PassengersModule } from './passengers/passengers.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { SeatsModule } from './seats/seats.module';
     UsersModule,
     FlightsModule,
     SeatsModule,
+    PassengersModule,
   ],
   controllers: [AppController],
   providers: [

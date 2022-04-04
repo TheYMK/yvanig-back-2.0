@@ -17,7 +17,7 @@ export class CreateFlightDto {
     default: 'AB Aviation',
   })
   @IsString()
-  @Length(0, 200)
+  @Length(1, 200)
   @IsNotEmpty()
   airline: string;
 
@@ -27,7 +27,7 @@ export class CreateFlightDto {
     default: 'AB123',
   })
   @IsString()
-  @Length(0, 200)
+  @Length(1, 200)
   @IsNotEmpty()
   flight_number: string;
 
@@ -46,7 +46,7 @@ export class CreateFlightDto {
     default: 'Comoros',
   })
   @IsString()
-  @Length(0, 200)
+  @Length(1, 200)
   @IsNotEmpty()
   origin: string;
 
@@ -56,7 +56,7 @@ export class CreateFlightDto {
     default: 'Tanzania',
   })
   @IsString()
-  @Length(0, 200)
+  @Length(1, 200)
   @IsNotEmpty()
   destination: string;
 
@@ -66,7 +66,7 @@ export class CreateFlightDto {
     default: 'Prince Said Ibrahim International Airport',
   })
   @IsString()
-  @Length(0, 200)
+  @Length(1, 200)
   @IsNotEmpty()
   origin_airport_name: string;
 
@@ -76,7 +76,7 @@ export class CreateFlightDto {
     default: 'Julius Nyerere International Airport',
   })
   @IsString()
-  @Length(0, 200)
+  @Length(1, 200)
   @IsNotEmpty()
   destination_airport_name: string;
 
@@ -141,7 +141,7 @@ export class CreateFlightDto {
     default: 'A flight from Comoros to Tanzania',
   })
   @IsString()
-  @Length(0, 1000)
+  @Length(1, 1000)
   @IsNotEmpty()
   description: string;
 

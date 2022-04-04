@@ -18,7 +18,7 @@ export class UpdateFlightDto {
     default: 'AB Aviation',
   })
   @IsString()
-  @Length(0, 200)
+  @Length(1, 200)
   @IsNotEmpty()
   @IsOptional()
   airline: string;
@@ -29,7 +29,7 @@ export class UpdateFlightDto {
     default: 'AB123',
   })
   @IsString()
-  @Length(0, 200)
+  @Length(1, 200)
   @IsNotEmpty()
   @IsOptional()
   flight_number: string;
@@ -50,7 +50,7 @@ export class UpdateFlightDto {
     default: 'Comoros',
   })
   @IsString()
-  @Length(0, 200)
+  @Length(1, 200)
   @IsNotEmpty()
   @IsOptional()
   origin: string;
@@ -61,7 +61,7 @@ export class UpdateFlightDto {
     default: 'Tanzania',
   })
   @IsString()
-  @Length(0, 200)
+  @Length(1, 200)
   @IsNotEmpty()
   @IsOptional()
   destination: string;
@@ -72,7 +72,7 @@ export class UpdateFlightDto {
     default: 'Prince Said Ibrahim International Airport',
   })
   @IsString()
-  @Length(0, 200)
+  @Length(1, 200)
   @IsNotEmpty()
   @IsOptional()
   origin_airport_name: string;
@@ -83,7 +83,7 @@ export class UpdateFlightDto {
     default: 'Julius Nyerere International Airport',
   })
   @IsString()
-  @Length(0, 200)
+  @Length(1, 200)
   @IsNotEmpty()
   @IsOptional()
   destination_airport_name: string;
@@ -155,7 +155,7 @@ export class UpdateFlightDto {
     default: 'A flight from Comoros to Tanzania',
   })
   @IsString()
-  @Length(0, 1000)
+  @Length(1, 1000)
   @IsNotEmpty()
   @IsOptional()
   description: string;
@@ -199,5 +199,6 @@ export class UpdateFlightDto {
   @IsString()
   @IsNotEmpty()
   @IsEnum(FlightStatuses)
+  @IsOptional()
   status: FlightStatuses;
 }
