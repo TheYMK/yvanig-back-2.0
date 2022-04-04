@@ -18,7 +18,6 @@ export class FlightsService {
       const newFlight = this.repo.create(flight);
       return this.repo.save(newFlight);
     } catch (err) {
-      console.log(err);
       throw new BadRequestException('Failed to create a new flight');
     }
   }
@@ -35,7 +34,6 @@ export class FlightsService {
     try {
       return this.repo.save(foundFlight);
     } catch (err) {
-      console.log(err);
       throw new BadRequestException('Failed to update the flight');
     }
   }
@@ -76,7 +74,6 @@ export class FlightsService {
     try {
       return this.repo.remove(flight);
     } catch (err) {
-      console.log(err);
       throw new BadRequestException('Failed to delete the flight');
     }
   }
