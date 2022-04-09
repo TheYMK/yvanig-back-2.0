@@ -1,8 +1,13 @@
+import { Booking } from 'src/bookings/booking.entity';
 import { User } from 'src/users/user.entity';
 import {
+  AfterInsert,
+  AfterRemove,
+  AfterUpdate,
   Column,
   Entity,
   JoinColumn,
+  OneToMany,
   OneToOne,
   PrimaryGeneratedColumn,
   Unique,
@@ -55,4 +60,22 @@ export class Passenger {
   @OneToOne(() => User, { onDelete: 'CASCADE' })
   @JoinColumn()
   user: User;
+
+  @OneToMany(() => Booking, (booking) => booking.passenger)
+  bookings: Booking[];
+
+  @AfterInsert()
+  logInsert() {
+    console.log('Passenger inserted:', this);
+  }
+
+  @AfterUpdate()
+  logUpdate() {
+    console.log('Passenger updated:', this);
+  }
+
+  @AfterRemove()
+  logRemove() {
+    console.log('Passenger removed:', this);
+  }
 }

@@ -1,3 +1,4 @@
+import { Booking } from 'src/bookings/booking.entity';
 import { Seat } from 'src/seats/seat.entity';
 import {
   AfterInsert,
@@ -165,6 +166,9 @@ export class Flight {
   // The first argument is only for solving circular dependency issue
   @OneToMany(() => Seat, (seat) => seat.flight)
   seats: Seat[];
+
+  @OneToMany(() => Booking, (booking) => booking.flight)
+  bookings: Booking[];
 
   @AfterInsert()
   logInsert() {

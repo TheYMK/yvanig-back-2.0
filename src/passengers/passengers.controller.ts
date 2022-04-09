@@ -22,6 +22,7 @@ import {
   ApiTags,
   ApiUnauthorizedResponse,
 } from '@nestjs/swagger';
+import { AdminGuard } from 'src/guards/admin.guard';
 import { AuthGuard } from 'src/guards/auth.guard';
 import { Serialize } from 'src/interceptors/serialize.interceptor';
 import { CurrentUser } from 'src/users/decorators/current-user.decorator';
@@ -39,7 +40,7 @@ export class PassengersController {
 
   // Create a new passenger
   @Post()
-  @UseGuards(AuthGuard)
+  @UseGuards(AdminGuard)
   @ApiCreatedResponse({
     description: 'The passenger was created successfully',
   })
@@ -214,7 +215,6 @@ export class PassengersController {
           case 400:
             throw new BadRequestException('Failed to delete the passenger');
           default:
-            console.log(err);
             throw new InternalServerErrorException(
               'Something went wrong while deleting the passenger',
             );

@@ -1,7 +1,7 @@
 const { MigrationInterface, QueryRunner } = require("typeorm");
 
-module.exports = class initialMigration1649099118575 {
-    name = 'initialMigration1649099118575'
+module.exports = class initialMigration1649490010527 {
+    name = 'initialMigration1649490010527'
 
     async up(queryRunner) {
         await queryRunner.query(`CREATE TYPE "public"."seat_class_type_enum" AS ENUM('first', 'business', 'economy')`);
@@ -13,13 +13,23 @@ module.exports = class initialMigration1649099118575 {
         await queryRunner.query(`CREATE TYPE "public"."passenger_document_type_enum" AS ENUM('passport', 'id_card')`);
         await queryRunner.query(`CREATE TYPE "public"."passenger_gender_enum" AS ENUM('male', 'female')`);
         await queryRunner.query(`CREATE TABLE "passenger" ("id" SERIAL NOT NULL, "document_type" "public"."passenger_document_type_enum" NOT NULL DEFAULT 'passport', "document_number" character varying(200) NOT NULL, "date_of_birth" date NOT NULL, "gender" "public"."passenger_gender_enum" NOT NULL, "userId" integer, CONSTRAINT "UQ_d6ed5e441e208af2735390adb06" UNIQUE ("userId"), CONSTRAINT "REL_d6ed5e441e208af2735390adb0" UNIQUE ("userId"), CONSTRAINT "PK_50e940dd2c126adc20205e83fac" PRIMARY KEY ("id"))`);
+        await queryRunner.query(`CREATE TYPE "public"."booking_booking_type_enum" AS ENUM('flight', 'hotel', 'restaurant')`);
+        await queryRunner.query(`CREATE TABLE "booking" ("id" SERIAL NOT NULL, "booking_type" "public"."booking_booking_type_enum" NOT NULL, "price" numeric NOT NULL, "created_at" TIMESTAMP NOT NULL DEFAULT ('now'::text)::timestamp(6) with time zone, "updated_at" TIMESTAMP NOT NULL DEFAULT ('now'::text)::timestamp(6) with time zone, "flightId" integer, "seatId" integer, "passengerId" integer, CONSTRAINT "UQ_56a14c76ca373911daae6438e78" UNIQUE ("passengerId", "flightId"), CONSTRAINT "REL_ddc6d1d556f155406b4788d9e9" UNIQUE ("seatId"), CONSTRAINT "PK_49171efc69702ed84c812f33540" PRIMARY KEY ("id"))`);
         await queryRunner.query(`ALTER TABLE "seat" ADD CONSTRAINT "FK_5298809d13db3c04e6bf460e207" FOREIGN KEY ("flightId") REFERENCES "flight"("id") ON DELETE CASCADE ON UPDATE NO ACTION`);
         await queryRunner.query(`ALTER TABLE "passenger" ADD CONSTRAINT "FK_d6ed5e441e208af2735390adb06" FOREIGN KEY ("userId") REFERENCES "user"("id") ON DELETE CASCADE ON UPDATE NO ACTION`);
+        await queryRunner.query(`ALTER TABLE "booking" ADD CONSTRAINT "FK_cc8ec8fa07ca411f70625d36f87" FOREIGN KEY ("flightId") REFERENCES "flight"("id") ON DELETE CASCADE ON UPDATE NO ACTION`);
+        await queryRunner.query(`ALTER TABLE "booking" ADD CONSTRAINT "FK_ddc6d1d556f155406b4788d9e97" FOREIGN KEY ("seatId") REFERENCES "seat"("id") ON DELETE CASCADE ON UPDATE NO ACTION`);
+        await queryRunner.query(`ALTER TABLE "booking" ADD CONSTRAINT "FK_690e3cf53f5101c59b242095b2b" FOREIGN KEY ("passengerId") REFERENCES "passenger"("id") ON DELETE CASCADE ON UPDATE NO ACTION`);
     }
 
     async down(queryRunner) {
+        await queryRunner.query(`ALTER TABLE "booking" DROP CONSTRAINT "FK_690e3cf53f5101c59b242095b2b"`);
+        await queryRunner.query(`ALTER TABLE "booking" DROP CONSTRAINT "FK_ddc6d1d556f155406b4788d9e97"`);
+        await queryRunner.query(`ALTER TABLE "booking" DROP CONSTRAINT "FK_cc8ec8fa07ca411f70625d36f87"`);
         await queryRunner.query(`ALTER TABLE "passenger" DROP CONSTRAINT "FK_d6ed5e441e208af2735390adb06"`);
         await queryRunner.query(`ALTER TABLE "seat" DROP CONSTRAINT "FK_5298809d13db3c04e6bf460e207"`);
+        await queryRunner.query(`DROP TABLE "booking"`);
+        await queryRunner.query(`DROP TYPE "public"."booking_booking_type_enum"`);
         await queryRunner.query(`DROP TABLE "passenger"`);
         await queryRunner.query(`DROP TYPE "public"."passenger_gender_enum"`);
         await queryRunner.query(`DROP TYPE "public"."passenger_document_type_enum"`);
