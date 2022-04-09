@@ -22,15 +22,29 @@ export class PassengersService {
       newPassenger.user = user;
       return this.repo.save(newPassenger);
     } catch (err) {
-      throw new Error('Failed to create a new passenger');
+      throw new BadRequestException('Failed to create a new passenger');
     }
   }
 
   async findAll() {
     try {
       const passengers = await this.repo.find({
-        relations: ['user'],
+        relations: ['user', 'bookings'],
       });
+
+      return passengers;
+    } catch (err) {
+      throw new BadRequestException('Failed to get the passengers');
+    }
+  }
+
+  async findByUser(user: User) {
+    try {
+      const passengers = await this.repo.find({
+        where: { user: user },
+        relations: ['user', 'bookings'],
+      });
+
       return passengers;
     } catch (err) {
       throw new BadRequestException('Failed to get the passengers');
@@ -39,7 +53,7 @@ export class PassengersService {
 
   async findOne(id: number) {
     const passenger = await this.repo.findOne(id, {
-      relations: ['user'],
+      relations: ['user', 'bookings'],
     });
 
     if (!passenger) {

@@ -3,7 +3,9 @@ import {
   Injectable,
   NotFoundException,
 } from '@nestjs/common';
+import { OnEvent } from '@nestjs/event-emitter';
 import { InjectRepository } from '@nestjs/typeorm';
+import { BookingEvent } from 'src/bookings/interfaces/BookingCreatedEvent';
 import { FlightsService } from 'src/flights/flights.service';
 import { Repository } from 'typeorm';
 import { CreateSeatDto } from './dtos/create-seat.dto';
@@ -29,7 +31,6 @@ export class SeatsService {
       newSeat.flight = flight;
       return this.repo.save(newSeat);
     } catch (err) {
-      console.log(err);
       throw new BadRequestException('Failed to create the seat');
     }
   }
@@ -63,13 +64,11 @@ export class SeatsService {
     if (!foundSeat) {
       throw new NotFoundException('Seat not found');
     }
-
     Object.assign(foundSeat, attrs);
 
     try {
       return this.repo.save(foundSeat);
     } catch (err) {
-      console.log(err);
       throw new BadRequestException('Failed to update the seat');
     }
   }
@@ -84,8 +83,13 @@ export class SeatsService {
     try {
       return this.repo.remove(seat);
     } catch (err) {
-      console.log(err);
       throw new BadRequestException('Failed to delete the seat');
     }
+  }
+
+  // handle events related to bookings
+  @OnEvent('booking.*', { async: true })
+  async handleBookingEvents(payload: BookingEvent) {
+    return this.update(payload.id, { is_available: payload.is_available });
   }
 }

@@ -39,7 +39,9 @@ export class FlightsService {
   }
 
   async findOne(id: number) {
-    const flight = await this.repo.findOne(id);
+    const flight = await this.repo.findOne(id, {
+      relations: ['seats'],
+    });
 
     if (!flight) {
       throw new NotFoundException('Flight not found');
@@ -52,7 +54,11 @@ export class FlightsService {
     const page = parseInt(options.page) || 0;
     const limit = parseInt(options.limit) || 10;
     try {
-      const flights = await this.repo.find({ skip: page * limit, take: limit });
+      const flights = await this.repo.find({
+        skip: page * limit,
+        take: limit,
+        order: { created_at: 'DESC' },
+      });
       const totalCount = await (await this.repo.find()).length;
 
       return {
