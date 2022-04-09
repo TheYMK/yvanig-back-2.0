@@ -20,7 +20,8 @@ export class PassengersService {
     try {
       const newPassenger = this.repo.create(passenger);
       newPassenger.user = user;
-      return this.repo.save(newPassenger);
+      const createdPassenger = await this.repo.save(newPassenger);
+      return createdPassenger;
     } catch (err) {
       throw new BadRequestException('Failed to create a new passenger');
     }
@@ -78,7 +79,9 @@ export class PassengersService {
     Object.assign(foundPassenger, attrs);
 
     try {
-      return this.repo.save(foundPassenger);
+      const updatedPassenger = await this.repo.save(foundPassenger);
+
+      return updatedPassenger;
     } catch (err) {
       throw new BadRequestException('Failed to update the passenger');
     }
@@ -97,7 +100,8 @@ export class PassengersService {
     }
 
     try {
-      return this.repo.remove(foundPassenger);
+      const removedPassenger = await this.repo.remove(foundPassenger);
+      console.log(removedPassenger);
     } catch (err) {
       throw new BadRequestException('Failed to delete the passenger');
     }
