@@ -34,7 +34,10 @@ import { PassengersService } from './passengers.service';
 
 @ApiTags('passengers')
 @Serialize(PassengerDto)
-@Controller('api/passengers')
+@Controller({
+  path: 'api/passengers',
+  version: '1',
+})
 export class PassengersController {
   constructor(private passengersService: PassengersService) {}
 

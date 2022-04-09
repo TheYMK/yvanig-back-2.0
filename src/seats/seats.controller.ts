@@ -29,7 +29,10 @@ import { SeatsService } from './seats.service';
 
 @ApiTags('seats')
 @Serialize(SeatDto)
-@Controller('api/seats')
+@Controller({
+  path: 'api/seats',
+  version: '1',
+})
 export class SeatsController {
   constructor(private seatsService: SeatsService) {}
 

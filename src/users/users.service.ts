@@ -15,7 +15,9 @@ export class UsersService {
   async create(user: CreateUserDto) {
     try {
       const newUser = this.repo.create(user);
-      return this.repo.save(newUser);
+      const createdUser = await this.repo.save(newUser);
+
+      return createdUser;
     } catch (err) {
       throw new BadRequestException('Failed to create a new user');
     }
@@ -50,7 +52,9 @@ export class UsersService {
 
     Object.assign(user, attrs);
 
-    return this.repo.save(user);
+    const updatedUser = await this.repo.save(user);
+
+    return updatedUser;
   }
 
   async remove(id: number) {
@@ -60,6 +64,8 @@ export class UsersService {
       throw new NotFoundException('User not found');
     }
 
-    return this.repo.remove(user);
+    const removedUser = await this.repo.remove(user);
+
+    return removedUser;
   }
 }

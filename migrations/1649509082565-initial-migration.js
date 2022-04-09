@@ -1,7 +1,7 @@
 const { MigrationInterface, QueryRunner } = require("typeorm");
 
-module.exports = class initialMigration1649490010527 {
-    name = 'initialMigration1649490010527'
+module.exports = class initialMigration1649509082565 {
+    name = 'initialMigration1649509082565'
 
     async up(queryRunner) {
         await queryRunner.query(`CREATE TYPE "public"."seat_class_type_enum" AS ENUM('first', 'business', 'economy')`);

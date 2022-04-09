@@ -29,7 +29,10 @@ import { UpdateFlightDto } from './dtos/update-flight.dto';
 import { FlightsService } from './flights.service';
 
 @ApiTags('flights')
-@Controller('api/flights')
+@Controller({
+  path: 'api/flights',
+  version: '1',
+})
 export class FlightsController {
   constructor(private flightsService: FlightsService) {}
 

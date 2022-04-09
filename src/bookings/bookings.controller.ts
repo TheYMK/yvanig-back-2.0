@@ -35,7 +35,10 @@ import { GetBookingsDto } from './dtos/get-bookings.dto';
 import { UpdateBookingDto } from './dtos/update-booking.dto';
 
 @ApiTags('bookings')
-@Controller('api/bookings')
+@Controller({
+  path: 'api/bookings',
+  version: '1',
+})
 export class BookingsController {
   constructor(private bookingsService: BookingsService) {}
 
