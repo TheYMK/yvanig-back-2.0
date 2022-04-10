@@ -29,7 +29,9 @@ export class SeatsService {
     try {
       const newSeat = this.repo.create(seat);
       newSeat.flight = flight;
-      return this.repo.save(newSeat);
+      const createdSeat = await this.repo.save(newSeat);
+
+      return createdSeat;
     } catch (err) {
       throw new BadRequestException('Failed to create the seat');
     }
@@ -67,7 +69,9 @@ export class SeatsService {
     Object.assign(foundSeat, attrs);
 
     try {
-      return this.repo.save(foundSeat);
+      const updatedSeat = await this.repo.save(foundSeat);
+
+      return updatedSeat;
     } catch (err) {
       throw new BadRequestException('Failed to update the seat');
     }
@@ -81,7 +85,9 @@ export class SeatsService {
     }
 
     try {
-      return this.repo.remove(seat);
+      const removedSeat = await this.repo.remove(seat);
+
+      return removedSeat;
     } catch (err) {
       throw new BadRequestException('Failed to delete the seat');
     }
