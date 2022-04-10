@@ -59,12 +59,6 @@
             <code>src/flights/flights.controller.ts</code>
         </p>
 
-            <p class="comment">
-                <h3>Prefix</h3>
-            </p>
-            <p class="comment">
-                <code>api/flights</code>
-            </p>
 
 
 
@@ -150,8 +144,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="49"
-                            class="link-to-prism">src/flights/flights.controller.ts:49</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="51"
+                            class="link-to-prism">src/flights/flights.controller.ts:51</a></div>
                 </td>
             </tr>
 
@@ -228,8 +222,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="183"
-                            class="link-to-prism">src/flights/flights.controller.ts:183</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="181"
+                            class="link-to-prism">src/flights/flights.controller.ts:181</a></div>
                 </td>
             </tr>
 
@@ -306,8 +300,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="148"
-                            class="link-to-prism">src/flights/flights.controller.ts:148</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="147"
+                            class="link-to-prism">src/flights/flights.controller.ts:147</a></div>
                 </td>
             </tr>
 
@@ -462,8 +456,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="83"
-                            class="link-to-prism">src/flights/flights.controller.ts:83</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="84"
+                            class="link-to-prism">src/flights/flights.controller.ts:84</a></div>
                 </td>
             </tr>
 
@@ -558,12 +552,14 @@ import { UpdateFlightDto } from &#x27;./dtos/update-flight.dto&#x27;;
 import { FlightsService } from &#x27;./flights.service&#x27;;
 
 @ApiTags(&#x27;flights&#x27;)
-@Controller(&#x27;api/flights&#x27;)
+@Controller({
+  path: &#x27;api/flights&#x27;,
+  version: &#x27;1&#x27;,
+})
 export class FlightsController {
   constructor(private flightsService: FlightsService) {}
 
-  // LAST TIME REVIEWED: 2022-04-03
-  // Creates a new flight and returns the created flight only for admin user
+  // LAST TIME REVIEWED: 2022-04-09
   @Post()
   @UseGuards(AdminGuard)
   @ApiCreatedResponse({
@@ -593,8 +589,7 @@ export class FlightsController {
       });
   }
 
-  // LAST TIME REVIEWED: 2022-04-03
-  // Update flight and returns the updated flight only for admin user
+  // LAST TIME REVIEWED: 2022-04-09
   @Patch(&#x27;/:id&#x27;)
   @UseGuards(AdminGuard)
   @ApiOkResponse({
@@ -632,8 +627,7 @@ export class FlightsController {
       });
   }
 
-  // LAST TIME REVIEWED: 2022-04-03
-  // Returns all flights
+  // LAST TIME REVIEWED: 2022-04-09
   @Get()
   @ApiOkResponse({
     description: &#x27;The flights were found successfully&#x27;,
@@ -662,8 +656,7 @@ export class FlightsController {
       });
   }
 
-  // LAST TIME REVIEWED: 2022-04-03
-  // Returns a flight by id
+  // LAST TIME REVIEWED: 2022-04-09
   @Get(&#x27;/:id&#x27;)
   @ApiOkResponse({
     description: &#x27;The flight was found successfully&#x27;,
@@ -692,8 +685,7 @@ export class FlightsController {
       });
   }
 
-  // LAST TIME REVIEWED: 2022-04-03
-  // Deletes a flight by id
+  // LAST TIME REVIEWED: 2022-04-09
   @Delete(&#x27;/:id&#x27;)
   @UseGuards(AdminGuard)
   @HttpCode(200)

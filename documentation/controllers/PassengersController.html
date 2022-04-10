@@ -29,19 +29,16 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content injectable">
+               <div class="content controller">
                    <div class="content-data">
 
 
 
 
 
-
-
-
 <ol class="breadcrumb">
-  <li>Injectables</li>
-  <li >SeatsService</li>
+  <li>Controllers</li>
+  <li >PassengersController</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -59,8 +56,10 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/seats/seats.service.ts</code>
+            <code>src/passengers/passengers.controller.ts</code>
         </p>
+
+
 
 
 
@@ -81,27 +80,23 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#create" >create</a>
+                                <a href="#createPassenger" >createPassenger</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#delete" >delete</a>
+                                <a href="#deletePassenger" >deletePassenger</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#findAll" >findAll</a>
+                                <a href="#getPassenger" >getPassenger</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#findOne" >findOne</a>
+                                <a href="#getPassengers" >getPassengers</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#handleBookingEvents" >handleBookingEvents</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#update" >update</a>
+                                <a href="#updatePassenger" >updatePassenger</a>
                             </li>
                         </ul>
                     </td>
@@ -116,67 +111,6 @@
 </section>
 
             <section>
-    <h3 id="constructor">Constructor</h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-<code>constructor(repo: <a href="../classes/Seat.html" target="_self">Repository&lt;Seat&gt;</a>, flightsService: <a href="../injectables/FlightsService.html" target="_self">FlightsService</a>)</code>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/seats/seats.service.ts:15</a></div>
-                            </td>
-                        </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                            <div>
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>repo</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../classes/Seat.html" target="_self" >Repository&lt;Seat&gt;</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>flightsService</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/FlightsService.html" target="_self" >FlightsService</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-</section>
-
-            <section>
     
     <h3 id="methods">
         Methods
@@ -185,270 +119,18 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="create"></a>
+                    <a name="createPassenger"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
-                        <span ><b>create</b></span>
-                        <a href="#create"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>createPassenger</b></span>
+                        <a href="#createPassenger"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>create(seat: <a href="../classes/CreateSeatDto.html" target="_self">CreateSeatDto</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="21"
-                            class="link-to-prism">src/seats/seats.service.ts:21</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>seat</td>
-                                    <td>
-                                                <code><a href="../classes/CreateSeatDto.html" target="_self" >CreateSeatDto</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>unknown</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="delete"></a>
-                    <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>delete</b></span>
-                        <a href="#delete"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>delete(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="80"
-                            class="link-to-prism">src/seats/seats.service.ts:80</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>id</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>unknown</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="findAll"></a>
-                    <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>findAll</b></span>
-                        <a href="#findAll"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findAll()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="52"
-                            class="link-to-prism">src/seats/seats.service.ts:52</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>unknown</code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="findOne"></a>
-                    <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>findOne</b></span>
-                        <a href="#findOne"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findOne(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="40"
-                            class="link-to-prism">src/seats/seats.service.ts:40</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>id</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>unknown</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="handleBookingEvents"></a>
-                    <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>handleBookingEvents</b></span>
-                        <a href="#handleBookingEvents"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>handleBookingEvents(payload: <a href="../interfaces/BookingEvent.html" target="_self">BookingEvent</a>)</code>
+                    <code>createPassenger(body: <a href="../classes/CreatePassengerDto.html" target="_self">CreatePassengerDto</a>, user: <a href="../classes/User.html" target="_self">User</a>)</code>
                 </td>
             </tr>
 
@@ -456,14 +138,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@OnEvent(&#x27;booking.*&#x27;, {async: true})<br /></code>
+                    <code>@Post()<br />@UseGuards(AdminGuard)<br />@ApiCreatedResponse({description: &#x27;The passenger was created successfully&#x27;})<br />@ApiBadRequestResponse({description: &#x27;Failed to create a new passenger&#x27;})<br />@ApiInternalServerErrorResponse({description: &#x27;Something went wrong while creating a new passenger&#x27;})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="98"
-                            class="link-to-prism">src/seats/seats.service.ts:98</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="56"
+                            class="link-to-prism">src/passengers/passengers.controller.ts:56</a></div>
                 </td>
             </tr>
 
@@ -484,9 +166,21 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>payload</td>
+                                    <td>body</td>
                                     <td>
-                                                <code><a href="../interfaces/BookingEvent.html" target="_self" >BookingEvent</a></code>
+                                                <code><a href="../classes/CreatePassengerDto.html" target="_self" >CreatePassengerDto</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>user</td>
+                                    <td>
+                                                <code><a href="../classes/User.html" target="_self" >User</a></code>
                                     </td>
 
                                     <td>
@@ -515,26 +209,33 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="update"></a>
+                    <a name="deletePassenger"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
-                        <span ><b>update</b></span>
-                        <a href="#update"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>deletePassenger</b></span>
+                        <a href="#deletePassenger"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>update(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, attrs: <a href="../classes/Seat.html" target="_self">Partial&lt;Seat&gt;</a>)</code>
+                    <code>deletePassenger(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, user: <a href="../classes/User.html" target="_self">User</a>)</code>
                 </td>
             </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Delete(&#x27;:id&#x27;)<br />@UseGuards(AuthGuard)<br />@ApiOkResponse({description: &#x27;The passenger was deleted successfully&#x27;})<br />@ApiBadRequestResponse({description: &#x27;Failed to delete the passenger&#x27;})<br />@ApiNotFoundResponse({description: &#x27;Passenger not found&#x27;})<br />@ApiUnauthorizedResponse({description: &#x27;You are not allowed to delete this passenger&#x27;})<br />@ApiInternalServerErrorResponse({description: &#x27;Something went wrong while deleting the passenger&#x27;})<br /></code>
+                </td>
+            </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="63"
-                            class="link-to-prism">src/seats/seats.service.ts:63</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="201"
+                            class="link-to-prism">src/passengers/passengers.controller.ts:201</a></div>
                 </td>
             </tr>
 
@@ -567,9 +268,9 @@
 
                                 </tr>
                                 <tr>
-                                    <td>attrs</td>
+                                    <td>user</td>
                                     <td>
-                                                <code><a href="../classes/Seat.html" target="_self" >Partial&lt;Seat&gt;</a></code>
+                                                <code><a href="../classes/User.html" target="_self" >User</a></code>
                                     </td>
 
                                     <td>
@@ -594,117 +295,469 @@
             </tr>
         </tbody>
     </table>
-</section>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getPassenger"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>getPassenger</b></span>
+                        <a href="#getPassenger"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getPassenger(user: <a href="../classes/User.html" target="_self">User</a>)</code>
+                </td>
+            </tr>
 
-    </div>
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get(&#x27;/me&#x27;)<br />@UseGuards(AuthGuard)<br />@ApiOkResponse({description: &#x27;The passenger was returned successfully&#x27;})<br />@ApiNotFoundResponse({description: &#x27;Passenger not found&#x27;})<br />@ApiInternalServerErrorResponse({description: &#x27;Something went wrong while getting the passenger&#x27;})<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="119"
+                            class="link-to-prism">src/passengers/passengers.controller.ts:119</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>user</td>
+                                    <td>
+                                                <code><a href="../classes/User.html" target="_self" >User</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>unknown</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getPassengers"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>getPassengers</b></span>
+                        <a href="#getPassengers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getPassengers()</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get()<br />@UseGuards(AdminGuard)<br />@ApiOkResponse({description: &#x27;The passengers were returned successfully&#x27;})<br />@ApiBadRequestResponse({description: &#x27;Failed to get the passengers&#x27;})<br />@ApiInternalServerErrorResponse({description: &#x27;Something went wrong while getting passengers&#x27;})<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="89"
+                            class="link-to-prism">src/passengers/passengers.controller.ts:89</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>unknown</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updatePassenger"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>updatePassenger</b></span>
+                        <a href="#updatePassenger"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updatePassenger(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, body: <a href="../classes/UpdatePassengerDto.html" target="_self">UpdatePassengerDto</a>, user: <a href="../classes/User.html" target="_self">User</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Patch(&#x27;:id&#x27;)<br />@UseGuards(AuthGuard)<br />@ApiOkResponse({description: &#x27;The passenger was updated successfully&#x27;})<br />@ApiBadRequestResponse({description: &#x27;Failed to update the passenger&#x27;})<br />@ApiNotFoundResponse({description: &#x27;Passenger not found&#x27;})<br />@ApiUnauthorizedResponse({description: &#x27;You are not allowed to update this passenger&#x27;})<br />@ApiInternalServerErrorResponse({description: &#x27;Something went wrong while updating the passenger&#x27;})<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="155"
+                            class="link-to-prism">src/passengers/passengers.controller.ts:155</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>body</td>
+                                    <td>
+                                                <code><a href="../classes/UpdatePassengerDto.html" target="_self" >UpdatePassengerDto</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>user</td>
+                                    <td>
+                                                <code><a href="../classes/User.html" target="_self" >User</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>unknown</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
   BadRequestException,
-  Injectable,
+  Body,
+  Controller,
+  Delete,
+  Get,
+  InternalServerErrorException,
   NotFoundException,
+  Param,
+  ParseIntPipe,
+  Patch,
+  Post,
+  UnauthorizedException,
+  UseGuards,
 } from &#x27;@nestjs/common&#x27;;
-import { OnEvent } from &#x27;@nestjs/event-emitter&#x27;;
-import { InjectRepository } from &#x27;@nestjs/typeorm&#x27;;
-import { BookingEvent } from &#x27;src/bookings/interfaces/BookingCreatedEvent&#x27;;
-import { FlightsService } from &#x27;src/flights/flights.service&#x27;;
-import { Repository } from &#x27;typeorm&#x27;;
-import { CreateSeatDto } from &#x27;./dtos/create-seat.dto&#x27;;
-import { Seat } from &#x27;./seat.entity&#x27;;
+import {
+  ApiBadRequestResponse,
+  ApiCreatedResponse,
+  ApiInternalServerErrorResponse,
+  ApiNotFoundResponse,
+  ApiOkResponse,
+  ApiTags,
+  ApiUnauthorizedResponse,
+} from &#x27;@nestjs/swagger&#x27;;
+import { AdminGuard } from &#x27;src/guards/admin.guard&#x27;;
+import { AuthGuard } from &#x27;src/guards/auth.guard&#x27;;
+import { Serialize } from &#x27;src/interceptors/serialize.interceptor&#x27;;
+import { CurrentUser } from &#x27;src/users/decorators/current-user.decorator&#x27;;
+import { User } from &#x27;src/users/user.entity&#x27;;
+import { CreatePassengerDto } from &#x27;./dtos/create-passenger.dto&#x27;;
+import { PassengerDto } from &#x27;./dtos/passenger.dto&#x27;;
+import { UpdatePassengerDto } from &#x27;./dtos/update-passenger.dto&#x27;;
+import { PassengersService } from &#x27;./passengers.service&#x27;;
 
-@Injectable()
-export class SeatsService {
-  constructor(
-    @InjectRepository(Seat) private repo: Repository&lt;Seat&gt;,
-    private flightsService: FlightsService,
-  ) {}
+@ApiTags(&#x27;passengers&#x27;)
+@Serialize(PassengerDto)
+@Controller({
+  path: &#x27;api/passengers&#x27;,
+  version: &#x27;1&#x27;,
+})
+export class PassengersController {
+  constructor(private passengersService: PassengersService) {}
 
-  async create(seat: CreateSeatDto) {
-    // Check if the flight exists
-    const flight &#x3D; await this.flightsService.findOne(seat.flightId);
-
-    if (!flight) {
-      throw new NotFoundException(&#x27;Flight not found&#x27;);
-    }
-
-    try {
-      const newSeat &#x3D; this.repo.create(seat);
-      newSeat.flight &#x3D; flight;
-      const createdSeat &#x3D; await this.repo.save(newSeat);
-
-      return createdSeat;
-    } catch (err) {
-      throw new BadRequestException(&#x27;Failed to create the seat&#x27;);
-    }
-  }
-
-  async findOne(id: number) {
-    const seat &#x3D; await this.repo.findOne(id, {
-      relations: [&#x27;flight&#x27;],
-    });
-
-    if (!seat) {
-      throw new NotFoundException(&#x27;Seat not found&#x27;);
-    }
-
-    return seat;
-  }
-
-  async findAll() {
-    try {
-      const seats &#x3D; await this.repo.find({
-        relations: [&#x27;flight&#x27;],
+  // LAST TIME REVIEWED: 2022-04-09
+  @Post()
+  @UseGuards(AdminGuard)
+  @ApiCreatedResponse({
+    description: &#x27;The passenger was created successfully&#x27;,
+  })
+  @ApiBadRequestResponse({
+    description: &#x27;Failed to create a new passenger&#x27;,
+  })
+  @ApiInternalServerErrorResponse({
+    description: &#x27;Something went wrong while creating a new passenger&#x27;,
+  })
+  async createPassenger(
+    @Body() body: CreatePassengerDto,
+    @CurrentUser() user: User,
+  ) {
+    return this.passengersService
+      .create(body, user)
+      .then((res) &#x3D;&gt; {
+        return res;
+      })
+      .catch((err) &#x3D;&gt; {
+        switch (err.response?.statusCode) {
+          case 400:
+            throw new BadRequestException(&#x27;Failed to create a new passenger&#x27;);
+          default:
+            throw new InternalServerErrorException(
+              &#x27;Something went wrong while creating a new passenger&#x27;,
+            );
+        }
       });
-      return seats;
-    } catch (err) {
-      throw new BadRequestException(&#x27;Failed to get the seats&#x27;);
-    }
   }
 
-  async update(id: number, attrs: Partial&lt;Seat&gt;) {
-    const foundSeat &#x3D; await this.findOne(id);
-
-    if (!foundSeat) {
-      throw new NotFoundException(&#x27;Seat not found&#x27;);
-    }
-    Object.assign(foundSeat, attrs);
-
-    try {
-      const updatedSeat &#x3D; await this.repo.save(foundSeat);
-
-      return updatedSeat;
-    } catch (err) {
-      throw new BadRequestException(&#x27;Failed to update the seat&#x27;);
-    }
+  // LAST TIME REVIEWED: 2022-04-09
+  @Get()
+  @UseGuards(AdminGuard)
+  @ApiOkResponse({
+    description: &#x27;The passengers were returned successfully&#x27;,
+  })
+  @ApiBadRequestResponse({
+    description: &#x27;Failed to get the passengers&#x27;,
+  })
+  @ApiInternalServerErrorResponse({
+    description: &#x27;Something went wrong while getting passengers&#x27;,
+  })
+  async getPassengers() {
+    return this.passengersService
+      .findAll()
+      .then((res) &#x3D;&gt; {
+        return res;
+      })
+      .catch((err) &#x3D;&gt; {
+        switch (err.response?.statusCode) {
+          case 400:
+            throw new BadRequestException(&#x27;Failed to get the passengers&#x27;);
+          default:
+            throw new InternalServerErrorException(
+              &#x27;Something went wrong while getting passengers&#x27;,
+            );
+        }
+      });
   }
 
-  async delete(id: number) {
-    const seat &#x3D; await this.findOne(id);
-
-    if (!seat) {
-      throw new NotFoundException(&#x27;Seat not found&#x27;);
-    }
-
-    try {
-      const removedSeat &#x3D; await this.repo.remove(seat);
-
-      return removedSeat;
-    } catch (err) {
-      throw new BadRequestException(&#x27;Failed to delete the seat&#x27;);
-    }
+  // LAST TIME REVIEWED: 2022-04-09
+  @Get(&#x27;/me&#x27;)
+  @UseGuards(AuthGuard)
+  @ApiOkResponse({
+    description: &#x27;The passenger was returned successfully&#x27;,
+  })
+  @ApiNotFoundResponse({
+    description: &#x27;Passenger not found&#x27;,
+  })
+  @ApiInternalServerErrorResponse({
+    description: &#x27;Something went wrong while getting the passenger&#x27;,
+  })
+  async getPassenger(@CurrentUser() user: User) {
+    return this.passengersService
+      .findByUser(user)
+      .then((res) &#x3D;&gt; {
+        return res;
+      })
+      .catch((err) &#x3D;&gt; {
+        switch (err.response?.statusCode) {
+          case 404:
+            throw new NotFoundException(&#x27;Passenger not found&#x27;);
+          default:
+            throw new InternalServerErrorException(
+              &#x27;Something went wrong while getting the passenger&#x27;,
+            );
+        }
+      });
   }
 
-  // handle events related to bookings
-  @OnEvent(&#x27;booking.*&#x27;, { async: true })
-  async handleBookingEvents(payload: BookingEvent) {
-    return this.update(payload.id, { is_available: payload.is_available });
+  // LAST TIME REVIEWED: 2022-04-09
+  @Patch(&#x27;:id&#x27;)
+  @UseGuards(AuthGuard)
+  @ApiOkResponse({
+    description: &#x27;The passenger was updated successfully&#x27;,
+  })
+  @ApiBadRequestResponse({
+    description: &#x27;Failed to update the passenger&#x27;,
+  })
+  @ApiNotFoundResponse({
+    description: &#x27;Passenger not found&#x27;,
+  })
+  @ApiUnauthorizedResponse({
+    description: &#x27;You are not allowed to update this passenger&#x27;,
+  })
+  @ApiInternalServerErrorResponse({
+    description: &#x27;Something went wrong while updating the passenger&#x27;,
+  })
+  async updatePassenger(
+    @Param(&#x27;id&#x27;, ParseIntPipe) id: number,
+    @Body() body: UpdatePassengerDto,
+    @CurrentUser() user: User,
+  ) {
+    return this.passengersService
+      .update(id, body, user)
+      .then((res) &#x3D;&gt; {
+        return res;
+      })
+      .catch((err) &#x3D;&gt; {
+        switch (err.response?.statusCode) {
+          case 404:
+            throw new NotFoundException(&#x27;Passenger not found&#x27;);
+          case 401:
+            throw new UnauthorizedException(
+              &#x27;You are not allowed to update this passenger&#x27;,
+            );
+          case 400:
+            throw new BadRequestException(&#x27;Failed to update the passenger&#x27;);
+          default:
+            throw new InternalServerErrorException(
+              &#x27;Something went wrong while updating the passenger&#x27;,
+            );
+        }
+      });
+  }
+
+  // LAST TIME REVIEWED: 2022-04-09
+  @Delete(&#x27;:id&#x27;)
+  @UseGuards(AuthGuard)
+  @ApiOkResponse({
+    description: &#x27;The passenger was deleted successfully&#x27;,
+  })
+  @ApiBadRequestResponse({
+    description: &#x27;Failed to delete the passenger&#x27;,
+  })
+  @ApiNotFoundResponse({
+    description: &#x27;Passenger not found&#x27;,
+  })
+  @ApiUnauthorizedResponse({
+    description: &#x27;You are not allowed to delete this passenger&#x27;,
+  })
+  @ApiInternalServerErrorResponse({
+    description: &#x27;Something went wrong while deleting the passenger&#x27;,
+  })
+  async deletePassenger(
+    @Param(&#x27;id&#x27;, ParseIntPipe) id: number,
+    @CurrentUser() user: User,
+  ) {
+    return this.passengersService
+      .delete(id, user)
+      .then((res) &#x3D;&gt; {
+        return res;
+      })
+      .catch((err) &#x3D;&gt; {
+        switch (err.response?.statusCode) {
+          case 404:
+            throw new NotFoundException(&#x27;Passenger not found&#x27;);
+          case 401:
+            throw new UnauthorizedException(
+              &#x27;You are not allowed to delete this passenger&#x27;,
+            );
+          case 400:
+            throw new BadRequestException(&#x27;Failed to delete the passenger&#x27;);
+          default:
+            throw new InternalServerErrorException(
+              &#x27;Something went wrong while deleting the passenger&#x27;,
+            );
+        }
+      });
   }
 }
 </code></pre>
     </div>
-
 </div>
+
+
+
 
 
 
@@ -743,8 +796,8 @@ export class SeatsService {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'SeatsService.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'controller';
+            var COMPODOC_CURRENT_PAGE_URL = 'PassengersController.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

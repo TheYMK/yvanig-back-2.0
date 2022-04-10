@@ -34,8 +34,12 @@ import { CreateBookingDto } from './dtos/create-booking.dto';
 import { GetBookingsDto } from './dtos/get-bookings.dto';
 import { UpdateBookingDto } from './dtos/update-booking.dto';
 
+// LAST TIME REVIEWED: 2022-04-10
 @ApiTags('bookings')
-@Controller('api/bookings')
+@Controller({
+  path: 'api/bookings',
+  version: '1',
+})
 export class BookingsController {
   constructor(private bookingsService: BookingsService) {}
 
@@ -99,6 +103,7 @@ export class BookingsController {
       });
   }
 
+  // LAST TIME REVIEWED: 2022-04-10
   // Returns all bookings
   @Get()
   @UseGuards(AdminGuard)
@@ -129,6 +134,7 @@ export class BookingsController {
       });
   }
 
+  // LAST TIME REVIEWED: 2022-04-10
   // Returns a booking
   @Get('/:id')
   @Serialize(BookingDto)
@@ -179,6 +185,7 @@ export class BookingsController {
       });
   }
 
+  // LAST TIME REVIEWED: 2022-04-10
   // Update a booking if the user is the owner
   @Patch('/:id')
   @Serialize(BookingDto)
@@ -241,6 +248,7 @@ export class BookingsController {
       });
   }
 
+  // LAST TIME REVIEWED: 2022-04-10
   // Delete a booking if the user is the owner
   @Delete('/:id')
   @UseGuards(AuthGuard)

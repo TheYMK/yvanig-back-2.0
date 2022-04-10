@@ -11,7 +11,6 @@ import { FlightsService } from 'src/flights/flights.service';
 import { Passenger } from 'src/passengers/passenger.entity';
 import { PassengersService } from 'src/passengers/passengers.service';
 import { ClassTypes, Seat } from 'src/seats/seat.entity';
-import { SeatsService } from 'src/seats/seats.service';
 import { User, UserRole } from 'src/users/user.entity';
 import { Repository } from 'typeorm';
 import { Booking } from './booking.entity';
@@ -25,7 +24,6 @@ export class BookingsService {
     @InjectRepository(Booking) private repo: Repository<Booking>,
     private passengersService: PassengersService,
     private flightsService: FlightsService,
-    private seatsService: SeatsService,
     private eventEmitter: EventEmitter2,
   ) {}
 
@@ -207,6 +205,27 @@ export class BookingsService {
     }
   }
 
+  async delete(id: number, user: User) {
+    const foundBooking = await this.findOne(id, user);
+
+    try {
+      const removedBooking = await this.repo.remove(foundBooking);
+
+      this.eventEmitter.emit('booking.deleted', {
+        id: foundBooking.seat.id,
+        is_available: true,
+      });
+
+      return removedBooking;
+    } catch (err) {
+      this.eventEmitter.emit('booking.failed', {
+        id: foundBooking.seat.id,
+        is_available: false,
+      });
+      throw new BadRequestException('Failed to delete the booking');
+    }
+  }
+
   generatePrice(seat: Seat, flight: Flight) {
     if (seat.class_type === ClassTypes.FIRST) {
       return flight.seat_price_first_class;
@@ -214,25 +233,6 @@ export class BookingsService {
       return flight.seat_price_business_class;
     } else {
       return flight.seat_base_price;
-    }
-  }
-
-  async delete(id: number, user: User) {
-    const foundBooking = await this.findOne(id, user);
-
-    try {
-      await this.repo.remove(foundBooking);
-      this.eventEmitter.emit('booking.deleted', {
-        id: foundBooking.seat.id,
-        is_available: true,
-      });
-      return foundBooking;
-    } catch (err) {
-      this.eventEmitter.emit('booking.failed', {
-        id: foundBooking.seat.id,
-        is_available: false,
-      });
-      throw new BadRequestException('Failed to delete the booking');
     }
   }
 }

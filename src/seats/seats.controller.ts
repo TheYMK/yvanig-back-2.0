@@ -29,11 +29,14 @@ import { SeatsService } from './seats.service';
 
 @ApiTags('seats')
 @Serialize(SeatDto)
-@Controller('api/seats')
+@Controller({
+  path: 'api/seats',
+  version: '1',
+})
 export class SeatsController {
   constructor(private seatsService: SeatsService) {}
 
-  // LAST TIME REVIEWED: 2022-04-03
+  // LAST TIME REVIEWED: 2022-04-10
   // Creates a new seat and returns the created seat only for admin user
   @Post()
   @UseGuards(AdminGuard)
@@ -69,7 +72,7 @@ export class SeatsController {
       });
   }
 
-  // LAST TIME REVIEWED: 2022-04-03
+  // LAST TIME REVIEWED: 2022-04-10
   // Returns all seats
   @Get()
   @ApiOkResponse({
@@ -99,7 +102,7 @@ export class SeatsController {
       });
   }
 
-  // LAST TIME REVIEWED: 2022-04-03
+  // LAST TIME REVIEWED: 2022-04-10
   // Returns a single seat
   @Get('/:id')
   @ApiOkResponse({
@@ -129,7 +132,7 @@ export class SeatsController {
       });
   }
 
-  // LAST TIME REVIEWED: 2022-04-03
+  // LAST TIME REVIEWED: 2022-04-10
   // Updates a single seat and returns the updated seat only for admin user
   @Patch('/:id')
   @UseGuards(AdminGuard)
@@ -168,7 +171,7 @@ export class SeatsController {
       });
   }
 
-  // LAST TIME REVIEWED: 2022-04-03
+  // LAST TIME REVIEWED: 2022-04-10
   // Deletes a single seat and returns the deleted seat only for admin user
   @Delete('/:id')
   @UseGuards(AdminGuard)

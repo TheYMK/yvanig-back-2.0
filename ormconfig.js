@@ -28,6 +28,8 @@ switch (process.env.NODE_ENV) {
     })
     break;
   case 'production':
+    console.log("I'm in production mode!")
+    console.log('proddb: ', process.env.PROD_DATABASE_URL)
     Object.assign(dbConfig, {
       type: 'postgres',
       url: process.env.PROD_DATABASE_URL,

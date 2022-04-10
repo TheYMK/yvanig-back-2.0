@@ -33,11 +33,14 @@ import { User } from './user.entity';
 
 @ApiTags('users')
 @Serialize(UserDto)
-@Controller('api/auth')
+@Controller({
+  path: 'api/auth',
+  version: '1',
+})
 export class UsersController {
   constructor(private authService: AuthService) {}
 
-  // LAST TIME REVIEWED: 2022-04-02
+  // LAST TIME REVIEWED: 2022-04-09
   @Post('/send-email-verification')
   @HttpCode(200)
   @ApiOkResponse({
@@ -69,7 +72,7 @@ export class UsersController {
       });
   }
 
-  // LAST TIME REVIEWED: 2022-04-02
+  // LAST TIME REVIEWED: 2022-04-09
   @Post('/send-password-reset-email')
   @HttpCode(200)
   @ApiOkResponse({
@@ -102,7 +105,7 @@ export class UsersController {
       });
   }
 
-  // LAST TIME REVIEWED: 2022-04-02
+  // LAST TIME REVIEWED: 2022-04-09
   @Post('/password-reset')
   @HttpCode(200)
   @ApiOkResponse({
@@ -139,13 +142,13 @@ export class UsersController {
       });
   }
 
-  // LAST TIME REVIEWED: 2022-04-02
+  // LAST TIME REVIEWED: 2022-04-09
   @Post('/register')
   @ApiCreatedResponse({
     description: 'The user was created successfully',
   })
   @ApiBadRequestResponse({
-    description: 'Invalid token // Email in use // Failed to create a user',
+    description: 'Invalid token | Email in use | Failed to create a user',
   })
   @ApiInternalServerErrorResponse({
     description: 'Something went wrong while creating the user',
@@ -175,7 +178,7 @@ export class UsersController {
       });
   }
 
-  // LAST TIME REVIEWED: 2022-04-02
+  // LAST TIME REVIEWED: 2022-04-09
   @Post('/signin')
   @HttpCode(200)
   @ApiOkResponse({
@@ -207,7 +210,7 @@ export class UsersController {
       });
   }
 
-  // LAST TIME REVIEWED: 2022-04-02
+  // LAST TIME REVIEWED: 2022-04-09
   @Get('whoami')
   @UseGuards(AuthGuard)
   @ApiOkResponse({ description: 'The user was successfully fetched' })
@@ -215,7 +218,7 @@ export class UsersController {
     return user;
   }
 
-  // LAST TIME REVIEWED: 2022-04-02
+  // LAST TIME REVIEWED: 2022-04-09
   @Post('/signout')
   @HttpCode(200)
   @ApiOkResponse({ description: 'The user was successfully logged out' })

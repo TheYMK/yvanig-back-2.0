@@ -258,8 +258,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="34"
-                            class="link-to-prism">src/users/users.service.ts:34</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="36"
+                            class="link-to-prism">src/users/users.service.ts:36</a></div>
                 </td>
             </tr>
 
@@ -329,8 +329,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="24"
-                            class="link-to-prism">src/users/users.service.ts:24</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="26"
+                            class="link-to-prism">src/users/users.service.ts:26</a></div>
                 </td>
             </tr>
 
@@ -400,8 +400,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="56"
-                            class="link-to-prism">src/users/users.service.ts:56</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="60"
+                            class="link-to-prism">src/users/users.service.ts:60</a></div>
                 </td>
             </tr>
 
@@ -471,8 +471,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="44"
-                            class="link-to-prism">src/users/users.service.ts:44</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="46"
+                            class="link-to-prism">src/users/users.service.ts:46</a></div>
                 </td>
             </tr>
 
@@ -555,7 +555,9 @@ export class UsersService {
   async create(user: CreateUserDto) {
     try {
       const newUser &#x3D; this.repo.create(user);
-      return this.repo.save(newUser);
+      const createdUser &#x3D; await this.repo.save(newUser);
+
+      return createdUser;
     } catch (err) {
       throw new BadRequestException(&#x27;Failed to create a new user&#x27;);
     }
@@ -590,7 +592,9 @@ export class UsersService {
 
     Object.assign(user, attrs);
 
-    return this.repo.save(user);
+    const updatedUser &#x3D; await this.repo.save(user);
+
+    return updatedUser;
   }
 
   async remove(id: number) {
@@ -600,7 +604,9 @@ export class UsersService {
       throw new NotFoundException(&#x27;User not found&#x27;);
     }
 
-    return this.repo.remove(user);
+    const removedUser &#x3D; await this.repo.remove(user);
+
+    return removedUser;
   }
 }
 </code></pre>

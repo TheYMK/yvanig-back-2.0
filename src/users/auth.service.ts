@@ -1,7 +1,6 @@
 import {
   BadRequestException,
   Injectable,
-  InternalServerErrorException,
   NotFoundException,
   UnauthorizedException,
 } from '@nestjs/common';
@@ -33,326 +32,265 @@ export class AuthService {
       subject: `YVANIG TOUR | Veuillez confirmer votre email`,
       text: `Merci d'avoir rejoint YVANIG TOUR. Nous avons besoin d'un peu plus d'informations pour compléter votre inscription, y compris une confirmation de votre adresse e-mail.`,
       html: `
-      <html>
-
+      <!DOCTYPE html>
+      <html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="en">
+      
       <head>
-        <meta charset="utf-8">
-        <meta name="x-apple-disable-message-reformatting">
-        <style amp4email-boilerplate>
-          body {
-            visibility: hidden
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--[if mso]><xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch><o:AllowPNG/></o:OfficeDocumentSettings></xml><![endif]-->
+        <style>
+          * {
+            box-sizing: border-box;
           }
-        </style>
       
-        <script async src="https://cdn.ampproject.org/v0.js"></script>
-      
-      
-        <style amp-custom>
-          .u-row {
-            display: flex;
-            flex-wrap: nowrap;
-            margin-left: 0;
-            margin-right: 0;
-          }
-          
-          .u-row .u-col {
-            position: relative;
-            width: 100%;
-            padding-right: 0;
-            padding-left: 0;
-          }
-          
-          .u-row .u-col.u-col-100 {
-            flex: 0 0 100%;
-            max-width: 100%;
-          }
-          
-          @media (max-width: 767px) {
-            .u-row:not(.no-stack) {
-              flex-wrap: wrap;
-            }
-            .u-row:not(.no-stack) .u-col {
-              flex: 0 0 100%;
-              max-width: 100%;
-            }
-          }
-          
           body {
             margin: 0;
             padding: 0;
           }
-          
-          table,
-          tr,
-          td {
-            vertical-align: top;
-            border-collapse: collapse;
+      
+          a[x-apple-data-detectors] {
+            color: inherit !important;
+            text-decoration: inherit !important;
           }
-          
+      
+          #MessageViewBody a {
+            color: inherit;
+            text-decoration: none;
+          }
+      
           p {
-            margin: 0;
+            line-height: inherit
           }
-          
-          .ie-container table,
-          .mso-container table {
-            table-layout: fixed;
-          }
-          
-          * {
-            line-height: inherit;
-          }
-          
-          table,
-          td {
-            color: #000000;
-          }
-          
-          a {
-            color: #0000ee;
-            text-decoration: underline;
+      
+          @media (max-width:850px) {
+            .icons-inner {
+              text-align: center;
+            }
+      
+            .icons-inner td {
+              margin: 0 auto;
+            }
+      
+            .row-content {
+              width: 100% !important;
+            }
+      
+            .column .border {
+              display: none;
+            }
+      
+            table {
+              table-layout: fixed !important;
+            }
+      
+            .stack .column {
+              width: 100%;
+              display: block;
+            }
           }
         </style>
-      
-      
       </head>
       
-      <body class="clean-body u_body" style="margin: 0;padding: 0;background-color: #f9f9f9;color: #000000">
-        <!--[if IE]><div class="ie-container"><![endif]-->
-        <!--[if mso]><div class="mso-container"><![endif]-->
-        <table style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;vertical-align: top;min-width: 320px;Margin: 0 auto;background-color: #f9f9f9;width:100%" cellpadding="0" cellspacing="0">
+      <body style="background-color: #FFFFFF; margin: 0; padding: 0; -webkit-text-size-adjust: none; text-size-adjust: none;">
+        <table class="nl-container" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #FFFFFF;">
           <tbody>
-            <tr style="vertical-align: top">
-              <td style="word-break: break-word;border-collapse: collapse;vertical-align: top">
-                <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" style="background-color: #f9f9f9;"><![endif]-->
-      
-                <div style="padding: 0px;">
-                  <div style="max-width: 600px;margin: 0 auto;">
-                    <div class="u-row">
-      
-                      <div class="u-col u-col-100">
-                        <div style="padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
-      
-                          <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                            <tbody>
-                              <tr>
-                                <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
-      
-                                  <div style="color: #afb0c7; line-height: 170%; text-align: center; word-wrap: break-word;">
-                                    <p style="font-size: 14px; line-height: 170%;"><span style="font-size: 14px; line-height: 23.8px;">View Email in Browser</span></p>
-                                  </div>
-      
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
-      
-                        </div>
-                      </div>
-      
-                    </div>
-                  </div>
-                </div>
-      
-                <div style="padding: 0px;">
-                  <div style="max-width: 600px;margin: 0 auto;background-color: #ffffff;">
-                    <div class="u-row">
-      
-                      <div class="u-col u-col-100">
-                        <div style="padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
-      
-                          <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                            <tbody>
-                              <tr>
-                                <td style="overflow-wrap:break-word;word-break:break-word;padding:20px;font-family:'Cabin',sans-serif;" align="left">
-      
-                                  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-                                    <tr>
-                                      <td style="padding-right: 0px;padding-left: 0px;" align="center">
-      
-                                        <img alt="Image" src="https://images.unlayer.com/projects/71375/1648302815498-logo.png" style="width: 100px"/>
-                                      </td>
-                                    </tr>
-                                  </table>
-      
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
-      
-                        </div>
-                      </div>
-      
-                    </div>
-                  </div>
-                </div>
-      
-                <div style="padding: 0px;">
-                  <div style="max-width: 600px;margin: 0 auto;background-color: #008080;">
-                    <div class="u-row">
-      
-                      <div class="u-col u-col-100">
-                        <div style="padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
-      
-                          <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                            <tbody>
-                              <tr>
-                                <td style="overflow-wrap:break-word;word-break:break-word;padding:40px 10px 10px;font-family:'Cabin',sans-serif;" align="left">
-      
-                                  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-                                    <tr>
-                                      <td style="padding-right: 0px;padding-left: 0px;" align="center">
-      
-                                        <amp-img alt="Image" src="https://cdn.templates.unlayer.com/assets/1597218650916-xxxxc.png" width="335" height="93" layout="intrinsic" style="width: 26%;max-width: 26%;">
-      
-                                        </amp-img>
-                                      </td>
-                                    </tr>
-                                  </table>
-      
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
-      
-                          <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                            <tbody>
-                              <tr>
-                                <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
-      
-                                  <div style="color: #e5eaf5; line-height: 140%; text-align: center; word-wrap: break-word;">
-                                    <p style="font-size: 14px; line-height: 140%;"><strong>Merci de nous avoir rejoint !</strong></p>
-                                  </div>
-      
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
-      
-                          <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                            <tbody>
-                              <tr>
-                                <td style="overflow-wrap:break-word;word-break:break-word;padding:0px 10px 31px;font-family:'Cabin',sans-serif;" align="left">
-      
-                                  <div style="color: #e5eaf5; line-height: 140%; text-align: center; word-wrap: break-word;">
-                                    <p style="font-size: 14px; line-height: 140%;"><span style="font-size: 28px; line-height: 39.2px;"><strong><span style="line-height: 39.2px; font-size: 28px;">V&eacute;rifier votre adresse email</span></strong>
-                                      </span>
-                                    </p>
-                                  </div>
-      
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
-      
-                        </div>
-                      </div>
-      
-                    </div>
-                  </div>
-                </div>
-      
-                <div style="padding: 0px;">
-                  <div style="max-width: 600px;margin: 0 auto;background-color: #ffffff;">
-                    <div class="u-row">
-      
-                      <div class="u-col u-col-100">
-                        <div style="padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
-      
-                          <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                            <tbody>
-                              <tr>
-                                <td style="overflow-wrap:break-word;word-break:break-word;padding:33px 55px;font-family:'Cabin',sans-serif;" align="left">
-      
-                                  <div style="line-height: 160%; text-align: center; word-wrap: break-word;">
-                                    <p style="font-size: 14px; line-height: 160%;">Bonjour,<br />Merci d&rsquo;avoir rejoint YVANIG TOUR.</p>
-                                    <p style="font-size: 14px; line-height: 160%;">Pour finaliser votre inscription, cliquez sur le lien ci-dessous.</p>
-                                    <p style="font-size: 14px; line-height: 160%;">Si vous rencontrez des difficult&eacute;s pour vous connecter &agrave; votre compte, contactez-nous &agrave; yvanig-tour@gmail.com</p>
-                                  </div>
-      
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
-      
-                          <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                            <tbody>
-                              <tr>
-                                <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
-      
-                                  <div align="center">
-                                    <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing: 0; border-collapse: collapse;  font-family:'Cabin',sans-serif;"><tr><td style="font-family:'Cabin',sans-serif;" align="center"><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="http://kaymkassai.com" style="height:46px; v-text-anchor:middle; width:214px;" arcsize="8.5%" stroke="f" fillcolor="#ff5f46"><w:anchorlock/><center style="color:#FFFFFF;font-family:'Cabin',sans-serif;"><![endif]-->
-                                    <a href="${this.configService.get(
-                                      'WEBSITE_URL',
-                                    )}/auth/register/complete/?token=${token}" target="_blank" style="box-sizing: border-box;display: inline-block;font-family:'Cabin',sans-serif;text-decoration: none;text-align: center;color: #FFFFFF; background-color: #ff5f46; border-radius: 4px;  width:auto; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word; ">
-                                      <span style="display:block;padding:14px 44px 13px;line-height:120%;"><span style="font-size: 16px; line-height: 19.2px;"><strong><span style="line-height: 19.2px; font-size: 16px;">V&eacute;rifier mon email</span></strong>
-                                      </span>
-                                      </span>
-                                    </a>
-                                    <!--[if mso]></center></v:roundrect></td></tr></table><![endif]-->
-                                  </div>
-      
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
-      
-                          <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                            <tbody>
-                              <tr>
-                                <td style="overflow-wrap:break-word;word-break:break-word;padding:33px 55px 60px;font-family:'Cabin',sans-serif;" align="left">
-      
-                                  <div style="line-height: 160%; text-align: center; word-wrap: break-word;">
-                                    <p style="line-height: 160%; font-size: 14px;"><span style="font-size: 18px; line-height: 28.8px;">Cordialement,</span></p>
-                                    <p style="line-height: 160%; font-size: 14px;"><span style="font-size: 18px; line-height: 28.8px;">L'&eacute;quipe YVANIG</span></p>
-                                  </div>
-      
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
-      
-                        </div>
-                      </div>
-      
-                    </div>
-                  </div>
-                </div>
-      
-                <div style="padding: 0px;">
-                  <div style="max-width: 600px;margin: 0 auto;background-color: #e5eaf5;">
-                    <div class="u-row">
-      
-                      <div class="u-col u-col-100">
-                        <div style="padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
-      
-                        </div>
-                      </div>
-      
-                    </div>
-                  </div>
-                </div>
-      
-                <div style="padding: 0px;">
-                  <div style="max-width: 600px;margin: 0 auto;background-color: #008080;">
-                    <div class="u-row">
-      
-                      <div class="u-col u-col-100">
-                        <div style="padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
-      
-                        </div>
-                      </div>
-      
-                    </div>
-                  </div>
-                </div>
-      
-                <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
+            <tr>
+              <td>
+                <table class="row row-1" align="center" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                  <tbody>
+                    <tr>
+                      <td>
+                        <table class="row-content" align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; color: #000000; width: 830px;" width="830">
+                          <tbody>
+                            <tr>
+                              <td class="column column-1" width="100%" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; vertical-align: top; padding-top: 5px; padding-bottom: 5px; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;">
+                                <table class="divider_block" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                  <tr>
+                                    <td style="padding-bottom:5px;padding-left:5px;padding-right:5px;padding-top:10px;">
+                                      <div align="center">
+                                        <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                          <tr>
+                                            <td class="divider_inner" style="font-size: 1px; line-height: 1px; border-top: 0px solid #BBBBBB;"><span>&#8202;</span></td>
+                                          </tr>
+                                        </table>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                </table>
+                                <table class="image_block" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                  <tr>
+                                    <td style="padding-left:15px;padding-right:15px;width:100%;">
+                                      <div align="center" style="line-height:10px"><a href="${this.configService.get(
+                                        'WEBSITE_URL',
+                                      )}" target="_blank" style="outline:none" tabindex="-1"><img src="https://d15k2d11r6t6rl.cloudfront.net/public/users/BeeFree/beefree-10t6qah1e6rc/logo.png" style="display: block; height: auto; border: 0; width: 208px; max-width: 100%;" width="208" alt="Yvanig Logo" title="Yvanig Tour"></a></div>
+                                    </td>
+                                  </tr>
+                                </table>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <table class="row row-2" align="center" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #008080;">
+                  <tbody>
+                    <tr>
+                      <td>
+                        <table class="row-content stack" align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; color: #000000; width: 830px;" width="830">
+                          <tbody>
+                            <tr>
+                              <td class="column column-1" width="100%" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; vertical-align: top; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;">
+                                <table class="heading_block" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                  <tr>
+                                    <td style="text-align:center;width:100%;">
+                                      <h1 style="margin: 0; color: #393d47; direction: ltr; font-family: Arial, Helvetica Neue, Helvetica, sans-serif; font-size: 23px; font-weight: 700; letter-spacing: normal; line-height: 120%; text-align: center; margin-top: 0; margin-bottom: 0;"><span class="tinyMce-placeholder" style="color: #ffffff;">Confirmer votre adresse email</span></h1>
+                                    </td>
+                                  </tr>
+                                </table>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <table class="row row-3" align="center" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                  <tbody>
+                    <tr>
+                      <td>
+                        <table class="row-content stack" align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; color: #000000; width: 830px;" width="830">
+                          <tbody>
+                            <tr>
+                              <td class="column column-1" width="50%" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; vertical-align: top; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;">
+                                <table class="divider_block" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                  <tr>
+                                    <td style="padding-bottom:20px;padding-left:20px;padding-right:20px;padding-top:25px;">
+                                      <div align="center">
+                                        <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                          <tr>
+                                            <td class="divider_inner" style="font-size: 1px; line-height: 1px; border-top: 0px solid #BBBBBB;"><span>&#8202;</span></td>
+                                          </tr>
+                                        </table>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                </table>
+                                <table class="heading_block" width="100%" border="0" cellpadding="10" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                  <tr>
+                                    <td>
+                                      <h1 style="margin: 0; color: #2b2d2d; direction: ltr; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 43px; font-weight: 400; letter-spacing: normal; line-height: 120%; text-align: left; margin-top: 0; margin-bottom: 0;"><strong>Merci de nous avoir rejoint</strong></h1>
+                                    </td>
+                                  </tr>
+                                </table>
+                                <table class="text_block" width="100%" border="0" cellpadding="10" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;">
+                                  <tr>
+                                    <td>
+                                      <div style="font-family: sans-serif">
+                                        <div class="txtTinyMce-wrapper" style="font-size: 14px; mso-line-height-alt: 21px; color: #6f7077; line-height: 1.5; font-family: Arial, Helvetica Neue, Helvetica, sans-serif;">
+                                          <p style="margin: 0;">Pour finaliser votre inscription, cliquez sur le bouton ci-dessous.</p>
+                                          <p style="margin: 0; mso-line-height-alt: 21px;">&nbsp;</p>
+                                          <p style="margin: 0;">Si vous rencontrez des difficultés pour vous connecter à votre compte, contactez-nous à</p>
+                                          <p style="margin: 0;"><a href="mailto:yvanig-tour@gmail.com?subject=Je%20rencontre%20des%20probl%C3%A8mes%20de%20connexion" target="_blank" title="yvanig-tour@gmail.com" style="text-decoration: underline; color: #8a3b8f;" rel="noopener">yvanig-tour@gmail.com</a></p>
+                                        </div>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                </table>
+                                <table class="button_block" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                  <tr>
+                                    <td style="padding-bottom:15px;padding-left:15px;padding-right:15px;padding-top:10px;text-align:left;">
+                                      <!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="${this.configService.get(
+                                        'WEBSITE_URL',
+                                      )}/auth/register/complete?token=${token}" style="height:42px;width:243px;v-text-anchor:middle;" arcsize="120%" stroke="false" fillcolor="#ff5f46"><w:anchorlock/><v:textbox inset="0px,0px,0px,0px"><center style="color:#ffffff; font-family:Arial, sans-serif; font-size:16px"><![endif]--><a href="${this.configService.get(
+        'WEBSITE_URL',
+      )}/auth/register/complete?token=${token}" target="_blank" style="text-decoration:none;display:inline-block;color:#ffffff;background-color:#ff5f46;border-radius:50px;width:auto;border-top:0px solid #2B2D2D;border-right:0px solid #2B2D2D;border-bottom:0px solid #2B2D2D;border-left:0px solid #2B2D2D;padding-top:5px;padding-bottom:5px;font-family:Arial, Helvetica Neue, Helvetica, sans-serif;text-align:center;mso-border-alt:none;word-break:keep-all;"><span style="padding-left:20px;padding-right:20px;font-size:16px;display:inline-block;letter-spacing:normal;"><span style="font-size: 16px; line-height: 2; word-break: break-word; mso-line-height-alt: 32px;"><strong>Je confirme mon adresse email</strong></span></span></a>
+                                      <!--[if mso]></center></v:textbox></v:roundrect><![endif]-->
+                                    </td>
+                                  </tr>
+                                </table>
+                              </td>
+                              <td class="column column-2" width="50%" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; vertical-align: top; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;">
+                                <table class="image_block" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                  <tr>
+                                    <td style="width:100%;padding-right:0px;padding-left:0px;padding-top:5px;padding-bottom:5px;">
+                                      <div align="center" style="line-height:10px"><img src="https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/BeeProAgency/784379_768130/Pink%20Beige%20White%20Email%20Marketing%20Cheatsheet%20Facebook%20Post%20%281%29.png" style="display: block; height: auto; border: 0; width: 415px; max-width: 100%;" width="415" alt="Services Company" title="Services Company"></div>
+                                    </td>
+                                  </tr>
+                                </table>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <table class="row row-4" align="center" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                  <tbody>
+                    <tr>
+                      <td>
+                        <table class="row-content stack" align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; color: #000000; width: 830px;" width="830">
+                          <tbody>
+                            <tr>
+                              <td class="column column-1" width="100%" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; vertical-align: top; padding-top: 5px; padding-bottom: 5px; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;">
+                                <table class="paragraph_block" width="100%" border="0" cellpadding="10" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;">
+                                  <tr>
+                                    <td>
+                                      <div style="color:#393d47;direction:ltr;font-family:Arial, Helvetica Neue, Helvetica, sans-serif;font-size:14px;font-weight:400;letter-spacing:0px;line-height:120%;text-align:center;">
+                                        <p style="margin: 0;">Ou cliquez sur ce lien: <a href="${this.configService.get(
+                                          'WEBSITE_URL',
+                                        )}/auth/register/complete?token=${token}" target="_blank" style="text-decoration: underline; color: #8a3b8f;" rel="noopener">Confirmer mon adresse email</a></p>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                </table>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <table class="row row-5" align="center" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                  <tbody>
+                    <tr>
+                      <td>
+                        <table class="row-content stack" align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; color: #000000; width: 830px;" width="830">
+                          <tbody>
+                            <tr>
+                              <td class="column column-1" width="100%" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; vertical-align: top; padding-top: 5px; padding-bottom: 5px; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;">
+                                <table class="icons_block" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                  <tr>
+                                    <td style="vertical-align: middle; color: #9d9d9d; font-family: inherit; font-size: 15px; padding-bottom: 5px; padding-top: 5px; text-align: center;">
+                                      <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                        <tr>
+                                          <td style="vertical-align: middle; text-align: center;">
+                                            <!--[if vml]><table align="left" cellpadding="0" cellspacing="0" role="presentation" style="display:inline-block;padding-left:0px;padding-right:0px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;"><![endif]-->
+                                            <!--[if !vml]><!-->
+                                          </td>
+                                        </tr>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                </table>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </td>
             </tr>
           </tbody>
-        </table>
-        <!--[if mso]></div><![endif]-->
-        <!--[if IE]></div><![endif]-->
+        </table><!-- End -->
       </body>
       
       </html>
@@ -382,328 +320,265 @@ export class AuthService {
       subject: `YVANIG TOUR | Réinitialisation de votre mot de passe`,
       text: `Vous recevez cet email car vous avez demandé une réinitialisation de votre mot de passe.`,
       html: `
-      <html ⚡4email data-css-strict>
-
+      <!DOCTYPE html>
+      <html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="en">
+      
       <head>
-        <meta charset="utf-8">
-        <meta name="x-apple-disable-message-reformatting">
-        <style amp4email-boilerplate>
-          body {
-            visibility: hidden
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--[if mso]><xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch><o:AllowPNG/></o:OfficeDocumentSettings></xml><![endif]-->
+        <style>
+          * {
+            box-sizing: border-box;
           }
-        </style>
       
-        <script async src="https://cdn.ampproject.org/v0.js"></script>
-      
-      
-        <style amp-custom>
-          .u-row {
-            display: flex;
-            flex-wrap: nowrap;
-            margin-left: 0;
-            margin-right: 0;
-          }
-          
-          .u-row .u-col {
-            position: relative;
-            width: 100%;
-            padding-right: 0;
-            padding-left: 0;
-          }
-          
-          .u-row .u-col.u-col-100 {
-            flex: 0 0 100%;
-            max-width: 100%;
-          }
-          
-          @media (max-width: 767px) {
-            .u-row:not(.no-stack) {
-              flex-wrap: wrap;
-            }
-            .u-row:not(.no-stack) .u-col {
-              flex: 0 0 100%;
-              max-width: 100%;
-            }
-          }
-          
           body {
             margin: 0;
             padding: 0;
           }
-          
-          table,
-          tr,
-          td {
-            vertical-align: top;
-            border-collapse: collapse;
+      
+          a[x-apple-data-detectors] {
+            color: inherit !important;
+            text-decoration: inherit !important;
           }
-          
+      
+          #MessageViewBody a {
+            color: inherit;
+            text-decoration: none;
+          }
+      
           p {
-            margin: 0;
+            line-height: inherit
           }
-          
-          .ie-container table,
-          .mso-container table {
-            table-layout: fixed;
-          }
-          
-          * {
-            line-height: inherit;
-          }
-          
-          table,
-          td {
-            color: #000000;
-          }
-          
-          a {
-            color: #0000ee;
-            text-decoration: underline;
+      
+          @media (max-width:850px) {
+            .icons-inner {
+              text-align: center;
+            }
+      
+            .icons-inner td {
+              margin: 0 auto;
+            }
+      
+            .row-content {
+              width: 100% !important;
+            }
+      
+            .column .border {
+              display: none;
+            }
+      
+            table {
+              table-layout: fixed !important;
+            }
+      
+            .stack .column {
+              width: 100%;
+              display: block;
+            }
           }
         </style>
-      
-      
       </head>
       
-      <body class="clean-body u_body" style="margin: 0;padding: 0;background-color: #f9f9f9;color: #000000">
-        <!--[if IE]><div class="ie-container"><![endif]-->
-        <!--[if mso]><div class="mso-container"><![endif]-->
-        <table style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;vertical-align: top;min-width: 320px;Margin: 0 auto;background-color: #f9f9f9;width:100%" cellpadding="0" cellspacing="0">
+      <body style="background-color: #FFFFFF; margin: 0; padding: 0; -webkit-text-size-adjust: none; text-size-adjust: none;">
+        <table class="nl-container" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #FFFFFF;">
           <tbody>
-            <tr style="vertical-align: top">
-              <td style="word-break: break-word;border-collapse: collapse;vertical-align: top">
-                <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" style="background-color: #f9f9f9;"><![endif]-->
-      
-                <div style="padding: 0px;">
-                  <div style="max-width: 600px;margin: 0 auto;">
-                    <div class="u-row">
-      
-                      <div class="u-col u-col-100">
-                        <div style="padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
-      
-                          <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                            <tbody>
-                              <tr>
-                                <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
-      
-                                  <div style="color: #afb0c7; line-height: 170%; text-align: center; word-wrap: break-word;">
-                                    <p style="font-size: 14px; line-height: 170%;"><span style="font-size: 14px; line-height: 23.8px;">View Email in Browser</span></p>
-                                  </div>
-      
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
-      
-                        </div>
-                      </div>
-      
-                    </div>
-                  </div>
-                </div>
-      
-                <div style="padding: 0px;">
-                  <div style="max-width: 600px;margin: 0 auto;background-color: #ffffff;">
-                    <div class="u-row">
-      
-                      <div class="u-col u-col-100">
-                        <div style="padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
-      
-                          <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                            <tbody>
-                              <tr>
-                                <td style="overflow-wrap:break-word;word-break:break-word;padding:20px;font-family:'Cabin',sans-serif;" align="left">
-      
-                                  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-                                    <tr>
-                                      <td style="padding-right: 0px;padding-left: 0px;" align="center">
-      
-                                        <amp-img alt="Image" src="https://images.unlayer.com/projects/71375/1648302815498-logo.png" width="2000" height="1500" layout="intrinsic" style="width: 32%;max-width: 32%;">
-      
-                                        </amp-img>
-                                      </td>
-                                    </tr>
-                                  </table>
-      
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
-      
-                        </div>
-                      </div>
-      
-                    </div>
-                  </div>
-                </div>
-      
-                <div style="padding: 0px;">
-                  <div style="max-width: 600px;margin: 0 auto;background-color: #008080;">
-                    <div class="u-row">
-      
-                      <div class="u-col u-col-100">
-                        <div style="padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
-      
-                          <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                            <tbody>
-                              <tr>
-                                <td style="overflow-wrap:break-word;word-break:break-word;padding:40px 10px 10px;font-family:'Cabin',sans-serif;" align="left">
-      
-                                  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-                                    <tr>
-                                      <td style="padding-right: 0px;padding-left: 0px;" align="center">
-      
-                                        <amp-img alt="Image" src="https://cdn.templates.unlayer.com/assets/1597218650916-xxxxc.png" width="335" height="93" layout="intrinsic" style="width: 26%;max-width: 26%;">
-      
-                                        </amp-img>
-                                      </td>
-                                    </tr>
-                                  </table>
-      
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
-      
-                          <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                            <tbody>
-                              <tr>
-                                <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
-      
-                                  <div style="color: #e5eaf5; line-height: 140%; text-align: center; word-wrap: break-word;">
-                                    <p style="font-size: 14px; line-height: 140%;"><strong>Merci de nous avoir rejoint !</strong></p>
-                                  </div>
-      
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
-      
-                          <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                            <tbody>
-                              <tr>
-                                <td style="overflow-wrap:break-word;word-break:break-word;padding:0px 10px 31px;font-family:'Cabin',sans-serif;" align="left">
-      
-                                  <div style="color: #e5eaf5; line-height: 140%; text-align: center; word-wrap: break-word;">
-                                    <p style="font-size: 14px; line-height: 140%;"><span style="font-size: 28px; line-height: 39.2px;"><strong><span style="line-height: 39.2px; font-size: 28px;">Réinitialiser votre mot de passe</span></strong>
-                                      </span>
-                                    </p>
-                                  </div>
-      
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
-      
-                        </div>
-                      </div>
-      
-                    </div>
-                  </div>
-                </div>
-      
-                <div style="padding: 0px;">
-                  <div style="max-width: 600px;margin: 0 auto;background-color: #ffffff;">
-                    <div class="u-row">
-      
-                      <div class="u-col u-col-100">
-                        <div style="padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
-      
-                          <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                            <tbody>
-                              <tr>
-                                <td style="overflow-wrap:break-word;word-break:break-word;padding:33px 55px;font-family:'Cabin',sans-serif;" align="left">
-      
-                                  <div style="line-height: 160%; text-align: center; word-wrap: break-word;">
-                                    <p style="font-size: 14px; line-height: 160%;">Bonjour,<br />Nous avons reçu votre demande de reinitialisation de mot de passe.</p>
-                                    <p style="font-size: 14px; line-height: 160%;">Pour finaliser votre demande, cliquez sur le lien ci-dessous.</p>
-                                    <p style="font-size: 14px; line-height: 160%;">Si vous rencontrez des difficult&eacute;s pour vous connecter &agrave; votre compte, contactez-nous &agrave; yvanig-tour@gmail.com</p>
-                                  </div>
-      
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
-      
-                          <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                            <tbody>
-                              <tr>
-                                <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
-      
-                                  <div align="center">
-                                    <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing: 0; border-collapse: collapse;  font-family:'Cabin',sans-serif;"><tr><td style="font-family:'Cabin',sans-serif;" align="center"><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="http://kaymkassai.com" style="height:46px; v-text-anchor:middle; width:214px;" arcsize="8.5%" stroke="f" fillcolor="#ff5f46"><w:anchorlock/><center style="color:#FFFFFF;font-family:'Cabin',sans-serif;"><![endif]-->
-                                    <a href="${this.configService.get(
-                                      'WEBSITE_URL',
-                                    )}/auth/password/reset/?token=${token}" target="_blank" style="box-sizing: border-box;display: inline-block;font-family:'Cabin',sans-serif;text-decoration: none;text-align: center;color: #FFFFFF; background-color: #ff5f46; border-radius: 4px;  width:auto; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word; ">
-                                      <span style="display:block;padding:14px 44px 13px;line-height:120%;"><span style="font-size: 16px; line-height: 19.2px;"><strong><span style="line-height: 19.2px; font-size: 16px;">V&eacute;rifier mon email</span></strong>
-                                      </span>
-                                      </span>
-                                    </a>
-                                    <!--[if mso]></center></v:roundrect></td></tr></table><![endif]-->
-                                  </div>
-      
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
-      
-                          <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                            <tbody>
-                              <tr>
-                                <td style="overflow-wrap:break-word;word-break:break-word;padding:33px 55px 60px;font-family:'Cabin',sans-serif;" align="left">
-      
-                                  <div style="line-height: 160%; text-align: center; word-wrap: break-word;">
-                                    <p style="line-height: 160%; font-size: 14px;"><span style="font-size: 18px; line-height: 28.8px;">Cordialement,</span></p>
-                                    <p style="line-height: 160%; font-size: 14px;"><span style="font-size: 18px; line-height: 28.8px;">L'&eacute;quipe YVANIG</span></p>
-                                  </div>
-      
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
-      
-                        </div>
-                      </div>
-      
-                    </div>
-                  </div>
-                </div>
-      
-                <div style="padding: 0px;">
-                  <div style="max-width: 600px;margin: 0 auto;background-color: #e5eaf5;">
-                    <div class="u-row">
-      
-                      <div class="u-col u-col-100">
-                        <div style="padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
-      
-                        </div>
-                      </div>
-      
-                    </div>
-                  </div>
-                </div>
-      
-                <div style="padding: 0px;">
-                  <div style="max-width: 600px;margin: 0 auto;background-color: #008080;">
-                    <div class="u-row">
-      
-                      <div class="u-col u-col-100">
-                        <div style="padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
-      
-                        </div>
-                      </div>
-      
-                    </div>
-                  </div>
-                </div>
-      
-                <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
+            <tr>
+              <td>
+                <table class="row row-1" align="center" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                  <tbody>
+                    <tr>
+                      <td>
+                        <table class="row-content" align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; color: #000000; width: 830px;" width="830">
+                          <tbody>
+                            <tr>
+                              <td class="column column-1" width="100%" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; vertical-align: top; padding-top: 5px; padding-bottom: 5px; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;">
+                                <table class="divider_block" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                  <tr>
+                                    <td style="padding-bottom:5px;padding-left:5px;padding-right:5px;padding-top:10px;">
+                                      <div align="center">
+                                        <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                          <tr>
+                                            <td class="divider_inner" style="font-size: 1px; line-height: 1px; border-top: 0px solid #BBBBBB;"><span>&#8202;</span></td>
+                                          </tr>
+                                        </table>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                </table>
+                                <table class="image_block" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                  <tr>
+                                    <td style="padding-left:15px;padding-right:15px;width:100%;">
+                                      <div align="center" style="line-height:10px"><a href="${this.configService.get(
+                                        'WEBSITE_URL',
+                                      )}" target="_blank" style="outline:none" tabindex="-1"><img src="https://d15k2d11r6t6rl.cloudfront.net/public/users/BeeFree/beefree-10t6qah1e6rc/logo.png" style="display: block; height: auto; border: 0; width: 208px; max-width: 100%;" width="208" alt="Yvanig Logo" title="Yvanig Tour"></a></div>
+                                    </td>
+                                  </tr>
+                                </table>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <table class="row row-2" align="center" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #008080;">
+                  <tbody>
+                    <tr>
+                      <td>
+                        <table class="row-content stack" align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; color: #000000; width: 830px;" width="830">
+                          <tbody>
+                            <tr>
+                              <td class="column column-1" width="100%" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; vertical-align: top; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;">
+                                <table class="heading_block" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                  <tr>
+                                    <td style="text-align:center;width:100%;">
+                                      <h1 style="margin: 0; color: #393d47; direction: ltr; font-family: Arial, Helvetica Neue, Helvetica, sans-serif; font-size: 23px; font-weight: 700; letter-spacing: normal; line-height: 120%; text-align: center; margin-top: 0; margin-bottom: 0;"><span class="tinyMce-placeholder" style="color: #ffffff;">Réinitialiser votre mot de passe</span></h1>
+                                    </td>
+                                  </tr>
+                                </table>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <table class="row row-3" align="center" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                  <tbody>
+                    <tr>
+                      <td>
+                        <table class="row-content stack" align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; color: #000000; width: 830px;" width="830">
+                          <tbody>
+                            <tr>
+                              <td class="column column-1" width="50%" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; vertical-align: top; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;">
+                                <table class="divider_block" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                  <tr>
+                                    <td style="padding-bottom:20px;padding-left:20px;padding-right:20px;padding-top:25px;">
+                                      <div align="center">
+                                        <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                          <tr>
+                                            <td class="divider_inner" style="font-size: 1px; line-height: 1px; border-top: 0px solid #BBBBBB;"><span>&#8202;</span></td>
+                                          </tr>
+                                        </table>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                </table>
+                                <table class="heading_block" width="100%" border="0" cellpadding="10" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                  <tr>
+                                    <td>
+                                      <h1 style="margin: 0; color: #2b2d2d; direction: ltr; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 43px; font-weight: 400; letter-spacing: normal; line-height: 120%; text-align: left; margin-top: 0; margin-bottom: 0;"><strong>Mot de passe oublié?</strong></h1>
+                                    </td>
+                                  </tr>
+                                </table>
+                                <table class="text_block" width="100%" border="0" cellpadding="10" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;">
+                                  <tr>
+                                    <td>
+                                      <div style="font-family: sans-serif">
+                                        <div class="txtTinyMce-wrapper" style="font-size: 14px; mso-line-height-alt: 21px; color: #6f7077; line-height: 1.5; font-family: Arial, Helvetica Neue, Helvetica, sans-serif;">
+                                          <p style="margin: 0;">Pour réinitialiser votre mot de passe, cliquez sur le bouton ci-dessous.</p>
+                                          <p style="margin: 0; mso-line-height-alt: 21px;">&nbsp;</p>
+                                          <p style="margin: 0;">Si vous rencontrez des difficultés pour vous connecter à votre compte, contactez-nous à</p>
+                                          <p style="margin: 0;"><a href="mailto:yvanig-tour@gmail.com?subject=Je%20rencontre%20des%20probl%C3%A8mes%20de%20connexion" target="_blank" title="yvanig-tour@gmail.com" style="text-decoration: underline; color: #8a3b8f;" rel="noopener">yvanig-tour@gmail.com</a></p>
+                                        </div>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                </table>
+                                <table class="button_block" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                  <tr>
+                                    <td style="padding-bottom:15px;padding-left:15px;padding-right:15px;padding-top:10px;text-align:left;">
+                                      <!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="${this.configService.get(
+                                        'WEBSITE_URL',
+                                      )}/auth/password/reset?token=${token}" style="height:42px;width:243px;v-text-anchor:middle;" arcsize="120%" stroke="false" fillcolor="#ff5f46"><w:anchorlock/><v:textbox inset="0px,0px,0px,0px"><center style="color:#ffffff; font-family:Arial, sans-serif; font-size:16px"><![endif]--><a href="${this.configService.get(
+        'WEBSITE_URL',
+      )}/auth/password/reset?token=${token}" target="_blank" style="text-decoration:none;display:inline-block;color:#ffffff;background-color:#ff5f46;border-radius:50px;width:auto;border-top:0px solid #2B2D2D;border-right:0px solid #2B2D2D;border-bottom:0px solid #2B2D2D;border-left:0px solid #2B2D2D;padding-top:5px;padding-bottom:5px;font-family:Arial, Helvetica Neue, Helvetica, sans-serif;text-align:center;mso-border-alt:none;word-break:keep-all;"><span style="padding-left:20px;padding-right:20px;font-size:16px;display:inline-block;letter-spacing:normal;"><span style="font-size: 16px; line-height: 2; word-break: break-word; mso-line-height-alt: 32px;"><strong>Je réinitialise mon mot de passe</strong></span></span></a>
+                                      <!--[if mso]></center></v:textbox></v:roundrect><![endif]-->
+                                    </td>
+                                  </tr>
+                                </table>
+                              </td>
+                              <td class="column column-2" width="50%" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; vertical-align: top; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;">
+                                <table class="image_block" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                  <tr>
+                                    <td style="width:100%;padding-right:0px;padding-left:0px;padding-top:5px;padding-bottom:5px;">
+                                      <div align="center" style="line-height:10px"><img src="https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/BeeProAgency/784379_768130/Pink%20Beige%20White%20Email%20Marketing%20Cheatsheet%20Facebook%20Post%20%281%29.png" style="display: block; height: auto; border: 0; width: 415px; max-width: 100%;" width="415" alt="Services Company" title="Services Company"></div>
+                                    </td>
+                                  </tr>
+                                </table>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <table class="row row-4" align="center" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                  <tbody>
+                    <tr>
+                      <td>
+                        <table class="row-content stack" align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; color: #000000; width: 830px;" width="830">
+                          <tbody>
+                            <tr>
+                              <td class="column column-1" width="100%" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; vertical-align: top; padding-top: 5px; padding-bottom: 5px; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;">
+                                <table class="paragraph_block" width="100%" border="0" cellpadding="10" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;">
+                                  <tr>
+                                    <td>
+                                      <div style="color:#393d47;direction:ltr;font-family:Arial, Helvetica Neue, Helvetica, sans-serif;font-size:14px;font-weight:400;letter-spacing:0px;line-height:120%;text-align:center;">
+                                        <p style="margin: 0;">Ou cliquez sur ce lien: <a href="${this.configService.get(
+                                          'WEBSITE_URL',
+                                        )}/auth/password/reset?token=${token}" target="_blank" style="text-decoration: underline; color: #8a3b8f;" rel="noopener">Réinitialiser mon mot de passe</a></p>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                </table>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <table class="row row-5" align="center" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                  <tbody>
+                    <tr>
+                      <td>
+                        <table class="row-content stack" align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; color: #000000; width: 830px;" width="830">
+                          <tbody>
+                            <tr>
+                              <td class="column column-1" width="100%" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; vertical-align: top; padding-top: 5px; padding-bottom: 5px; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;">
+                                <table class="icons_block" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                  <tr>
+                                    <td style="vertical-align: middle; color: #9d9d9d; font-family: inherit; font-size: 15px; padding-bottom: 5px; padding-top: 5px; text-align: center;">
+                                      <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                        <tr>
+                                          <td style="vertical-align: middle; text-align: center;">
+                                            <!--[if vml]><table align="left" cellpadding="0" cellspacing="0" role="presentation" style="display:inline-block;padding-left:0px;padding-right:0px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;"><![endif]-->
+                                            <!--[if !vml]><!-->
+                                          </td>
+                                        </tr>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                </table>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </td>
             </tr>
           </tbody>
-        </table>
-        <!--[if mso]></div><![endif]-->
-        <!--[if IE]></div><![endif]-->
+        </table><!-- End -->
       </body>
       
       </html>

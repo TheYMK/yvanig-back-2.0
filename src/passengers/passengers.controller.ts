@@ -34,11 +34,14 @@ import { PassengersService } from './passengers.service';
 
 @ApiTags('passengers')
 @Serialize(PassengerDto)
-@Controller('api/passengers')
+@Controller({
+  path: 'api/passengers',
+  version: '1',
+})
 export class PassengersController {
   constructor(private passengersService: PassengersService) {}
 
-  // Create a new passenger
+  // LAST TIME REVIEWED: 2022-04-09
   @Post()
   @UseGuards(AdminGuard)
   @ApiCreatedResponse({
@@ -71,9 +74,9 @@ export class PassengersController {
       });
   }
 
-  // Returns all passengers
+  // LAST TIME REVIEWED: 2022-04-09
   @Get()
-  @UseGuards(AuthGuard)
+  @UseGuards(AdminGuard)
   @ApiOkResponse({
     description: 'The passengers were returned successfully',
   })
@@ -101,8 +104,8 @@ export class PassengersController {
       });
   }
 
-  // Returns a passenger by id
-  @Get(':id')
+  // LAST TIME REVIEWED: 2022-04-09
+  @Get('/me')
   @UseGuards(AuthGuard)
   @ApiOkResponse({
     description: 'The passenger was returned successfully',
@@ -113,9 +116,9 @@ export class PassengersController {
   @ApiInternalServerErrorResponse({
     description: 'Something went wrong while getting the passenger',
   })
-  async getPassenger(@Param('id', ParseIntPipe) id: number) {
+  async getPassenger(@CurrentUser() user: User) {
     return this.passengersService
-      .findOne(id)
+      .findByUser(user)
       .then((res) => {
         return res;
       })
@@ -131,7 +134,7 @@ export class PassengersController {
       });
   }
 
-  // Update a passenger if the user is the owner
+  // LAST TIME REVIEWED: 2022-04-09
   @Patch(':id')
   @UseGuards(AuthGuard)
   @ApiOkResponse({
@@ -177,7 +180,7 @@ export class PassengersController {
       });
   }
 
-  // Delete a passenger
+  // LAST TIME REVIEWED: 2022-04-09
   @Delete(':id')
   @UseGuards(AuthGuard)
   @ApiOkResponse({

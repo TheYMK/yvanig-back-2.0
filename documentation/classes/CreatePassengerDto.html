@@ -45,7 +45,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li >CreateSeatDto</li>
+  <li >CreatePassengerDto</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -63,7 +63,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/seats/dtos/create-seat.dto.ts</code>
+            <code>src/passengers/dtos/create-passenger.dto.ts</code>
         </p>
 
 
@@ -84,16 +84,16 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#class_type" >class_type</a>
+                                <a href="#date_of_birth" >date_of_birth</a>
                             </li>
                             <li>
-                                <a href="#flightId" >flightId</a>
+                                <a href="#document_number" >document_number</a>
                             </li>
                             <li>
-                                <a href="#is_available" >is_available</a>
+                                <a href="#document_type" >document_type</a>
                             </li>
                             <li>
-                                <a href="#seat_number" >seat_number</a>
+                                <a href="#gender" >gender</a>
                             </li>
                         </ul>
                     </td>
@@ -118,115 +118,10 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="class_type"></a>
+                    <a name="date_of_birth"></a>
                     <span class="name">
-                        <span ><b>class_type</b></span>
-                        <a href="#class_type"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="../miscellaneous/enumerations.html#ClassTypes" target="_self" >ClassTypes</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <b>Decorators : </b>
-                        <br />
-                        <code>
-                            @ApiProperty({type: String, description: &#x27;the class type of the seat&#x27;, enum: ClassTypes, default: &#x27;economy&#x27;})<br />@IsString()<br />@IsNotEmpty()<br />@IsEnum(ClassTypes)<br />
-                        </code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/seats/dtos/create-seat.dto.ts:46</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="flightId"></a>
-                    <span class="name">
-                        <span ><b>flightId</b></span>
-                        <a href="#flightId"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <b>Decorators : </b>
-                        <br />
-                        <code>
-                            @ApiProperty({type: Number, description: &#x27;the flight id&#x27;})<br />@IsNotEmpty()<br />@IsNumber()<br />
-                        </code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/seats/dtos/create-seat.dto.ts:54</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="is_available"></a>
-                    <span class="name">
-                        <span ><b>is_available</b></span>
-                        <a href="#is_available"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <b>Decorators : </b>
-                        <br />
-                        <code>
-                            @ApiProperty({type: Boolean, description: &#x27;the availability of the seat&#x27;, default: true})<br />@IsBoolean()<br />@IsNotEmpty()<br />
-                        </code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/seats/dtos/create-seat.dto.ts:35</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="seat_number"></a>
-                    <span class="name">
-                        <span ><b>seat_number</b></span>
-                        <a href="#seat_number"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>date_of_birth</b></span>
+                        <a href="#date_of_birth"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
@@ -241,13 +136,118 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiProperty({type: String, description: &#x27;the seat number&#x27;, default: &#x27;1A&#x27;})<br />@IsString()<br />@Length(1, 20)<br />@IsNotEmpty()<br />
+                            @ApiProperty({type: String, description: &#x27;the date of birth of the passenger&#x27;, default: &#x27;1990-01-01&#x27;})<br />@IsString()<br />@IsNotEmpty()<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/seats/dtos/create-seat.dto.ts:26</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/passengers/dtos/create-passenger.dto.ts:34</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="document_number"></a>
+                    <span class="name">
+                        <span ><b>document_number</b></span>
+                        <a href="#document_number"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ApiProperty({type: String, description: &#x27;the number of the document&#x27;, default: &#x27;123456789&#x27;})<br />@IsString()<br />@IsNotEmpty()<br />@Length(1, 200)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/passengers/dtos/create-passenger.dto.ts:25</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="document_type"></a>
+                    <span class="name">
+                        <span ><b>document_type</b></span>
+                        <a href="#document_type"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/enumerations.html#DocumentTypes" target="_self" >DocumentTypes</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ApiProperty({type: String, description: &#x27;the type of documented used to identify the passenger&#x27;, enum: DocumentTypes, default: undefined})<br />@IsString()<br />@IsNotEmpty()<br />@IsEnum(DocumentTypes)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/passengers/dtos/create-passenger.dto.ts:15</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="gender"></a>
+                    <span class="name">
+                        <span ><b>gender</b></span>
+                        <a href="#gender"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/enumerations.html#Genders" target="_self" >Genders</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ApiProperty({type: String, description: &#x27;the gender of the passenger&#x27;, enum: Genders})<br />@IsString()<br />@IsNotEmpty()<br />@IsEnum(Genders)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/passengers/dtos/create-passenger.dto.ts:44</a></div>
                         </td>
                     </tr>
 
@@ -267,59 +267,49 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty } from &#x27;@nestjs/swagger&#x27;;
-import {
-  IsBoolean,
-  IsEnum,
-  IsNotEmpty,
-  IsNumber,
-  IsString,
-  Length,
-} from &#x27;class-validator&#x27;;
+import { IsEnum, IsNotEmpty, IsString, Length } from &#x27;class-validator&#x27;;
+import { DocumentTypes, Genders } from &#x27;../passenger.entity&#x27;;
 
-export enum ClassTypes {
-  FIRST &#x3D; &#x27;first&#x27;,
-  BUSINESS &#x3D; &#x27;business&#x27;,
-  ECONOMY &#x3D; &#x27;economy&#x27;,
-}
-
-export class CreateSeatDto {
+export class CreatePassengerDto {
   @ApiProperty({
     type: String,
-    description: &#x27;the seat number&#x27;,
-    default: &#x27;1A&#x27;,
-  })
-  @IsString()
-  @Length(1, 20)
-  @IsNotEmpty()
-  seat_number: string;
-
-  @ApiProperty({
-    type: Boolean,
-    description: &#x27;the availability of the seat&#x27;,
-    default: true,
-  })
-  @IsBoolean()
-  @IsNotEmpty()
-  is_available: boolean;
-
-  @ApiProperty({
-    type: String,
-    description: &#x27;the class type of the seat&#x27;,
-    enum: ClassTypes,
-    default: &#x27;economy&#x27;,
+    description: &#x27;the type of documented used to identify the passenger&#x27;,
+    enum: DocumentTypes,
+    default: DocumentTypes.PASSPORT,
   })
   @IsString()
   @IsNotEmpty()
-  @IsEnum(ClassTypes)
-  class_type: ClassTypes;
+  @IsEnum(DocumentTypes)
+  document_type: DocumentTypes;
 
   @ApiProperty({
-    type: Number,
-    description: &#x27;the flight id&#x27;,
+    type: String,
+    description: &#x27;the number of the document&#x27;,
+    default: &#x27;123456789&#x27;,
   })
+  @IsString()
   @IsNotEmpty()
-  @IsNumber()
-  flightId: number;
+  @Length(1, 200)
+  document_number: string;
+
+  @ApiProperty({
+    type: String,
+    description: &#x27;the date of birth of the passenger&#x27;,
+    default: &#x27;1990-01-01&#x27;,
+  })
+  @IsString()
+  @IsNotEmpty()
+  date_of_birth: string;
+
+  @ApiProperty({
+    type: String,
+    description: &#x27;the gender of the passenger&#x27;,
+    enum: Genders,
+  })
+  @IsString()
+  @IsNotEmpty()
+  @IsEnum(Genders)
+  gender: Genders;
 }
 </code></pre>
     </div>
@@ -359,7 +349,7 @@ export class CreateSeatDto {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
-            var COMPODOC_CURRENT_PAGE_URL = 'CreateSeatDto.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'CreatePassengerDto.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
