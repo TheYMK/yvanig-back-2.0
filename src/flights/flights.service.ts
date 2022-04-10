@@ -16,7 +16,9 @@ export class FlightsService {
   async create(flight: CreateFlightDto) {
     try {
       const newFlight = this.repo.create(flight);
-      return this.repo.save(newFlight);
+      const createdFlight = await this.repo.save(newFlight);
+
+      return createdFlight;
     } catch (err) {
       throw new BadRequestException('Failed to create a new flight');
     }
@@ -32,7 +34,8 @@ export class FlightsService {
     Object.assign(foundFlight, attrs);
 
     try {
-      return this.repo.save(foundFlight);
+      const updatedFlight = await this.repo.save(foundFlight);
+      return updatedFlight;
     } catch (err) {
       throw new BadRequestException('Failed to update the flight');
     }
@@ -78,7 +81,8 @@ export class FlightsService {
     }
 
     try {
-      return this.repo.remove(flight);
+      const removedFlight = await this.repo.remove(flight);
+      return removedFlight;
     } catch (err) {
       throw new BadRequestException('Failed to delete the flight');
     }

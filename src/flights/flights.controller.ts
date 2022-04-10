@@ -36,8 +36,7 @@ import { FlightsService } from './flights.service';
 export class FlightsController {
   constructor(private flightsService: FlightsService) {}
 
-  // LAST TIME REVIEWED: 2022-04-03
-  // Creates a new flight and returns the created flight only for admin user
+  // LAST TIME REVIEWED: 2022-04-09
   @Post()
   @UseGuards(AdminGuard)
   @ApiCreatedResponse({
@@ -67,8 +66,7 @@ export class FlightsController {
       });
   }
 
-  // LAST TIME REVIEWED: 2022-04-03
-  // Update flight and returns the updated flight only for admin user
+  // LAST TIME REVIEWED: 2022-04-09
   @Patch('/:id')
   @UseGuards(AdminGuard)
   @ApiOkResponse({
@@ -106,8 +104,7 @@ export class FlightsController {
       });
   }
 
-  // LAST TIME REVIEWED: 2022-04-03
-  // Returns all flights
+  // LAST TIME REVIEWED: 2022-04-09
   @Get()
   @ApiOkResponse({
     description: 'The flights were found successfully',
@@ -136,8 +133,7 @@ export class FlightsController {
       });
   }
 
-  // LAST TIME REVIEWED: 2022-04-03
-  // Returns a flight by id
+  // LAST TIME REVIEWED: 2022-04-09
   @Get('/:id')
   @ApiOkResponse({
     description: 'The flight was found successfully',
@@ -166,8 +162,7 @@ export class FlightsController {
       });
   }
 
-  // LAST TIME REVIEWED: 2022-04-03
-  // Deletes a flight by id
+  // LAST TIME REVIEWED: 2022-04-09
   @Delete('/:id')
   @UseGuards(AdminGuard)
   @HttpCode(200)
