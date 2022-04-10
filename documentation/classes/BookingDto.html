@@ -45,7 +45,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li >CreateSeatDto</li>
+  <li >BookingDto</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -63,7 +63,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/seats/dtos/create-seat.dto.ts</code>
+            <code>src/bookings/dtos/booking.dto.ts</code>
         </p>
 
 
@@ -84,16 +84,28 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#class_type" >class_type</a>
+                                <a href="#booking_type" >booking_type</a>
+                            </li>
+                            <li>
+                                <a href="#created_at" >created_at</a>
                             </li>
                             <li>
                                 <a href="#flightId" >flightId</a>
                             </li>
                             <li>
-                                <a href="#is_available" >is_available</a>
+                                <a href="#id" >id</a>
                             </li>
                             <li>
-                                <a href="#seat_number" >seat_number</a>
+                                <a href="#passengerId" >passengerId</a>
+                            </li>
+                            <li>
+                                <a href="#price" >price</a>
+                            </li>
+                            <li>
+                                <a href="#seatId" >seatId</a>
+                            </li>
+                            <li>
+                                <a href="#updated_at" >updated_at</a>
                             </li>
                         </ul>
                     </td>
@@ -118,16 +130,16 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="class_type"></a>
+                    <a name="booking_type"></a>
                     <span class="name">
-                        <span ><b>class_type</b></span>
-                        <a href="#class_type"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>booking_type</b></span>
+                        <a href="#booking_type"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="../miscellaneous/enumerations.html#ClassTypes" target="_self" >ClassTypes</a></code>
+                        <i>Type : </i>        <code><a href="../classes/Booking.html" target="_self" >BookingTypes</a></code>
 
                     </td>
                 </tr>
@@ -136,13 +148,48 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiProperty({type: String, description: &#x27;the class type of the seat&#x27;, enum: ClassTypes, default: &#x27;economy&#x27;})<br />@IsString()<br />@IsNotEmpty()<br />@IsEnum(ClassTypes)<br />
+                            @Expose()<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/seats/dtos/create-seat.dto.ts:46</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/bookings/dtos/booking.dto.ts:9</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="created_at"></a>
+                    <span class="name">
+                        <span ><b>created_at</b></span>
+                        <a href="#created_at"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Expose()<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/bookings/dtos/booking.dto.ts:15</a></div>
                         </td>
                     </tr>
 
@@ -171,13 +218,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiProperty({type: Number, description: &#x27;the flight id&#x27;})<br />@IsNotEmpty()<br />@IsNumber()<br />
+                            @Transform( &#x3D;&gt; undefined.id)<br />@Expose()<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/seats/dtos/create-seat.dto.ts:54</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/bookings/dtos/booking.dto.ts:22</a></div>
                         </td>
                     </tr>
 
@@ -188,16 +235,16 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="is_available"></a>
+                    <a name="id"></a>
                     <span class="name">
-                        <span ><b>is_available</b></span>
-                        <a href="#is_available"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>id</b></span>
+                        <a href="#id"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
 
                     </td>
                 </tr>
@@ -206,13 +253,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiProperty({type: Boolean, description: &#x27;the availability of the seat&#x27;, default: true})<br />@IsBoolean()<br />@IsNotEmpty()<br />
+                            @Expose()<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/seats/dtos/create-seat.dto.ts:35</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">src/bookings/dtos/booking.dto.ts:6</a></div>
                         </td>
                     </tr>
 
@@ -223,16 +270,16 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="seat_number"></a>
+                    <a name="passengerId"></a>
                     <span class="name">
-                        <span ><b>seat_number</b></span>
-                        <a href="#seat_number"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>passengerId</b></span>
+                        <a href="#passengerId"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
 
                     </td>
                 </tr>
@@ -241,13 +288,118 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiProperty({type: String, description: &#x27;the seat number&#x27;, default: &#x27;1A&#x27;})<br />@IsString()<br />@Length(1, 20)<br />@IsNotEmpty()<br />
+                            @Transform( &#x3D;&gt; undefined.id)<br />@Expose()<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/seats/dtos/create-seat.dto.ts:26</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/bookings/dtos/booking.dto.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="price"></a>
+                    <span class="name">
+                        <span ><b>price</b></span>
+                        <a href="#price"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Expose()<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/bookings/dtos/booking.dto.ts:12</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="seatId"></a>
+                    <span class="name">
+                        <span ><b>seatId</b></span>
+                        <a href="#seatId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Transform( &#x3D;&gt; undefined.id)<br />@Expose()<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/bookings/dtos/booking.dto.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updated_at"></a>
+                    <span class="name">
+                        <span ><b>updated_at</b></span>
+                        <a href="#updated_at"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Expose()<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/bookings/dtos/booking.dto.ts:18</a></div>
                         </td>
                     </tr>
 
@@ -266,60 +418,36 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty } from &#x27;@nestjs/swagger&#x27;;
-import {
-  IsBoolean,
-  IsEnum,
-  IsNotEmpty,
-  IsNumber,
-  IsString,
-  Length,
-} from &#x27;class-validator&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Expose, Transform } from &#x27;class-transformer&#x27;;
+import { BookingTypes } from &#x27;../booking.entity&#x27;;
 
-export enum ClassTypes {
-  FIRST &#x3D; &#x27;first&#x27;,
-  BUSINESS &#x3D; &#x27;business&#x27;,
-  ECONOMY &#x3D; &#x27;economy&#x27;,
-}
+export class BookingDto {
+  @Expose()
+  id: number;
 
-export class CreateSeatDto {
-  @ApiProperty({
-    type: String,
-    description: &#x27;the seat number&#x27;,
-    default: &#x27;1A&#x27;,
-  })
-  @IsString()
-  @Length(1, 20)
-  @IsNotEmpty()
-  seat_number: string;
+  @Expose()
+  booking_type: BookingTypes;
 
-  @ApiProperty({
-    type: Boolean,
-    description: &#x27;the availability of the seat&#x27;,
-    default: true,
-  })
-  @IsBoolean()
-  @IsNotEmpty()
-  is_available: boolean;
+  @Expose()
+  price: number;
 
-  @ApiProperty({
-    type: String,
-    description: &#x27;the class type of the seat&#x27;,
-    enum: ClassTypes,
-    default: &#x27;economy&#x27;,
-  })
-  @IsString()
-  @IsNotEmpty()
-  @IsEnum(ClassTypes)
-  class_type: ClassTypes;
+  @Expose()
+  created_at: Date;
 
-  @ApiProperty({
-    type: Number,
-    description: &#x27;the flight id&#x27;,
-  })
-  @IsNotEmpty()
-  @IsNumber()
+  @Expose()
+  updated_at: Date;
+
+  @Transform(({ obj }) &#x3D;&gt; obj.flight.id)
+  @Expose()
   flightId: number;
+
+  @Transform(({ obj }) &#x3D;&gt; obj.seat.id)
+  @Expose()
+  seatId: number;
+
+  @Transform(({ obj }) &#x3D;&gt; obj.passenger.id)
+  @Expose()
+  passengerId: number;
 }
 </code></pre>
     </div>
@@ -359,7 +487,7 @@ export class CreateSeatDto {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
-            var COMPODOC_CURRENT_PAGE_URL = 'CreateSeatDto.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'BookingDto.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

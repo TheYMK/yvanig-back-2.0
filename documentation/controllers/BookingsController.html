@@ -38,7 +38,7 @@
 
 <ol class="breadcrumb">
   <li>Controllers</li>
-  <li >SeatsController</li>
+  <li >BookingsController</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -56,7 +56,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/seats/seats.controller.ts</code>
+            <code>src/bookings/bookings.controller.ts</code>
         </p>
 
 
@@ -80,23 +80,23 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#createSeat" >createSeat</a>
+                                <a href="#createBooking" >createBooking</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#deleteSeat" >deleteSeat</a>
+                                <a href="#deleteBooking" >deleteBooking</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#getSeat" >getSeat</a>
+                                <a href="#getAllBookings" >getAllBookings</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#getSeats" >getSeats</a>
+                                <a href="#getBooking" >getBooking</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#updateSeat" >updateSeat</a>
+                                <a href="#updateBooking" >updateBooking</a>
                             </li>
                         </ul>
                     </td>
@@ -119,18 +119,18 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="createSeat"></a>
+                    <a name="createBooking"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
-                        <span ><b>createSeat</b></span>
-                        <a href="#createSeat"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>createBooking</b></span>
+                        <a href="#createBooking"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>createSeat(body: <a href="../classes/CreateSeatDto.html" target="_self">CreateSeatDto</a>)</code>
+                    <code>createBooking(body: <a href="../classes/CreateBookingDto.html" target="_self">CreateBookingDto</a>, user: <a href="../classes/User.html" target="_self">User</a>)</code>
                 </td>
             </tr>
 
@@ -138,14 +138,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Post()<br />@UseGuards(AdminGuard)<br />@ApiCreatedResponse({description: &#x27;The seat was created successfully&#x27;})<br />@ApiBadRequestResponse({description: &#x27;Failed to create the seat&#x27;})<br />@ApiNotFoundResponse({description: &#x27;Flight not found&#x27;})<br />@ApiInternalServerErrorResponse({description: &#x27;Something went wrong while creating a new seat&#x27;})<br /></code>
+                    <code>@Post()<br />@Serialize(BookingDto)<br />@UseGuards(AuthGuard)<br />@ApiCreatedResponse({description: &#x27;The booking was created successfully&#x27;})<br />@ApiBadRequestResponse({description: &#x27;Failed to create a new booking | Failed to get the passenger | Failed to create a new passenger | Failed to update the seat&#x27;})<br />@ApiNotFoundResponse({description: &#x27;Flight not found | Seat not found or not available | Seat not found&#x27;})<br />@ApiInternalServerErrorResponse({description: &#x27;Something went wrong while creating a new booking&#x27;})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="55"
-                            class="link-to-prism">src/seats/seats.controller.ts:55</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="64"
+                            class="link-to-prism">src/bookings/bookings.controller.ts:64</a></div>
                 </td>
             </tr>
 
@@ -168,7 +168,19 @@
                                 <tr>
                                     <td>body</td>
                                     <td>
-                                                <code><a href="../classes/CreateSeatDto.html" target="_self" >CreateSeatDto</a></code>
+                                                <code><a href="../classes/CreateBookingDto.html" target="_self" >CreateBookingDto</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>user</td>
+                                    <td>
+                                                <code><a href="../classes/User.html" target="_self" >User</a></code>
                                     </td>
 
                                     <td>
@@ -197,18 +209,18 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="deleteSeat"></a>
+                    <a name="deleteBooking"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
-                        <span ><b>deleteSeat</b></span>
-                        <a href="#deleteSeat"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>deleteBooking</b></span>
+                        <a href="#deleteBooking"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>deleteSeat(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                    <code>deleteBooking(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, user: <a href="../classes/User.html" target="_self">User</a>)</code>
                 </td>
             </tr>
 
@@ -216,14 +228,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Delete(&#x27;/:id&#x27;)<br />@UseGuards(AdminGuard)<br />@ApiOkResponse({description: &#x27;The seat was deleted successfully&#x27;})<br />@ApiNotFoundResponse({description: &#x27;Seat not found&#x27;})<br />@ApiBadRequestResponse({description: &#x27;Failed to delete the seat&#x27;})<br />@ApiInternalServerErrorResponse({description: &#x27;Something went wrong while deleting the seat&#x27;})<br /></code>
+                    <code>@Delete(&#x27;/:id&#x27;)<br />@UseGuards(AuthGuard)<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="190"
-                            class="link-to-prism">src/seats/seats.controller.ts:190</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="255"
+                            class="link-to-prism">src/bookings/bookings.controller.ts:255</a></div>
                 </td>
             </tr>
 
@@ -255,6 +267,18 @@
 
 
                                 </tr>
+                                <tr>
+                                    <td>user</td>
+                                    <td>
+                                                <code><a href="../classes/User.html" target="_self" >User</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -275,18 +299,18 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getSeat"></a>
+                    <a name="getAllBookings"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
-                        <span ><b>getSeat</b></span>
-                        <a href="#getSeat"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>getAllBookings</b></span>
+                        <a href="#getAllBookings"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getSeat(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                    <code>getAllBookings(query: <a href="../classes/GetBookingsDto.html" target="_self">GetBookingsDto</a>)</code>
                 </td>
             </tr>
 
@@ -294,14 +318,92 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Get(&#x27;/:id&#x27;)<br />@ApiOkResponse({description: &#x27;The seat was found successfully&#x27;})<br />@ApiNotFoundResponse({description: &#x27;Seat not found&#x27;})<br />@ApiInternalServerErrorResponse({description: &#x27;Something went wrong while getting the seat&#x27;})<br /></code>
+                    <code>@Get()<br />@UseGuards(AdminGuard)<br />@ApiOkResponse({description: &#x27;The bookings were found successfully&#x27;})<br />@ApiBadRequestResponse({description: &#x27;Failed to get the bookings&#x27;})<br />@ApiInternalServerErrorResponse({description: &#x27;Something went wrong while getting the bookings&#x27;})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="117"
-                            class="link-to-prism">src/seats/seats.controller.ts:117</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="119"
+                            class="link-to-prism">src/bookings/bookings.controller.ts:119</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>query</td>
+                                    <td>
+                                                <code><a href="../classes/GetBookingsDto.html" target="_self" >GetBookingsDto</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>unknown</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getBooking"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>getBooking</b></span>
+                        <a href="#getBooking"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getBooking(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, user: <a href="../classes/User.html" target="_self">User</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get(&#x27;/:id&#x27;)<br />@Serialize(BookingDto)<br />@UseGuards(AuthGuard)<br />@ApiOkResponse({description: &#x27;The booking was found successfully&#x27;})<br />@ApiBadRequestResponse({description: &#x27;Failed to get the passenger&#x27;})<br />@ApiNotFoundResponse({description: &#x27;Booking not found | Passenger not found&#x27;})<br />@ApiUnauthorizedResponse({description: &#x27;You are not allowed to view this booking&#x27;})<br />@ApiInternalServerErrorResponse({description: &#x27;Something went wrong while getting the booking&#x27;})<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="157"
+                            class="link-to-prism">src/bookings/bookings.controller.ts:157</a></div>
                 </td>
             </tr>
 
@@ -333,6 +435,18 @@
 
 
                                 </tr>
+                                <tr>
+                                    <td>user</td>
+                                    <td>
+                                                <code><a href="../classes/User.html" target="_self" >User</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -353,18 +467,18 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getSeats"></a>
+                    <a name="updateBooking"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
-                        <span ><b>getSeats</b></span>
-                        <a href="#getSeats"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>updateBooking</b></span>
+                        <a href="#updateBooking"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getSeats()</code>
+                    <code>updateBooking(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, body: <a href="../classes/UpdateBookingDto.html" target="_self">UpdateBookingDto</a>, user: <a href="../classes/User.html" target="_self">User</a>)</code>
                 </td>
             </tr>
 
@@ -372,60 +486,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Get()<br />@ApiOkResponse({description: &#x27;The seats were found successfully&#x27;})<br />@ApiBadRequestResponse({description: &#x27;Failed to get the seats&#x27;})<br />@ApiInternalServerErrorResponse({description: &#x27;Something went wrong while getting the seats&#x27;})<br /></code>
+                    <code>@Patch(&#x27;/:id&#x27;)<br />@Serialize(BookingDto)<br />@UseGuards(AuthGuard)<br />@ApiOkResponse({description: &#x27;The booking was updated successfully&#x27;})<br />@ApiBadRequestResponse({description: &#x27;Failed to update the booking | A new seat id is required&#x27;})<br />@ApiNotFoundResponse({description: &#x27;Booking not found | Passenger not found | Seat not found or not available| Flight not found&#x27;})<br />@ApiUnauthorizedResponse({description: &#x27;You are not allowed to update this booking&#x27;})<br />@ApiInternalServerErrorResponse({description: &#x27;Something went wrong while updating the booking&#x27;})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="87"
-                            class="link-to-prism">src/seats/seats.controller.ts:87</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>unknown</code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="updateSeat"></a>
-                    <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>updateSeat</b></span>
-                        <a href="#updateSeat"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>updateSeat(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, body: <a href="../classes/UpdateSeatDto.html" target="_self">UpdateSeatDto</a>)</code>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <b>Decorators : </b>
-                    <br />
-                    <code>@Patch(&#x27;/:id&#x27;)<br />@UseGuards(AdminGuard)<br />@ApiOkResponse({description: &#x27;The seat was updated successfully&#x27;})<br />@ApiNotFoundResponse({description: &#x27;Seat not found&#x27;})<br />@ApiBadRequestResponse({description: &#x27;Failed to update the seat&#x27;})<br />@ApiInternalServerErrorResponse({description: &#x27;Something went wrong while updating the seat&#x27;})<br /></code>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="151"
-                            class="link-to-prism">src/seats/seats.controller.ts:151</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="209"
+                            class="link-to-prism">src/bookings/bookings.controller.ts:209</a></div>
                 </td>
             </tr>
 
@@ -460,7 +528,19 @@
                                 <tr>
                                     <td>body</td>
                                     <td>
-                                                <code><a href="../classes/UpdateSeatDto.html" target="_self" >UpdateSeatDto</a></code>
+                                                <code><a href="../classes/UpdateBookingDto.html" target="_self" >UpdateBookingDto</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>user</td>
+                                    <td>
+                                                <code><a href="../classes/User.html" target="_self" >User</a></code>
                                     </td>
 
                                     <td>
@@ -501,6 +581,8 @@
   ParseIntPipe,
   Patch,
   Post,
+  Query,
+  UnauthorizedException,
   UseGuards,
 } from &#x27;@nestjs/common&#x27;;
 import {
@@ -510,189 +592,263 @@ import {
   ApiNotFoundResponse,
   ApiOkResponse,
   ApiTags,
+  ApiUnauthorizedResponse,
 } from &#x27;@nestjs/swagger&#x27;;
 import { AdminGuard } from &#x27;src/guards/admin.guard&#x27;;
+import { AuthGuard } from &#x27;src/guards/auth.guard&#x27;;
 import { Serialize } from &#x27;src/interceptors/serialize.interceptor&#x27;;
-import { CreateSeatDto } from &#x27;./dtos/create-seat.dto&#x27;;
-import { SeatDto } from &#x27;./dtos/seat.dto&#x27;;
-import { UpdateSeatDto } from &#x27;./dtos/update-seat.dto&#x27;;
-import { SeatsService } from &#x27;./seats.service&#x27;;
+import { CurrentUser } from &#x27;src/users/decorators/current-user.decorator&#x27;;
+import { User } from &#x27;src/users/user.entity&#x27;;
+import { BookingsService } from &#x27;./bookings.service&#x27;;
+import { BookingDto } from &#x27;./dtos/booking.dto&#x27;;
+import { CreateBookingDto } from &#x27;./dtos/create-booking.dto&#x27;;
+import { GetBookingsDto } from &#x27;./dtos/get-bookings.dto&#x27;;
+import { UpdateBookingDto } from &#x27;./dtos/update-booking.dto&#x27;;
 
-@ApiTags(&#x27;seats&#x27;)
-@Serialize(SeatDto)
+// LAST TIME REVIEWED: 2022-04-10
+@ApiTags(&#x27;bookings&#x27;)
 @Controller({
-  path: &#x27;api/seats&#x27;,
+  path: &#x27;api/bookings&#x27;,
   version: &#x27;1&#x27;,
 })
-export class SeatsController {
-  constructor(private seatsService: SeatsService) {}
+export class BookingsController {
+  constructor(private bookingsService: BookingsService) {}
 
-  // LAST TIME REVIEWED: 2022-04-10
-  // Creates a new seat and returns the created seat only for admin user
+  // Creates a new booking
   @Post()
-  @UseGuards(AdminGuard)
+  @Serialize(BookingDto)
+  @UseGuards(AuthGuard)
   @ApiCreatedResponse({
-    description: &#x27;The seat was created successfully&#x27;,
+    description: &#x27;The booking was created successfully&#x27;,
   })
   @ApiBadRequestResponse({
-    description: &#x27;Failed to create the seat&#x27;,
+    description:
+      &#x27;Failed to create a new booking | Failed to get the passenger | Failed to create a new passenger | Failed to update the seat&#x27;,
   })
   @ApiNotFoundResponse({
-    description: &#x27;Flight not found&#x27;,
+    description:
+      &#x27;Flight not found | Seat not found or not available | Seat not found&#x27;,
   })
   @ApiInternalServerErrorResponse({
-    description: &#x27;Something went wrong while creating a new seat&#x27;,
+    description: &#x27;Something went wrong while creating a new booking&#x27;,
   })
-  async createSeat(@Body() body: CreateSeatDto) {
-    return this.seatsService
-      .create(body)
-      .then((res) &#x3D;&gt; {
-        return res;
-      })
-      .catch((err) &#x3D;&gt; {
-        switch (err.response?.statusCode) {
-          case 400:
-            throw new BadRequestException(&#x27;Failed to create the seat&#x27;);
-          case 404:
-            throw new NotFoundException(&#x27;Flight not found&#x27;);
-          default:
-            throw new InternalServerErrorException(
-              &#x27;Something went wrong while creating a new seat&#x27;,
-            );
-        }
-      });
-  }
-
-  // LAST TIME REVIEWED: 2022-04-10
-  // Returns all seats
-  @Get()
-  @ApiOkResponse({
-    description: &#x27;The seats were found successfully&#x27;,
-  })
-  @ApiBadRequestResponse({
-    description: &#x27;Failed to get the seats&#x27;,
-  })
-  @ApiInternalServerErrorResponse({
-    description: &#x27;Something went wrong while getting the seats&#x27;,
-  })
-  async getSeats() {
-    return this.seatsService
-      .findAll()
-      .then((res) &#x3D;&gt; {
-        return res;
-      })
-      .catch((err) &#x3D;&gt; {
-        switch (err.response?.statusCode) {
-          case 400:
-            throw new BadRequestException(&#x27;Failed to get the seats&#x27;);
-          default:
-            throw new InternalServerErrorException(
-              &#x27;Something went wrong while getting the seats&#x27;,
-            );
-        }
-      });
-  }
-
-  // LAST TIME REVIEWED: 2022-04-10
-  // Returns a single seat
-  @Get(&#x27;/:id&#x27;)
-  @ApiOkResponse({
-    description: &#x27;The seat was found successfully&#x27;,
-  })
-  @ApiNotFoundResponse({
-    description: &#x27;Seat not found&#x27;,
-  })
-  @ApiInternalServerErrorResponse({
-    description: &#x27;Something went wrong while getting the seat&#x27;,
-  })
-  async getSeat(@Param(&#x27;id&#x27;, ParseIntPipe) id: number) {
-    return this.seatsService
-      .findOne(id)
-      .then((res) &#x3D;&gt; {
-        return res;
-      })
-      .catch((err) &#x3D;&gt; {
-        switch (err.response?.statusCode) {
-          case 404:
-            throw new NotFoundException(&#x27;Seat not found&#x27;);
-          default:
-            throw new InternalServerErrorException(
-              &#x27;Something went wrong while getting the seat&#x27;,
-            );
-        }
-      });
-  }
-
-  // LAST TIME REVIEWED: 2022-04-10
-  // Updates a single seat and returns the updated seat only for admin user
-  @Patch(&#x27;/:id&#x27;)
-  @UseGuards(AdminGuard)
-  @ApiOkResponse({
-    description: &#x27;The seat was updated successfully&#x27;,
-  })
-  @ApiNotFoundResponse({
-    description: &#x27;Seat not found&#x27;,
-  })
-  @ApiBadRequestResponse({
-    description: &#x27;Failed to update the seat&#x27;,
-  })
-  @ApiInternalServerErrorResponse({
-    description: &#x27;Something went wrong while updating the seat&#x27;,
-  })
-  async updateSeat(
-    @Param(&#x27;id&#x27;, ParseIntPipe) id: number,
-    @Body() body: UpdateSeatDto,
+  async createBooking(
+    @Body() body: CreateBookingDto,
+    @CurrentUser() user: User,
   ) {
-    return this.seatsService
-      .update(id, body)
-      .then((res) &#x3D;&gt; {
+    return this.bookingsService
+      .create(body, user)
+      .then(async (res) &#x3D;&gt; {
         return res;
       })
-      .catch((err) &#x3D;&gt; {
+      .catch(async (err) &#x3D;&gt; {
         switch (err.response?.statusCode) {
           case 404:
-            throw new NotFoundException(&#x27;Seat not found&#x27;);
+            if (err.response?.message &#x3D;&#x3D;&#x3D; &#x27;Flight not found&#x27;) {
+              throw new NotFoundException(&#x27;Flight not found&#x27;);
+            } else if (
+              err.response?.message &#x3D;&#x3D;&#x3D; &#x27;Seat not found or not available&#x27; ||
+              err.response?.message &#x3D;&#x3D;&#x3D; &#x27;Seat not found&#x27;
+            ) {
+              throw new NotFoundException(&#x27;Seat not found or not available&#x27;);
+            }
           case 400:
-            throw new BadRequestException(&#x27;Failed to update the seat&#x27;);
+            if (err.response?.message &#x3D;&#x3D;&#x3D; &#x27;Failed to get the passengers&#x27;) {
+              throw new BadRequestException(&#x27;Failed to get the passenger&#x27;);
+            } else if (
+              err.response?.message &#x3D;&#x3D;&#x3D; &#x27;Failed to create a new passenger&#x27;
+            ) {
+              throw new BadRequestException(&#x27;Failed to create a new passenger&#x27;);
+            } else if (
+              err.response?.message &#x3D;&#x3D;&#x3D; &#x27;Failed to create a new booking&#x27;
+            ) {
+              throw new BadRequestException(&#x27;Failed to create a new booking&#x27;);
+            } else if (err.response?.message &#x3D;&#x3D;&#x3D; &#x27;Failed to update the seat&#x27;) {
+              throw new BadRequestException(&#x27;Failed to update the seat&#x27;);
+            }
           default:
             throw new InternalServerErrorException(
-              &#x27;Something went wrong while updating the seat&#x27;,
+              &#x27;Something went wrong while creating a new booking&#x27;,
             );
         }
       });
   }
 
   // LAST TIME REVIEWED: 2022-04-10
-  // Deletes a single seat and returns the deleted seat only for admin user
-  @Delete(&#x27;/:id&#x27;)
+  // Returns all bookings
+  @Get()
   @UseGuards(AdminGuard)
   @ApiOkResponse({
-    description: &#x27;The seat was deleted successfully&#x27;,
-  })
-  @ApiNotFoundResponse({
-    description: &#x27;Seat not found&#x27;,
+    description: &#x27;The bookings were found successfully&#x27;,
   })
   @ApiBadRequestResponse({
-    description: &#x27;Failed to delete the seat&#x27;,
+    description: &#x27;Failed to get the bookings&#x27;,
   })
   @ApiInternalServerErrorResponse({
-    description: &#x27;Something went wrong while deleting the seat&#x27;,
+    description: &#x27;Something went wrong while getting the bookings&#x27;,
   })
-  async deleteSeat(@Param(&#x27;id&#x27;, ParseIntPipe) id: number) {
-    return this.seatsService
-      .delete(id)
+  async getAllBookings(@Query() query: GetBookingsDto) {
+    return this.bookingsService
+      .findAll(query)
       .then((res) &#x3D;&gt; {
         return res;
       })
       .catch((err) &#x3D;&gt; {
         switch (err.response?.statusCode) {
-          case 404:
-            throw new NotFoundException(&#x27;Seat not found&#x27;);
           case 400:
-            throw new BadRequestException(&#x27;Failed to delete the seat&#x27;);
+            throw new BadRequestException(&#x27;Failed to get the bookings&#x27;);
           default:
             throw new InternalServerErrorException(
-              &#x27;Something went wrong while deleting the seat&#x27;,
+              &#x27;Something went wrong while getting the bookings&#x27;,
+            );
+        }
+      });
+  }
+
+  // LAST TIME REVIEWED: 2022-04-10
+  // Returns a booking
+  @Get(&#x27;/:id&#x27;)
+  @Serialize(BookingDto)
+  @UseGuards(AuthGuard)
+  @ApiOkResponse({
+    description: &#x27;The booking was found successfully&#x27;,
+  })
+  @ApiBadRequestResponse({
+    description: &#x27;Failed to get the passenger&#x27;,
+  })
+  @ApiNotFoundResponse({
+    description: &#x27;Booking not found | Passenger not found&#x27;,
+  })
+  @ApiUnauthorizedResponse({
+    description: &#x27;You are not allowed to view this booking&#x27;,
+  })
+  @ApiInternalServerErrorResponse({
+    description: &#x27;Something went wrong while getting the booking&#x27;,
+  })
+  async getBooking(
+    @Param(&#x27;id&#x27;, ParseIntPipe) id: number,
+    @CurrentUser() user: User,
+  ) {
+    return this.bookingsService
+      .findOne(id, user)
+      .then((res) &#x3D;&gt; {
+        return res;
+      })
+      .catch((err) &#x3D;&gt; {
+        switch (err.response?.statusCode) {
+          case 400:
+            throw new BadRequestException(&#x27;Failed to get the passenger&#x27;);
+          case 404:
+            if (err.response?.message &#x3D;&#x3D;&#x3D; &#x27;Booking not found&#x27;) {
+              throw new NotFoundException(&#x27;Booking not found&#x27;);
+            } else if (err.response?.message &#x3D;&#x3D;&#x3D; &#x27;Passenger not found&#x27;) {
+              throw new NotFoundException(&#x27;Passenger not found&#x27;);
+            }
+          case 401:
+            throw new UnauthorizedException(
+              &#x27;You are not allowed to view this booking&#x27;,
+            );
+          default:
+            throw new InternalServerErrorException(
+              &#x27;Something went wrong while getting the booking&#x27;,
+            );
+        }
+      });
+  }
+
+  // LAST TIME REVIEWED: 2022-04-10
+  // Update a booking if the user is the owner
+  @Patch(&#x27;/:id&#x27;)
+  @Serialize(BookingDto)
+  @UseGuards(AuthGuard)
+  @ApiOkResponse({
+    description: &#x27;The booking was updated successfully&#x27;,
+  })
+  @ApiBadRequestResponse({
+    description: &#x27;Failed to update the booking | A new seat id is required&#x27;,
+  })
+  @ApiNotFoundResponse({
+    description:
+      &#x27;Booking not found | Passenger not found | Seat not found or not available| Flight not found&#x27;,
+  })
+  @ApiUnauthorizedResponse({
+    description: &#x27;You are not allowed to update this booking&#x27;,
+  })
+  @ApiInternalServerErrorResponse({
+    description: &#x27;Something went wrong while updating the booking&#x27;,
+  })
+  async updateBooking(
+    @Param(&#x27;id&#x27;, ParseIntPipe) id: number,
+    @Body() body: UpdateBookingDto,
+    @CurrentUser() user: User,
+  ) {
+    return this.bookingsService
+      .update(id, body, user)
+      .then((res) &#x3D;&gt; {
+        return res;
+      })
+      .catch((err) &#x3D;&gt; {
+        switch (err.response?.statusCode) {
+          case 400:
+            if (err.response?.message &#x3D;&#x3D;&#x3D; &#x27;Failed to update the booking&#x27;) {
+              throw new BadRequestException(&#x27;Failed to update the booking&#x27;);
+            } else if (err.response?.message &#x3D;&#x3D;&#x3D; &#x27;A new seat id is required&#x27;) {
+              throw new NotFoundException(&#x27;A new seat id is required&#x27;);
+            }
+          case 404:
+            if (err.response?.message &#x3D;&#x3D;&#x3D; &#x27;Booking not found&#x27;) {
+              throw new NotFoundException(&#x27;Booking not found&#x27;);
+            } else if (err.response?.message &#x3D;&#x3D;&#x3D; &#x27;Passenger not found&#x27;) {
+              throw new NotFoundException(&#x27;Passenger not found&#x27;);
+            } else if (
+              err.response?.message &#x3D;&#x3D;&#x3D; &#x27;Seat not found or not available&#x27;
+            ) {
+              throw new NotFoundException(&#x27;Seat not found or not available&#x27;);
+            } else if (err.response?.message &#x3D;&#x3D;&#x3D; &#x27;Flight not found&#x27;) {
+              throw new NotFoundException(&#x27;Flight not found&#x27;);
+            }
+          case 401:
+            throw new UnauthorizedException(
+              &#x27;You are not allowed to update this booking&#x27;,
+            );
+          default:
+            throw new InternalServerErrorException(
+              &#x27;Something went wrong while updating the booking&#x27;,
+            );
+        }
+      });
+  }
+
+  // LAST TIME REVIEWED: 2022-04-10
+  // Delete a booking if the user is the owner
+  @Delete(&#x27;/:id&#x27;)
+  @UseGuards(AuthGuard)
+  async deleteBooking(
+    @Param(&#x27;id&#x27;, ParseIntPipe) id: number,
+    @CurrentUser() user: User,
+  ) {
+    return this.bookingsService
+      .delete(id, user)
+      .then((res) &#x3D;&gt; {
+        return res;
+      })
+      .catch((err) &#x3D;&gt; {
+        switch (err.response?.statusCode) {
+          case 400:
+            throw new BadRequestException(&#x27;Failed to delete the booking&#x27;);
+          case 404:
+            if (err.response?.message &#x3D;&#x3D;&#x3D; &#x27;Booking not found&#x27;) {
+              throw new NotFoundException(&#x27;Booking not found&#x27;);
+            } else if (err.response?.message &#x3D;&#x3D;&#x3D; &#x27;Passenger not found&#x27;) {
+              throw new NotFoundException(&#x27;Passenger not found&#x27;);
+            }
+          case 401:
+            throw new UnauthorizedException(
+              &#x27;You are not allowed to delete this booking&#x27;,
+            );
+          default:
+            throw new InternalServerErrorException(
+              &#x27;Something went wrong while deleting the booking&#x27;,
             );
         }
       });
@@ -743,7 +899,7 @@ export class SeatsController {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'controller';
-            var COMPODOC_CURRENT_PAGE_URL = 'SeatsController.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'BookingsController.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

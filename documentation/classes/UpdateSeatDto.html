@@ -133,7 +133,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiProperty({type: String, description: &#x27;the class type of the seat&#x27;, enum: undefined, default: &#x27;economy&#x27;})<br />@IsString()<br />@IsNotEmpty()<br />@IsEnum([&#x27;first&#x27;, &#x27;business&#x27;, &#x27;economy&#x27;])<br />@IsOptional()<br />
+                            @ApiProperty({type: String, description: &#x27;the class type of the seat&#x27;, enum: ClassTypes, default: &#x27;economy&#x27;})<br />@IsString()<br />@IsNotEmpty()<br />@IsEnum(ClassTypes)<br />@IsOptional()<br />
                         </code>
                     </td>
                 </tr>
@@ -270,12 +270,12 @@ export class UpdateSeatDto {
   @ApiProperty({
     type: String,
     description: &#x27;the class type of the seat&#x27;,
-    enum: [&#x27;first&#x27;, &#x27;business&#x27;, &#x27;economy&#x27;],
+    enum: ClassTypes,
     default: &#x27;economy&#x27;,
   })
   @IsString()
   @IsNotEmpty()
-  @IsEnum([&#x27;first&#x27;, &#x27;business&#x27;, &#x27;economy&#x27;])
+  @IsEnum(ClassTypes)
   @IsOptional()
   class_type: ClassTypes;
 }

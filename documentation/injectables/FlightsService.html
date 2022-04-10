@@ -258,8 +258,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="69"
-                            class="link-to-prism">src/flights/flights.service.ts:69</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="76"
+                            class="link-to-prism">src/flights/flights.service.ts:76</a></div>
                 </td>
             </tr>
 
@@ -329,8 +329,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="53"
-                            class="link-to-prism">src/flights/flights.service.ts:53</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="56"
+                            class="link-to-prism">src/flights/flights.service.ts:56</a></div>
                 </td>
             </tr>
 
@@ -400,8 +400,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="43"
-                            class="link-to-prism">src/flights/flights.service.ts:43</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="44"
+                            class="link-to-prism">src/flights/flights.service.ts:44</a></div>
                 </td>
             </tr>
 
@@ -471,8 +471,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="26"
-                            class="link-to-prism">src/flights/flights.service.ts:26</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="27"
+                            class="link-to-prism">src/flights/flights.service.ts:27</a></div>
                 </td>
             </tr>
 
@@ -556,9 +556,10 @@ export class FlightsService {
   async create(flight: CreateFlightDto) {
     try {
       const newFlight &#x3D; this.repo.create(flight);
-      return this.repo.save(newFlight);
+      const createdFlight &#x3D; await this.repo.save(newFlight);
+
+      return createdFlight;
     } catch (err) {
-      console.log(err);
       throw new BadRequestException(&#x27;Failed to create a new flight&#x27;);
     }
   }
@@ -573,15 +574,17 @@ export class FlightsService {
     Object.assign(foundFlight, attrs);
 
     try {
-      return this.repo.save(foundFlight);
+      const updatedFlight &#x3D; await this.repo.save(foundFlight);
+      return updatedFlight;
     } catch (err) {
-      console.log(err);
       throw new BadRequestException(&#x27;Failed to update the flight&#x27;);
     }
   }
 
   async findOne(id: number) {
-    const flight &#x3D; await this.repo.findOne(id);
+    const flight &#x3D; await this.repo.findOne(id, {
+      relations: [&#x27;seats&#x27;],
+    });
 
     if (!flight) {
       throw new NotFoundException(&#x27;Flight not found&#x27;);
@@ -594,7 +597,11 @@ export class FlightsService {
     const page &#x3D; parseInt(options.page) || 0;
     const limit &#x3D; parseInt(options.limit) || 10;
     try {
-      const flights &#x3D; await this.repo.find({ skip: page * limit, take: limit });
+      const flights &#x3D; await this.repo.find({
+        skip: page * limit,
+        take: limit,
+        order: { created_at: &#x27;DESC&#x27; },
+      });
       const totalCount &#x3D; await (await this.repo.find()).length;
 
       return {
@@ -614,9 +621,9 @@ export class FlightsService {
     }
 
     try {
-      return this.repo.remove(flight);
+      const removedFlight &#x3D; await this.repo.remove(flight);
+      return removedFlight;
     } catch (err) {
-      console.log(err);
       throw new BadRequestException(&#x27;Failed to delete the flight&#x27;);
     }
   }

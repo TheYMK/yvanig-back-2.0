@@ -41,7 +41,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li >SeatsService</li>
+  <li >BookingsService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -59,7 +59,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/seats/seats.service.ts</code>
+            <code>src/bookings/bookings.service.ts</code>
         </p>
 
 
@@ -96,8 +96,7 @@
                                 <a href="#findOne" >findOne</a>
                             </li>
                             <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#handleBookingEvents" >handleBookingEvents</a>
+                                <a href="#generatePrice" >generatePrice</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
@@ -121,12 +120,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(repo: <a href="../classes/Seat.html" target="_self">Repository&lt;Seat&gt;</a>, flightsService: <a href="../injectables/FlightsService.html" target="_self">FlightsService</a>)</code>
+<code>constructor(repo: <a href="../classes/Booking.html" target="_self">Repository&lt;Booking&gt;</a>, passengersService: <a href="../injectables/PassengersService.html" target="_self">PassengersService</a>, flightsService: <a href="../injectables/FlightsService.html" target="_self">FlightsService</a>, eventEmitter: EventEmitter2)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/seats/seats.service.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/bookings/bookings.service.ts:22</a></div>
                             </td>
                         </tr>
 
@@ -147,7 +146,19 @@
                                                         <td>repo</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../classes/Seat.html" target="_self" >Repository&lt;Seat&gt;</a></code>
+                                                                        <code><a href="../classes/Booking.html" target="_self" >Repository&lt;Booking&gt;</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>passengersService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/PassengersService.html" target="_self" >PassengersService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -160,6 +171,18 @@
                                                   
                                                         <td>
                                                                         <code><a href="../injectables/FlightsService.html" target="_self" >FlightsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>eventEmitter</td>
+                                                  
+                                                        <td>
+                                                                    <code>EventEmitter2</code>
                                                         </td>
                                                   
                                                     <td>
@@ -196,15 +219,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>create(seat: <a href="../classes/CreateSeatDto.html" target="_self">CreateSeatDto</a>)</code>
+                    <code>create(booking: <a href="../classes/CreateBookingDto.html" target="_self">CreateBookingDto</a>, user: <a href="../classes/User.html" target="_self">User</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="21"
-                            class="link-to-prism">src/seats/seats.service.ts:21</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="30"
+                            class="link-to-prism">src/bookings/bookings.service.ts:30</a></div>
                 </td>
             </tr>
 
@@ -225,9 +248,21 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>seat</td>
+                                    <td>booking</td>
                                     <td>
-                                                <code><a href="../classes/CreateSeatDto.html" target="_self" >CreateSeatDto</a></code>
+                                                <code><a href="../classes/CreateBookingDto.html" target="_self" >CreateBookingDto</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>user</td>
+                                    <td>
+                                                <code><a href="../classes/User.html" target="_self" >User</a></code>
                                     </td>
 
                                     <td>
@@ -267,15 +302,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>delete(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                    <code>delete(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, user: <a href="../classes/User.html" target="_self">User</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="80"
-                            class="link-to-prism">src/seats/seats.service.ts:80</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="208"
+                            class="link-to-prism">src/bookings/bookings.service.ts:208</a></div>
                 </td>
             </tr>
 
@@ -299,6 +334,18 @@
                                     <td>id</td>
                                     <td>
                                                 <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>user</td>
+                                    <td>
+                                                <code><a href="../classes/User.html" target="_self" >User</a></code>
                                     </td>
 
                                     <td>
@@ -338,15 +385,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findAll()</code>
+                    <code>findAll(options: <a href="../entitys/Booking.html" target="_self">Partial&lt;GetBookingsDto&gt;</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="52"
-                            class="link-to-prism">src/seats/seats.service.ts:52</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="90"
+                            class="link-to-prism">src/bookings/bookings.service.ts:90</a></div>
                 </td>
             </tr>
 
@@ -355,8 +402,40 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>options</td>
+                                    <td>
+                                                <code><a href="../entitys/Booking.html" target="_self" >Partial&lt;GetBookingsDto&gt;</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
                         <b>Returns : </b>    <code>unknown</code>
 
+                    </div>
+                    <div class="io-description">
+                        
                     </div>
                 </td>
             </tr>
@@ -377,15 +456,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findOne(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                    <code>findOne(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, user: <a href="../classes/User.html" target="_self">User</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="40"
-                            class="link-to-prism">src/seats/seats.service.ts:40</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="109"
+                            class="link-to-prism">src/bookings/bookings.service.ts:109</a></div>
                 </td>
             </tr>
 
@@ -417,76 +496,10 @@
 
 
                                 </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>unknown</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="handleBookingEvents"></a>
-                    <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>handleBookingEvents</b></span>
-                        <a href="#handleBookingEvents"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>handleBookingEvents(payload: <a href="../interfaces/BookingEvent.html" target="_self">BookingEvent</a>)</code>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <b>Decorators : </b>
-                    <br />
-                    <code>@OnEvent(&#x27;booking.*&#x27;, {async: true})<br /></code>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="98"
-                            class="link-to-prism">src/seats/seats.service.ts:98</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
                                 <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>payload</td>
+                                    <td>user</td>
                                     <td>
-                                                <code><a href="../interfaces/BookingEvent.html" target="_self" >BookingEvent</a></code>
+                                                <code><a href="../classes/User.html" target="_self" >User</a></code>
                                     </td>
 
                                     <td>
@@ -515,6 +528,87 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="generatePrice"></a>
+                    <span class="name">
+                        <span ><b>generatePrice</b></span>
+                        <a href="#generatePrice"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>generatePrice(seat: <a href="../classes/Seat.html" target="_self">Seat</a>, flight: <a href="../entitys/Flight.html" target="_self">Flight</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="229"
+                            class="link-to-prism">src/bookings/bookings.service.ts:229</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>seat</td>
+                                    <td>
+                                                <code><a href="../classes/Seat.html" target="_self" >Seat</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>flight</td>
+                                    <td>
+                                                <code><a href="../entitys/Flight.html" target="_self" >Flight</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="update"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -526,15 +620,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>update(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, attrs: <a href="../classes/Seat.html" target="_self">Partial&lt;Seat&gt;</a>)</code>
+                    <code>update(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, attrs: <a href="../entitys/Booking.html" target="_self">Partial&lt;UpdateBookingDto&gt;</a>, user: <a href="../classes/User.html" target="_self">User</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="63"
-                            class="link-to-prism">src/seats/seats.service.ts:63</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="132"
+                            class="link-to-prism">src/bookings/bookings.service.ts:132</a></div>
                 </td>
             </tr>
 
@@ -569,7 +663,19 @@
                                 <tr>
                                     <td>attrs</td>
                                     <td>
-                                                <code><a href="../classes/Seat.html" target="_self" >Partial&lt;Seat&gt;</a></code>
+                                                <code><a href="../entitys/Booking.html" target="_self" >Partial&lt;UpdateBookingDto&gt;</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>user</td>
+                                    <td>
+                                                <code><a href="../classes/User.html" target="_self" >User</a></code>
                                     </td>
 
                                     <td>
@@ -604,101 +710,238 @@
   BadRequestException,
   Injectable,
   NotFoundException,
+  UnauthorizedException,
 } from &#x27;@nestjs/common&#x27;;
-import { OnEvent } from &#x27;@nestjs/event-emitter&#x27;;
+import { EventEmitter2 } from &#x27;@nestjs/event-emitter&#x27;;
 import { InjectRepository } from &#x27;@nestjs/typeorm&#x27;;
-import { BookingEvent } from &#x27;src/bookings/interfaces/BookingCreatedEvent&#x27;;
+import { Flight } from &#x27;src/flights/flight.entity&#x27;;
 import { FlightsService } from &#x27;src/flights/flights.service&#x27;;
+import { Passenger } from &#x27;src/passengers/passenger.entity&#x27;;
+import { PassengersService } from &#x27;src/passengers/passengers.service&#x27;;
+import { ClassTypes, Seat } from &#x27;src/seats/seat.entity&#x27;;
+import { User, UserRole } from &#x27;src/users/user.entity&#x27;;
 import { Repository } from &#x27;typeorm&#x27;;
-import { CreateSeatDto } from &#x27;./dtos/create-seat.dto&#x27;;
-import { Seat } from &#x27;./seat.entity&#x27;;
+import { Booking } from &#x27;./booking.entity&#x27;;
+import { CreateBookingDto } from &#x27;./dtos/create-booking.dto&#x27;;
+import { GetBookingsDto } from &#x27;./dtos/get-bookings.dto&#x27;;
+import { UpdateBookingDto } from &#x27;./dtos/update-booking.dto&#x27;;
 
 @Injectable()
-export class SeatsService {
+export class BookingsService {
   constructor(
-    @InjectRepository(Seat) private repo: Repository&lt;Seat&gt;,
+    @InjectRepository(Booking) private repo: Repository&lt;Booking&gt;,
+    private passengersService: PassengersService,
     private flightsService: FlightsService,
+    private eventEmitter: EventEmitter2,
   ) {}
 
-  async create(seat: CreateSeatDto) {
-    // Check if the flight exists
-    const flight &#x3D; await this.flightsService.findOne(seat.flightId);
-
-    if (!flight) {
-      throw new NotFoundException(&#x27;Flight not found&#x27;);
-    }
-
-    try {
-      const newSeat &#x3D; this.repo.create(seat);
-      newSeat.flight &#x3D; flight;
-      const createdSeat &#x3D; await this.repo.save(newSeat);
-
-      return createdSeat;
-    } catch (err) {
-      throw new BadRequestException(&#x27;Failed to create the seat&#x27;);
-    }
-  }
-
-  async findOne(id: number) {
-    const seat &#x3D; await this.repo.findOne(id, {
-      relations: [&#x27;flight&#x27;],
-    });
-
-    if (!seat) {
-      throw new NotFoundException(&#x27;Seat not found&#x27;);
-    }
-
-    return seat;
-  }
-
-  async findAll() {
-    try {
-      const seats &#x3D; await this.repo.find({
-        relations: [&#x27;flight&#x27;],
-      });
-      return seats;
-    } catch (err) {
-      throw new BadRequestException(&#x27;Failed to get the seats&#x27;);
-    }
-  }
-
-  async update(id: number, attrs: Partial&lt;Seat&gt;) {
-    const foundSeat &#x3D; await this.findOne(id);
+  async create(booking: CreateBookingDto, user: User) {
+    // Find the flight
+    const foundFlight &#x3D; await this.flightsService.findOne(booking.flightId);
+    // Find the seat thats is available
+    const foundSeat &#x3D; foundFlight.seats.find(
+      (seat) &#x3D;&gt; seat.id &#x3D;&#x3D;&#x3D; booking.seatId &amp;&amp; seat.is_available &#x3D;&#x3D;&#x3D; true,
+    );
 
     if (!foundSeat) {
-      throw new NotFoundException(&#x27;Seat not found&#x27;);
+      throw new NotFoundException(&#x27;Seat not found or not available&#x27;);
     }
-    Object.assign(foundSeat, attrs);
+
+    // Find a passenger if it exists. If not create one
+    let passenger: Passenger;
+    const foundPassengers &#x3D; await this.passengersService.findByUser(user);
+    if (foundPassengers.length &#x3D;&#x3D;&#x3D; 0) {
+      passenger &#x3D; await this.passengersService.create(
+        {
+          document_type: booking.document_type,
+          document_number: booking.document_number,
+          date_of_birth: booking.date_of_birth,
+          gender: booking.gender,
+        },
+        user,
+      );
+    } else {
+      passenger &#x3D; foundPassengers[0];
+    }
+
+    // Generate a price
+    let price &#x3D; this.generatePrice(foundSeat, foundFlight);
 
     try {
-      const updatedSeat &#x3D; await this.repo.save(foundSeat);
+      // Create the booking
+      const newBooking &#x3D; this.repo.create({
+        booking_type: booking.booking_type,
+        price,
+      });
 
-      return updatedSeat;
+      newBooking.flight &#x3D; foundFlight;
+      newBooking.seat &#x3D; foundSeat;
+      newBooking.passenger &#x3D; passenger;
+
+      const createdBooking &#x3D; await this.repo.save(newBooking);
+
+      // Emit an event to update the seat availability
+      this.eventEmitter.emit(&#x27;booking.created&#x27;, {
+        id: foundSeat.id,
+        is_available: false,
+      });
+      return createdBooking;
     } catch (err) {
-      throw new BadRequestException(&#x27;Failed to update the seat&#x27;);
+      this.eventEmitter.emit(&#x27;booking.failed&#x27;, {
+        id: foundSeat.id,
+        is_available: true,
+      });
+      throw new BadRequestException(&#x27;Failed to create a new booking&#x27;);
     }
   }
 
-  async delete(id: number) {
-    const seat &#x3D; await this.findOne(id);
-
-    if (!seat) {
-      throw new NotFoundException(&#x27;Seat not found&#x27;);
-    }
-
+  async findAll(options: Partial&lt;GetBookingsDto&gt;) {
+    const page &#x3D; parseInt(options.page) || 0;
+    const limit &#x3D; parseInt(options.limit) || 10;
     try {
-      const removedSeat &#x3D; await this.repo.remove(seat);
+      const bookings &#x3D; await this.repo.find({
+        skip: page * limit,
+        take: limit,
+        order: { created_at: &#x27;DESC&#x27; },
+        relations: [&#x27;flight&#x27;, &#x27;seat&#x27;, &#x27;passenger&#x27;],
+      });
+      const totalCount &#x3D; await (await this.repo.find()).length;
 
-      return removedSeat;
+      return { bookings, total_count: totalCount };
     } catch (err) {
-      throw new BadRequestException(&#x27;Failed to delete the seat&#x27;);
+      throw new BadRequestException(&#x27;Failed to get the bookings&#x27;);
     }
   }
 
-  // handle events related to bookings
-  @OnEvent(&#x27;booking.*&#x27;, { async: true })
-  async handleBookingEvents(payload: BookingEvent) {
-    return this.update(payload.id, { is_available: payload.is_available });
+  // Find a booking by id
+  async findOne(id: number, user: User) {
+    const booking &#x3D; await this.repo.findOne(id, {
+      relations: [&#x27;flight&#x27;, &#x27;seat&#x27;, &#x27;passenger&#x27;],
+    });
+
+    if (!booking) {
+      throw new NotFoundException(&#x27;Booking not found&#x27;);
+    }
+
+    // find passenger
+    const passenger &#x3D; await this.passengersService.findOne(
+      booking.passenger.id,
+    );
+
+    if (passenger.user.id !&#x3D;&#x3D; user.id &amp;&amp; user.role !&#x3D;&#x3D; UserRole.ADMIN) {
+      throw new UnauthorizedException(
+        &#x27;You are not allowed to view this booking&#x27;,
+      );
+    }
+
+    return booking;
+  }
+
+  async update(id: number, attrs: Partial&lt;UpdateBookingDto&gt;, user: User) {
+    const foundBooking &#x3D; await this.findOne(id, user);
+    // old seat
+    const oldSeat &#x3D; foundBooking.seat;
+
+    if (attrs.flightId) {
+      if (!attrs.seatId) {
+        throw new BadRequestException(&#x27;A new seat id is required&#x27;);
+      }
+      const foundFlight &#x3D; await this.flightsService.findOne(attrs.flightId);
+      const foundSeat &#x3D; foundFlight.seats.find(
+        (seat) &#x3D;&gt; seat.id &#x3D;&#x3D;&#x3D; attrs.seatId &amp;&amp; seat.is_available &#x3D;&#x3D;&#x3D; true,
+      );
+      if (!foundSeat) {
+        throw new NotFoundException(&#x27;Seat not found or not available&#x27;);
+      }
+      // Generate a price
+      let price &#x3D; this.generatePrice(foundSeat, foundFlight);
+
+      foundBooking.price &#x3D; price;
+      foundBooking.flight &#x3D; foundFlight;
+      foundBooking.seat &#x3D; foundSeat;
+    }
+
+    if (attrs.seatId &amp;&amp; !attrs.flightId) {
+      // Find the flight
+      const foundFlight &#x3D; await this.flightsService.findOne(
+        foundBooking.flight.id,
+      );
+
+      const foundSeat &#x3D; foundFlight.seats.find(
+        (seat) &#x3D;&gt; seat.id &#x3D;&#x3D;&#x3D; attrs.seatId &amp;&amp; seat.is_available &#x3D;&#x3D;&#x3D; true,
+      );
+      if (!foundSeat) {
+        throw new NotFoundException(&#x27;Seat not found or not available&#x27;);
+      }
+
+      // Generate a price
+      let price &#x3D; this.generatePrice(foundSeat, foundFlight);
+
+      foundBooking.price &#x3D; price;
+      foundBooking.seat &#x3D; foundSeat;
+    }
+
+    Object.assign(foundBooking, attrs);
+
+    try {
+      const updatedBooking &#x3D; await this.repo.save(foundBooking);
+      this.eventEmitter.emit(&#x27;booking.updated&#x27;, {
+        id: foundBooking.seat.id,
+        is_available: false,
+      });
+
+      if (attrs.seatId) {
+        setTimeout(() &#x3D;&gt; {
+          this.eventEmitter.emit(&#x27;booking.updated&#x27;, {
+            id: oldSeat.id,
+            is_available: true,
+          });
+        }, 10000);
+      }
+
+      return updatedBooking;
+    } catch (err) {
+      this.eventEmitter.emit(&#x27;booking.failed&#x27;, {
+        id: foundBooking.seat.id,
+        is_available: true,
+      });
+      this.eventEmitter.emit(&#x27;booking.updated&#x27;, {
+        id: oldSeat.id,
+        is_available: false,
+      });
+      throw new BadRequestException(&#x27;Failed to update the booking&#x27;);
+    }
+  }
+
+  async delete(id: number, user: User) {
+    const foundBooking &#x3D; await this.findOne(id, user);
+
+    try {
+      const removedBooking &#x3D; await this.repo.remove(foundBooking);
+
+      this.eventEmitter.emit(&#x27;booking.deleted&#x27;, {
+        id: foundBooking.seat.id,
+        is_available: true,
+      });
+
+      return removedBooking;
+    } catch (err) {
+      this.eventEmitter.emit(&#x27;booking.failed&#x27;, {
+        id: foundBooking.seat.id,
+        is_available: false,
+      });
+      throw new BadRequestException(&#x27;Failed to delete the booking&#x27;);
+    }
+  }
+
+  generatePrice(seat: Seat, flight: Flight) {
+    if (seat.class_type &#x3D;&#x3D;&#x3D; ClassTypes.FIRST) {
+      return flight.seat_price_first_class;
+    } else if (seat.class_type &#x3D;&#x3D;&#x3D; ClassTypes.BUSINESS) {
+      return flight.seat_price_business_class;
+    } else {
+      return flight.seat_base_price;
+    }
   }
 }
 </code></pre>
@@ -744,7 +987,7 @@ export class SeatsService {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'SeatsService.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'BookingsService.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

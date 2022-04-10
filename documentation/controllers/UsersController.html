@@ -59,12 +59,6 @@
             <code>src/users/users.controller.ts</code>
         </p>
 
-            <p class="comment">
-                <h3>Prefix</h3>
-            </p>
-            <p class="comment">
-                <code>api/auth</code>
-            </p>
 
 
 
@@ -156,8 +150,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="115"
-                            class="link-to-prism">src/users/users.controller.ts:115</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="118"
+                            class="link-to-prism">src/users/users.controller.ts:118</a></div>
                 </td>
             </tr>
 
@@ -240,14 +234,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Post(&#x27;/register&#x27;)<br />@ApiCreatedResponse({description: &#x27;The user was created successfully&#x27;})<br />@ApiBadRequestResponse({description: &#x27;Invalid token // Email in use // Failed to create a user&#x27;})<br />@ApiInternalServerErrorResponse({description: &#x27;Something went wrong while creating the user&#x27;})<br /></code>
+                    <code>@Post(&#x27;/register&#x27;)<br />@ApiCreatedResponse({description: &#x27;The user was created successfully&#x27;})<br />@ApiBadRequestResponse({description: &#x27;Invalid token | Email in use | Failed to create a user&#x27;})<br />@ApiInternalServerErrorResponse({description: &#x27;Something went wrong while creating the user&#x27;})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="153"
-                            class="link-to-prism">src/users/users.controller.ts:153</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="156"
+                            class="link-to-prism">src/users/users.controller.ts:156</a></div>
                 </td>
             </tr>
 
@@ -336,8 +330,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="52"
-                            class="link-to-prism">src/users/users.controller.ts:52</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="55"
+                            class="link-to-prism">src/users/users.controller.ts:55</a></div>
                 </td>
             </tr>
 
@@ -414,8 +408,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="83"
-                            class="link-to-prism">src/users/users.controller.ts:83</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="86"
+                            class="link-to-prism">src/users/users.controller.ts:86</a></div>
                 </td>
             </tr>
 
@@ -492,8 +486,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="189"
-                            class="link-to-prism">src/users/users.controller.ts:189</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="192"
+                            class="link-to-prism">src/users/users.controller.ts:192</a></div>
                 </td>
             </tr>
 
@@ -580,8 +574,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="222"
-                            class="link-to-prism">src/users/users.controller.ts:222</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="225"
+                            class="link-to-prism">src/users/users.controller.ts:225</a></div>
                 </td>
             </tr>
 
@@ -656,8 +650,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="214"
-                            class="link-to-prism">src/users/users.controller.ts:214</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="217"
+                            class="link-to-prism">src/users/users.controller.ts:217</a></div>
                 </td>
             </tr>
 
@@ -744,11 +738,14 @@ import { User } from &#x27;./user.entity&#x27;;
 
 @ApiTags(&#x27;users&#x27;)
 @Serialize(UserDto)
-@Controller(&#x27;api/auth&#x27;)
+@Controller({
+  path: &#x27;api/auth&#x27;,
+  version: &#x27;1&#x27;,
+})
 export class UsersController {
   constructor(private authService: AuthService) {}
 
-  // LAST TIME REVIEWED: 2022-04-02
+  // LAST TIME REVIEWED: 2022-04-09
   @Post(&#x27;/send-email-verification&#x27;)
   @HttpCode(200)
   @ApiOkResponse({
@@ -780,7 +777,7 @@ export class UsersController {
       });
   }
 
-  // LAST TIME REVIEWED: 2022-04-02
+  // LAST TIME REVIEWED: 2022-04-09
   @Post(&#x27;/send-password-reset-email&#x27;)
   @HttpCode(200)
   @ApiOkResponse({
@@ -813,7 +810,7 @@ export class UsersController {
       });
   }
 
-  // LAST TIME REVIEWED: 2022-04-02
+  // LAST TIME REVIEWED: 2022-04-09
   @Post(&#x27;/password-reset&#x27;)
   @HttpCode(200)
   @ApiOkResponse({
@@ -850,13 +847,13 @@ export class UsersController {
       });
   }
 
-  // LAST TIME REVIEWED: 2022-04-02
+  // LAST TIME REVIEWED: 2022-04-09
   @Post(&#x27;/register&#x27;)
   @ApiCreatedResponse({
     description: &#x27;The user was created successfully&#x27;,
   })
   @ApiBadRequestResponse({
-    description: &#x27;Invalid token // Email in use // Failed to create a user&#x27;,
+    description: &#x27;Invalid token | Email in use | Failed to create a user&#x27;,
   })
   @ApiInternalServerErrorResponse({
     description: &#x27;Something went wrong while creating the user&#x27;,
@@ -886,7 +883,7 @@ export class UsersController {
       });
   }
 
-  // LAST TIME REVIEWED: 2022-04-02
+  // LAST TIME REVIEWED: 2022-04-09
   @Post(&#x27;/signin&#x27;)
   @HttpCode(200)
   @ApiOkResponse({
@@ -918,7 +915,7 @@ export class UsersController {
       });
   }
 
-  // LAST TIME REVIEWED: 2022-04-02
+  // LAST TIME REVIEWED: 2022-04-09
   @Get(&#x27;whoami&#x27;)
   @UseGuards(AuthGuard)
   @ApiOkResponse({ description: &#x27;The user was successfully fetched&#x27; })
@@ -926,7 +923,7 @@ export class UsersController {
     return user;
   }
 
-  // LAST TIME REVIEWED: 2022-04-02
+  // LAST TIME REVIEWED: 2022-04-09
   @Post(&#x27;/signout&#x27;)
   @HttpCode(200)
   @ApiOkResponse({ description: &#x27;The user was successfully logged out&#x27; })
