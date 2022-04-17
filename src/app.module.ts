@@ -11,6 +11,7 @@ import { SeatsModule } from './seats/seats.module';
 import { PassengersModule } from './passengers/passengers.module';
 import { BookingsModule } from './bookings/bookings.module';
 import { EventEmitterModule } from '@nestjs/event-emitter';
+import { CloudinaryModule } from './cloudinary/cloudinary.module';
 
 @Module({
   imports: [
@@ -40,6 +41,7 @@ import { EventEmitterModule } from '@nestjs/event-emitter';
     SeatsModule,
     PassengersModule,
     BookingsModule,
+    CloudinaryModule,
   ],
   controllers: [AppController],
   providers: [
