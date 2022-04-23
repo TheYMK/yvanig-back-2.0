@@ -35,6 +35,28 @@ export class UpdateFlightDto {
   flight_number: string;
 
   @ApiProperty({
+    type: String,
+    description: 'the origin airport code',
+    default: 'AB123',
+  })
+  @IsString()
+  @Length(1, 20)
+  @IsNotEmpty()
+  @IsOptional()
+  origin_airport_code: string;
+
+  @ApiProperty({
+    type: String,
+    description: 'the destination airport code',
+    default: 'AB123',
+  })
+  @IsString()
+  @Length(1, 20)
+  @IsNotEmpty()
+  @IsOptional()
+  destination_airport_code: string;
+
+  @ApiProperty({
     type: Number,
     description: 'the maximum number of seats available',
     default: 20,
