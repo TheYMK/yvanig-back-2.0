@@ -3,10 +3,12 @@ import { AppModule } from './app.module';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import helmet from 'helmet';
 import { VersioningType } from '@nestjs/common';
+import { urlencoded, json } from 'express';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
+  app.use(json({ limit: '100mb' }));
   app.use(helmet());
   app.enableCors({
     origin: ['http://localhost:3000'],

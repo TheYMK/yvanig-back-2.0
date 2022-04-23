@@ -13,7 +13,6 @@ export class CloudinaryService {
   constructor() {}
 
   async upload(image: string) {
-    console.log(cloudinary.v2);
     try {
       let result = await cloudinary.v2.uploader.upload(image, {
         public_id: `${Date.now()}`,
