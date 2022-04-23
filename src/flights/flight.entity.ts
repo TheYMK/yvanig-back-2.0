@@ -45,6 +45,20 @@ export class Flight {
   flight_number: string;
 
   @Column({
+    type: 'varchar',
+    length: 20,
+    nullable: false,
+  })
+  origin_airport_code: string;
+
+  @Column({
+    type: 'varchar',
+    length: 20,
+    nullable: false,
+  })
+  destination_airport_code: string;
+
+  @Column({
     type: 'int',
     nullable: false,
   })
