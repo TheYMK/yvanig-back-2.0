@@ -97,7 +97,7 @@ export class BookingsService {
         order: { created_at: 'DESC' },
         relations: ['flight', 'seat', 'passenger'],
       });
-      const totalCount = await (await this.repo.find()).length;
+      const totalCount = (await this.repo.find()).length;
 
       return { bookings, total_count: totalCount };
     } catch (err) {

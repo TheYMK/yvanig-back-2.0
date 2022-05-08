@@ -110,8 +110,8 @@ export class PassengersController {
   @ApiOkResponse({
     description: 'The passenger was returned successfully',
   })
-  @ApiNotFoundResponse({
-    description: 'Passenger not found',
+  @ApiBadRequestResponse({
+    description: 'Failed to get the passengers',
   })
   @ApiInternalServerErrorResponse({
     description: 'Something went wrong while getting the passenger',
@@ -124,8 +124,8 @@ export class PassengersController {
       })
       .catch((err) => {
         switch (err.response?.statusCode) {
-          case 404:
-            throw new NotFoundException('Passenger not found');
+          case 400:
+            throw new NotFoundException('Failed to get the passengers');
           default:
             throw new InternalServerErrorException(
               'Something went wrong while getting the passenger',

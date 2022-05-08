@@ -20,7 +20,7 @@ export enum DocumentTypes {
 
 export enum Genders {
   MALE = 'male',
-  Female = 'female',
+  FEMALE = 'female',
 }
 
 @Entity()
