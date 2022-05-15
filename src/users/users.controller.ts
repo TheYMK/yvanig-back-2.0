@@ -6,6 +6,7 @@ import {
   HttpCode,
   InternalServerErrorException,
   NotFoundException,
+  Patch,
   Post,
   Session,
   UnauthorizedException,
@@ -27,9 +28,12 @@ import { CurrentUser } from './decorators/current-user.decorator';
 import { CreateUserDto } from './dtos/create-user.dto';
 import { EmailVerificationDto } from './dtos/email-verification.dto';
 import { PasswordResetDto } from './dtos/password-reset.dto';
+import { UpdateUserDto } from './dtos/update-user.dto';
 import { UserCredentialsDto } from './dtos/user-credentials.dto';
 import { UserDto } from './dtos/user.dto';
+import { VerifyEmailDto } from './dtos/verify-email.dto';
 import { User } from './user.entity';
+import { UsersService } from './users.service';
 
 @ApiTags('users')
 @Serialize(UserDto)
@@ -38,7 +42,10 @@ import { User } from './user.entity';
   version: '1',
 })
 export class UsersController {
-  constructor(private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private userService: UsersService,
+  ) {}
 
   // LAST TIME REVIEWED: 2022-04-09
   @Post('/send-email-verification')
@@ -54,7 +61,7 @@ export class UsersController {
   })
   async sendEmailVerification(@Body() body: EmailVerificationDto) {
     return this.authService
-      .sendEmailVerification(body.email)
+      .sendEmailVerification(body.email, body.isRegistration)
       .then((res) => {
         return res;
       })
@@ -205,6 +212,74 @@ export class UsersController {
           default:
             throw new InternalServerErrorException(
               'Something went wrong while logging in the user',
+            );
+        }
+      });
+  }
+
+  @Patch('update')
+  @UseGuards(AuthGuard)
+  @ApiOkResponse({
+    description: 'The user was updated successfully',
+  })
+  @ApiBadRequestResponse({
+    description: 'Failed to update user',
+  })
+  @ApiNotFoundResponse({ description: 'User not found' })
+  @ApiInternalServerErrorResponse({
+    description: 'Something went wrong while updating the user',
+  })
+  updateUser(@CurrentUser() user: User, @Body() body: UpdateUserDto) {
+    return this.userService
+      .update(user, body)
+      .then((res) => {
+        return res;
+      })
+      .catch((err) => {
+        switch (err.response?.statusCode) {
+          case 400:
+            throw new BadRequestException('Failed to update user');
+          case 404:
+            throw new NotFoundException('User not found');
+          default:
+            throw new InternalServerErrorException(
+              'Something went wrong while updating the user',
+            );
+        }
+      });
+  }
+
+  @Patch('/email/verify')
+  @UseGuards(AuthGuard)
+  @ApiOkResponse({
+    description: 'The email was verified successfully',
+  })
+  @ApiBadRequestResponse({
+    description: 'Failed to verify email | Invalid token',
+  })
+  @ApiNotFoundResponse({ description: 'User not found' })
+  @ApiInternalServerErrorResponse({
+    description: 'Something went wrong while verifying the email',
+  })
+  verifyEmail(@CurrentUser() user: User, @Body() body: VerifyEmailDto) {
+    return this.authService
+      .verifyEmail(user, body.token)
+      .then((res) => {
+        return res;
+      })
+      .catch((err) => {
+        switch (err.response?.statusCode) {
+          case 400:
+            if (err.response?.message === 'Invalid token') {
+              throw new BadRequestException('Invalid token');
+            } else if (err.response?.message === 'Failed to verify user') {
+              throw new BadRequestException('Failed to verify email');
+            }
+          case 404:
+            throw new NotFoundException('User not found');
+          default:
+            throw new InternalServerErrorException(
+              'Something went wrong while verifying the email',
             );
         }
       });

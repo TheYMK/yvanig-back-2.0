@@ -48,7 +48,7 @@ export class PassengersService {
 
       return passengers;
     } catch (err) {
-      throw new BadRequestException('Failed to get the passengers');
+      throw new BadRequestException('Failed to get the passenger');
     }
   }
 

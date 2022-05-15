@@ -43,18 +43,23 @@ export class UsersService {
     return users;
   }
 
-  async update(id: number, attrs: Partial<User>) {
-    const user = await this.findOne(id);
-
+  async update(user: User, attrs: Partial<User>) {
     if (!user) {
       throw new NotFoundException('User not found');
     }
 
+    if (attrs.email && user.email !== attrs.email) {
+      user.is_email_verified = false;
+    }
+
     Object.assign(user, attrs);
 
-    const updatedUser = await this.repo.save(user);
-
-    return updatedUser;
+    try {
+      const updatedUser = await this.repo.save(user);
+      return updatedUser;
+    } catch (err) {
+      throw new BadRequestException('Failed to update user');
+    }
   }
 
   async remove(id: number) {
