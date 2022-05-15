@@ -22,6 +22,12 @@ export enum BookingTypes {
   RESTAURANT = 'restaurant',
 }
 
+export enum BookingStatuses {
+  CONFIRMED = 'confirmed',
+  CANCELLED = 'cancelled',
+  PENDING = 'pending',
+}
+
 @Entity()
 @Unique(['passenger', 'flight'])
 export class Booking {
@@ -40,6 +46,14 @@ export class Booking {
     nullable: false,
   })
   price: number;
+
+  @Column({
+    type: 'enum',
+    enum: BookingStatuses,
+    nullable: false,
+    default: BookingStatuses.PENDING,
+  })
+  status: BookingStatuses;
 
   @CreateDateColumn({
     type: 'timestamp',

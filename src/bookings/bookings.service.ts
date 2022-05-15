@@ -13,7 +13,7 @@ import { PassengersService } from 'src/passengers/passengers.service';
 import { ClassTypes, Seat } from 'src/seats/seat.entity';
 import { User, UserRole } from 'src/users/user.entity';
 import { Repository } from 'typeorm';
-import { Booking } from './booking.entity';
+import { Booking, BookingStatuses } from './booking.entity';
 import { CreateBookingDto } from './dtos/create-booking.dto';
 import { GetBookingsDto } from './dtos/get-bookings.dto';
 import { UpdateBookingDto } from './dtos/update-booking.dto';
@@ -202,6 +202,36 @@ export class BookingsService {
         is_available: false,
       });
       throw new BadRequestException('Failed to update the booking');
+    }
+  }
+
+  async updateBookingStatus(id: number, status: BookingStatuses, user: User) {
+    const foundBooking = await this.findOne(id, user);
+
+    foundBooking.status = status;
+
+    try {
+      const updatedBooking = await this.repo.save(foundBooking);
+
+      if (status === BookingStatuses.CONFIRMED) {
+        this.eventEmitter.emit('booking.confirmed', {
+          id: foundBooking.seat.id,
+          is_available: false,
+        });
+      }
+
+      if (status === BookingStatuses.CANCELLED) {
+        console.log('[cancelled]', status);
+
+        this.eventEmitter.emit('booking.cancelled', {
+          id: foundBooking.seat.id,
+          is_available: true,
+        });
+      }
+
+      return updatedBooking;
+    } catch (err) {
+      throw new BadRequestException('Failed to update booking status');
     }
   }
 

@@ -32,6 +32,7 @@ import { BookingsService } from './bookings.service';
 import { BookingDto } from './dtos/booking.dto';
 import { CreateBookingDto } from './dtos/create-booking.dto';
 import { GetBookingsDto } from './dtos/get-bookings.dto';
+import { UpdateBookingStatusDto } from './dtos/update-booking-status.dto';
 import { UpdateBookingDto } from './dtos/update-booking.dto';
 
 // LAST TIME REVIEWED: 2022-04-10
@@ -243,6 +244,37 @@ export class BookingsController {
           default:
             throw new InternalServerErrorException(
               'Something went wrong while updating the booking',
+            );
+        }
+      });
+  }
+
+  @Patch('/update-status/:id')
+  @Serialize(BookingDto)
+  @UseGuards(AdminGuard)
+  async updateBookingStatus(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() body: UpdateBookingStatusDto,
+    @CurrentUser() user: User,
+  ) {
+    return this.bookingsService
+      .updateBookingStatus(id, body.status, user)
+      .then((res) => {
+        return res;
+      })
+      .catch((err) => {
+        switch (err.response?.statusCode) {
+          case 404:
+            if (err.response?.message === 'Booking not found') {
+              throw new NotFoundException('Booking not found');
+            } else if (err.response?.message === 'Passenger not found') {
+              throw new NotFoundException('Passenger not found');
+            }
+          case 400:
+            throw new BadRequestException('Failed to update booking status');
+          default:
+            throw new InternalServerErrorException(
+              'Somthing went wrong while updating booking status',
             );
         }
       });

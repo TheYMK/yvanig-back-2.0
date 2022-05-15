@@ -5,10 +5,8 @@ import {
   IsNumber,
   IsOptional,
   IsString,
-  Length,
 } from 'class-validator';
-import { DocumentTypes, Genders } from '../../passengers/passenger.entity';
-import { BookingTypes } from '../booking.entity';
+import { BookingStatuses, BookingTypes } from '../booking.entity';
 
 export class UpdateBookingDto {
   // Everything needed to create a booking
@@ -22,6 +20,17 @@ export class UpdateBookingDto {
   @IsEnum(BookingTypes)
   @IsOptional()
   booking_type: BookingTypes;
+
+  @ApiProperty({
+    type: String,
+    description: 'completed | pending | cancelled',
+    enum: BookingStatuses,
+  })
+  @IsString()
+  @IsNotEmpty()
+  @IsEnum(BookingStatuses)
+  @IsOptional()
+  status: BookingStatuses;
 
   @ApiProperty({
     type: Number,

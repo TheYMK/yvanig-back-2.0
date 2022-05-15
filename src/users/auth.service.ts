@@ -23,14 +23,26 @@ export class AuthService {
     private jwtService: JwtService,
   ) {}
 
-  async sendEmailVerification(email: string) {
+  async sendEmailVerification(email: string, isRegistration: boolean) {
     const token = this.jwtService.sign({ email });
+
+    let subject = `YVANIG TOUR | Veuillez confirmer votre email`;
+    let registrationMetaText = `Merci d'avoir rejoint YVANIG TOUR. Nous avons besoin d'un peu plus d'informations pour compléter votre inscription, y compris une confirmation de votre adresse e-mail.`;
+    let simpleValidationMetaText = `Une confirmation de votre adresse e-mail est requise avoir accès aux fonctionnalités de YVANIG TOUR. Veuillez confirmer votre adresse e-mail en cliquant sur le lien ci-dessous.`;
+
+    let registrationLink = `${this.configService.get(
+      'WEBSITE_URL',
+    )}/auth/register/complete?token=${token}`;
+
+    let simpleValidationLink = `${this.configService.get(
+      'WEBSITE_URL',
+    )}/auth/email/validate?token=${token}`;
 
     const emailData = {
       from: process.env.EMAIL,
       to: email,
-      subject: `YVANIG TOUR | Veuillez confirmer votre email`,
-      text: `Merci d'avoir rejoint YVANIG TOUR. Nous avons besoin d'un peu plus d'informations pour compléter votre inscription, y compris une confirmation de votre adresse e-mail.`,
+      subject: subject,
+      text: isRegistration ? registrationMetaText : simpleValidationMetaText,
       html: `
       <!DOCTYPE html>
       <html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="en">
@@ -204,11 +216,13 @@ export class AuthService {
                                 <table class="button_block" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
                                   <tr>
                                     <td style="padding-bottom:15px;padding-left:15px;padding-right:15px;padding-top:10px;text-align:left;">
-                                      <!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="${this.configService.get(
-                                        'WEBSITE_URL',
-                                      )}/auth/register/complete?token=${token}" style="height:42px;width:243px;v-text-anchor:middle;" arcsize="120%" stroke="false" fillcolor="#ff5f46"><w:anchorlock/><v:textbox inset="0px,0px,0px,0px"><center style="color:#ffffff; font-family:Arial, sans-serif; font-size:16px"><![endif]--><a href="${this.configService.get(
-        'WEBSITE_URL',
-      )}/auth/register/complete?token=${token}" target="_blank" style="text-decoration:none;display:inline-block;color:#ffffff;background-color:#ff5f46;border-radius:50px;width:auto;border-top:0px solid #2B2D2D;border-right:0px solid #2B2D2D;border-bottom:0px solid #2B2D2D;border-left:0px solid #2B2D2D;padding-top:5px;padding-bottom:5px;font-family:Arial, Helvetica Neue, Helvetica, sans-serif;text-align:center;mso-border-alt:none;word-break:keep-all;"><span style="padding-left:20px;padding-right:20px;font-size:16px;display:inline-block;letter-spacing:normal;"><span style="font-size: 16px; line-height: 2; word-break: break-word; mso-line-height-alt: 32px;"><strong>Je confirme mon adresse email</strong></span></span></a>
+                                      <!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="${
+                                        isRegistration
+                                          ? registrationLink
+                                          : simpleValidationLink
+                                      }" style="height:42px;width:243px;v-text-anchor:middle;" arcsize="120%" stroke="false" fillcolor="#ff5f46"><w:anchorlock/><v:textbox inset="0px,0px,0px,0px"><center style="color:#ffffff; font-family:Arial, sans-serif; font-size:16px"><![endif]--><a href="${
+        isRegistration ? registrationLink : simpleValidationLink
+      }" target="_blank" style="text-decoration:none;display:inline-block;color:#ffffff;background-color:#ff5f46;border-radius:50px;width:auto;border-top:0px solid #2B2D2D;border-right:0px solid #2B2D2D;border-bottom:0px solid #2B2D2D;border-left:0px solid #2B2D2D;padding-top:5px;padding-bottom:5px;font-family:Arial, Helvetica Neue, Helvetica, sans-serif;text-align:center;mso-border-alt:none;word-break:keep-all;"><span style="padding-left:20px;padding-right:20px;font-size:16px;display:inline-block;letter-spacing:normal;"><span style="font-size: 16px; line-height: 2; word-break: break-word; mso-line-height-alt: 32px;"><strong>Je confirme mon adresse email</strong></span></span></a>
                                       <!--[if mso]></center></v:textbox></v:roundrect><![endif]-->
                                     </td>
                                   </tr>
@@ -242,9 +256,11 @@ export class AuthService {
                                   <tr>
                                     <td>
                                       <div style="color:#393d47;direction:ltr;font-family:Arial, Helvetica Neue, Helvetica, sans-serif;font-size:14px;font-weight:400;letter-spacing:0px;line-height:120%;text-align:center;">
-                                        <p style="margin: 0;">Ou cliquez sur ce lien: <a href="${this.configService.get(
-                                          'WEBSITE_URL',
-                                        )}/auth/register/complete?token=${token}" target="_blank" style="text-decoration: underline; color: #8a3b8f;" rel="noopener">Confirmer mon adresse email</a></p>
+                                        <p style="margin: 0;">Ou cliquez sur ce lien: <a href="${
+                                          isRegistration
+                                            ? registrationLink
+                                            : simpleValidationLink
+                                        }" target="_blank" style="text-decoration: underline; color: #8a3b8f;" rel="noopener">Confirmer mon adresse email</a></p>
                                       </div>
                                     </td>
                                   </tr>
@@ -687,13 +703,42 @@ export class AuthService {
 
     // modify user's password
     try {
-      const updatedUser = await this.usersService.update(user.id, {
+      const updatedUser = await this.usersService.update(user, {
         password: result,
       });
 
       return updatedUser;
     } catch (err) {
       throw new BadRequestException('Failed to update password of the user');
+    }
+  }
+
+  async verifyEmail(user: User, token: string) {
+    // check if email has been verified
+    let decodedToken;
+
+    try {
+      decodedToken = await this.jwtService.verify(token);
+    } catch (err) {
+      throw new BadRequestException('Invalid token');
+    }
+
+    // extra check just in case
+    if (!decodedToken && !decodedToken.email) {
+      throw new BadRequestException('Invalid token');
+    }
+
+    // check if user already exists
+    const [foundUser] = await this.usersService.find(decodedToken.email);
+
+    try {
+      const updatedUser = await this.usersService.update(foundUser, {
+        is_email_verified: true,
+      });
+
+      return updatedUser;
+    } catch (err) {
+      throw new BadRequestException('Failed to verify email');
     }
   }
 }

@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsEmail, IsNotEmpty, IsString } from 'class-validator';
+import { IsBoolean, IsEmail, IsNotEmpty, IsString } from 'class-validator';
 
 export class EmailVerificationDto {
   @ApiProperty({
@@ -11,4 +11,12 @@ export class EmailVerificationDto {
   @IsNotEmpty()
   @IsEmail()
   email: string;
+
+  @ApiProperty({
+    type: Boolean,
+    description: 'the action type',
+    default: true,
+  })
+  @IsBoolean()
+  isRegistration: boolean;
 }

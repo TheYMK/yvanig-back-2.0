@@ -33,7 +33,6 @@ import { UpdatePassengerDto } from './dtos/update-passenger.dto';
 import { PassengersService } from './passengers.service';
 
 @ApiTags('passengers')
-@Serialize(PassengerDto)
 @Controller({
   path: 'api/passengers',
   version: '1',
@@ -43,6 +42,7 @@ export class PassengersController {
 
   // LAST TIME REVIEWED: 2022-04-09
   @Post()
+  @Serialize(PassengerDto)
   @UseGuards(AdminGuard)
   @ApiCreatedResponse({
     description: 'The passenger was created successfully',
@@ -104,6 +104,39 @@ export class PassengersController {
       });
   }
 
+  @Get('/unique/:id')
+  @UseGuards(AdminGuard)
+  @ApiOkResponse({
+    description: 'The passenger was returned successfully',
+  })
+  @ApiNotFoundResponse({
+    description: 'Passenger not found',
+  })
+  @ApiInternalServerErrorResponse({
+    description: 'Something went wrong while getting the passenger',
+  })
+  async getPassengerById(
+    @Param('id', ParseIntPipe) id: number,
+    @CurrentUser() user: User,
+  ) {
+    return this.passengersService
+      .findOne(id)
+      .then((res) => {
+        return res;
+      })
+      .catch((err) => {
+        console.log(err.response?.statusCode);
+        switch (err.response?.statusCode) {
+          case 404:
+            throw new NotFoundException('Passenger not found');
+          default:
+            throw new InternalServerErrorException(
+              'Something went wrong while getting the passenger',
+            );
+        }
+      });
+  }
+
   // LAST TIME REVIEWED: 2022-04-09
   @Get('/me')
   @UseGuards(AuthGuard)
@@ -111,7 +144,7 @@ export class PassengersController {
     description: 'The passenger was returned successfully',
   })
   @ApiBadRequestResponse({
-    description: 'Failed to get the passengers',
+    description: 'Failed to get the passenger',
   })
   @ApiInternalServerErrorResponse({
     description: 'Something went wrong while getting the passenger',
@@ -125,7 +158,7 @@ export class PassengersController {
       .catch((err) => {
         switch (err.response?.statusCode) {
           case 400:
-            throw new NotFoundException('Failed to get the passengers');
+            throw new BadRequestException('Failed to get the passenger');
           default:
             throw new InternalServerErrorException(
               'Something went wrong while getting the passenger',
@@ -136,6 +169,7 @@ export class PassengersController {
 
   // LAST TIME REVIEWED: 2022-04-09
   @Patch(':id')
+  @Serialize(PassengerDto)
   @UseGuards(AuthGuard)
   @ApiOkResponse({
     description: 'The passenger was updated successfully',
@@ -182,6 +216,7 @@ export class PassengersController {
 
   // LAST TIME REVIEWED: 2022-04-09
   @Delete(':id')
+  @Serialize(PassengerDto)
   @UseGuards(AuthGuard)
   @ApiOkResponse({
     description: 'The passenger was deleted successfully',
