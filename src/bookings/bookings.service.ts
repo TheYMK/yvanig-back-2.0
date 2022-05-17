@@ -265,4 +265,33 @@ export class BookingsService {
       return flight.seat_base_price;
     }
   }
+
+  async getStats() {
+    let stats = {
+      total: 0,
+      total_confirmed: 0,
+      total_cancelled: 0,
+      total_pending: 0,
+    };
+
+    try {
+      const bookings = await this.repo.find();
+
+      stats.total = bookings.length;
+      bookings.forEach((booking) => {
+        booking.status === BookingStatuses.CONFIRMED &&
+          (stats.total_confirmed += 1);
+
+        booking.status === BookingStatuses.CANCELLED &&
+          (stats.total_cancelled += 1);
+
+        booking.status === BookingStatuses.PENDING &&
+          (stats.total_pending += 1);
+      });
+
+      return stats;
+    } catch (err) {
+      throw new BadRequestException('Failed to get bookings stats');
+    }
+  }
 }

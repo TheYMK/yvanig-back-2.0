@@ -6,7 +6,7 @@ import {
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CreateUserDto } from './dtos/create-user.dto';
-import { User } from './user.entity';
+import { User, UserRole } from './user.entity';
 
 @Injectable()
 export class UsersService {
@@ -72,5 +72,32 @@ export class UsersService {
     const removedUser = await this.repo.remove(user);
 
     return removedUser;
+  }
+
+  async getStats() {
+    let stats = {
+      total: 0,
+      total_admin: 0,
+      total_customer: 0,
+      total_verified: 0,
+      total_unverified: 0,
+    };
+
+    try {
+      const users = await this.repo.find();
+
+      stats.total = users.length;
+
+      users.forEach((user) => {
+        user.is_email_verified && (stats.total_verified += 1);
+        !user.is_email_verified && (stats.total_unverified += 1);
+        user.role === UserRole.ADMIN && (stats.total_admin += 1);
+        user.role === UserRole.CUSTOMER && (stats.total_customer += 1);
+      });
+
+      return stats;
+    } catch (err) {
+      throw new BadRequestException('Failed to get users stats');
+    }
   }
 }
