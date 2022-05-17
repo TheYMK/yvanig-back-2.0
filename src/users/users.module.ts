@@ -18,6 +18,7 @@ import { UsersService } from './users.service';
   ],
   controllers: [UsersController],
   providers: [UsersService, AuthService],
+  exports: [UsersService],
 })
 export class UsersModule {
   configure(consumer: MiddlewareConsumer) {

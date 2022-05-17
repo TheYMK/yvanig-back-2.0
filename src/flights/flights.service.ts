@@ -7,7 +7,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CreateFlightDto } from './dtos/create-flight.dto';
 import { GetFlightsDto } from './dtos/get-flights.dto';
-import { Flight } from './flight.entity';
+import { Flight, FlightStatuses } from './flight.entity';
 
 @Injectable()
 export class FlightsService {
@@ -85,6 +85,72 @@ export class FlightsService {
       return removedFlight;
     } catch (err) {
       throw new BadRequestException('Failed to delete the flight');
+    }
+  }
+
+  async getStats() {
+    let stats = {
+      total: 0,
+      total_scheduled: 0,
+      total_delayed: 0,
+      total_in_air: 0,
+      total_expected: 0,
+      total_diverted: 0,
+      total_recovery: 0,
+      total_landed: 0,
+      total_arrived: 0,
+      total_cancelled: 0,
+      total_no_takeoff_info: 0,
+      total_past_flight: 0,
+    };
+
+    let flights: Flight[];
+
+    try {
+      flights = await this.repo.find();
+      stats = {
+        ...stats,
+        total: flights.length,
+      };
+
+      flights.forEach((flight) => {
+        [FlightStatuses.SCHEDULED].includes(flight.status) &&
+          (stats.total_scheduled = stats.total_scheduled + 1);
+
+        [FlightStatuses.DELAYED].includes(flight.status) &&
+          (stats.total_delayed = stats.total_delayed + 1);
+
+        [FlightStatuses.IN_AIR].includes(flight.status) &&
+          (stats.total_in_air = stats.total_in_air + 1);
+
+        [FlightStatuses.EXPECTED].includes(flight.status) &&
+          (stats.total_expected = stats.total_expected + 1);
+
+        [FlightStatuses.DIVERTED].includes(flight.status) &&
+          (stats.total_diverted = stats.total_diverted + 1);
+
+        [FlightStatuses.RECOVERY].includes(flight.status) &&
+          (stats.total_recovery = stats.total_recovery + 1);
+
+        [FlightStatuses.LANDED].includes(flight.status) &&
+          (stats.total_landed = stats.total_landed + 1);
+
+        [FlightStatuses.ARRIVED].includes(flight.status) &&
+          (stats.total_arrived = stats.total_arrived + 1);
+
+        [FlightStatuses.CANCELLED].includes(flight.status) &&
+          (stats.total_cancelled = stats.total_cancelled + 1);
+
+        [FlightStatuses.NO_TAKEOFF_INFO].includes(flight.status) &&
+          (stats.total_no_takeoff_info = stats.total_no_takeoff_info + 1);
+
+        [FlightStatuses.PAST_FLIGHT].includes(flight.status) &&
+          (stats.total_past_flight = stats.total_past_flight + 1);
+      });
+
+      return stats;
+    } catch (err) {
+      throw new BadRequestException('Failed to get flights stats');
     }
   }
 }
