@@ -100,7 +100,15 @@
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
+                                <a href="#getStats" >getStats</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#update" >update</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#updateBookingStatus" >updateBookingStatus</a>
                             </li>
                         </ul>
                     </td>
@@ -309,8 +317,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="208"
-                            class="link-to-prism">src/bookings/bookings.service.ts:208</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="238"
+                            class="link-to-prism">src/bookings/bookings.service.ts:238</a></div>
                 </td>
             </tr>
 
@@ -544,8 +552,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="229"
-                            class="link-to-prism">src/bookings/bookings.service.ts:229</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="259"
+                            class="link-to-prism">src/bookings/bookings.service.ts:259</a></div>
                 </td>
             </tr>
 
@@ -600,6 +608,45 @@
                     </div>
                     <div class="io-description">
                         
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getStats"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>getStats</b></span>
+                        <a href="#getStats"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getStats()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="269"
+                            class="link-to-prism">src/bookings/bookings.service.ts:269</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>unknown</code>
+
                     </div>
                 </td>
             </tr>
@@ -700,6 +747,101 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateBookingStatus"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>updateBookingStatus</b></span>
+                        <a href="#updateBookingStatus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateBookingStatus(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, status: <a href="../classes/Booking.html" target="_self">BookingStatuses</a>, user: <a href="../classes/User.html" target="_self">User</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="208"
+                            class="link-to-prism">src/bookings/bookings.service.ts:208</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>status</td>
+                                    <td>
+                                                <code><a href="../classes/Booking.html" target="_self" >BookingStatuses</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>user</td>
+                                    <td>
+                                                <code><a href="../classes/User.html" target="_self" >User</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>unknown</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
 
     </div>
@@ -721,7 +863,7 @@ import { PassengersService } from &#x27;src/passengers/passengers.service&#x27;;
 import { ClassTypes, Seat } from &#x27;src/seats/seat.entity&#x27;;
 import { User, UserRole } from &#x27;src/users/user.entity&#x27;;
 import { Repository } from &#x27;typeorm&#x27;;
-import { Booking } from &#x27;./booking.entity&#x27;;
+import { Booking, BookingStatuses } from &#x27;./booking.entity&#x27;;
 import { CreateBookingDto } from &#x27;./dtos/create-booking.dto&#x27;;
 import { GetBookingsDto } from &#x27;./dtos/get-bookings.dto&#x27;;
 import { UpdateBookingDto } from &#x27;./dtos/update-booking.dto&#x27;;
@@ -805,7 +947,7 @@ export class BookingsService {
         order: { created_at: &#x27;DESC&#x27; },
         relations: [&#x27;flight&#x27;, &#x27;seat&#x27;, &#x27;passenger&#x27;],
       });
-      const totalCount &#x3D; await (await this.repo.find()).length;
+      const totalCount &#x3D; (await this.repo.find()).length;
 
       return { bookings, total_count: totalCount };
     } catch (err) {
@@ -913,6 +1055,36 @@ export class BookingsService {
     }
   }
 
+  async updateBookingStatus(id: number, status: BookingStatuses, user: User) {
+    const foundBooking &#x3D; await this.findOne(id, user);
+
+    foundBooking.status &#x3D; status;
+
+    try {
+      const updatedBooking &#x3D; await this.repo.save(foundBooking);
+
+      if (status &#x3D;&#x3D;&#x3D; BookingStatuses.CONFIRMED) {
+        this.eventEmitter.emit(&#x27;booking.confirmed&#x27;, {
+          id: foundBooking.seat.id,
+          is_available: false,
+        });
+      }
+
+      if (status &#x3D;&#x3D;&#x3D; BookingStatuses.CANCELLED) {
+        console.log(&#x27;[cancelled]&#x27;, status);
+
+        this.eventEmitter.emit(&#x27;booking.cancelled&#x27;, {
+          id: foundBooking.seat.id,
+          is_available: true,
+        });
+      }
+
+      return updatedBooking;
+    } catch (err) {
+      throw new BadRequestException(&#x27;Failed to update booking status&#x27;);
+    }
+  }
+
   async delete(id: number, user: User) {
     const foundBooking &#x3D; await this.findOne(id, user);
 
@@ -941,6 +1113,35 @@ export class BookingsService {
       return flight.seat_price_business_class;
     } else {
       return flight.seat_base_price;
+    }
+  }
+
+  async getStats() {
+    let stats &#x3D; {
+      total: 0,
+      total_confirmed: 0,
+      total_cancelled: 0,
+      total_pending: 0,
+    };
+
+    try {
+      const bookings &#x3D; await this.repo.find();
+
+      stats.total &#x3D; bookings.length;
+      bookings.forEach((booking) &#x3D;&gt; {
+        booking.status &#x3D;&#x3D;&#x3D; BookingStatuses.CONFIRMED &amp;&amp;
+          (stats.total_confirmed +&#x3D; 1);
+
+        booking.status &#x3D;&#x3D;&#x3D; BookingStatuses.CANCELLED &amp;&amp;
+          (stats.total_cancelled +&#x3D; 1);
+
+        booking.status &#x3D;&#x3D;&#x3D; BookingStatuses.PENDING &amp;&amp;
+          (stats.total_pending +&#x3D; 1);
+      });
+
+      return stats;
+    } catch (err) {
+      throw new BadRequestException(&#x27;Failed to get bookings stats&#x27;);
     }
   }
 }

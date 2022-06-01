@@ -698,6 +698,8 @@ export class SeatsService {
   // handle events related to bookings
   @OnEvent(&#x27;booking.*&#x27;, { async: true })
   async handleBookingEvents(payload: BookingEvent) {
+    console.log(&#x27;[handleBookingEvent]&#x27;, payload);
+
     return this.update(payload.id, { is_available: payload.is_available });
   }
 }

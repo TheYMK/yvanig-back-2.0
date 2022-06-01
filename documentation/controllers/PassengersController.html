@@ -92,6 +92,10 @@
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
+                                <a href="#getPassengerById" >getPassengerById</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#getPassengers" >getPassengers</a>
                             </li>
                             <li>
@@ -138,7 +142,7 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Post()<br />@UseGuards(AdminGuard)<br />@ApiCreatedResponse({description: &#x27;The passenger was created successfully&#x27;})<br />@ApiBadRequestResponse({description: &#x27;Failed to create a new passenger&#x27;})<br />@ApiInternalServerErrorResponse({description: &#x27;Something went wrong while creating a new passenger&#x27;})<br /></code>
+                    <code>@Post()<br />@Serialize(PassengerDto)<br />@UseGuards(AdminGuard)<br />@ApiCreatedResponse({description: &#x27;The passenger was created successfully&#x27;})<br />@ApiBadRequestResponse({description: &#x27;Failed to create a new passenger&#x27;})<br />@ApiInternalServerErrorResponse({description: &#x27;Something went wrong while creating a new passenger&#x27;})<br /></code>
                 </td>
             </tr>
 
@@ -228,14 +232,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Delete(&#x27;:id&#x27;)<br />@UseGuards(AuthGuard)<br />@ApiOkResponse({description: &#x27;The passenger was deleted successfully&#x27;})<br />@ApiBadRequestResponse({description: &#x27;Failed to delete the passenger&#x27;})<br />@ApiNotFoundResponse({description: &#x27;Passenger not found&#x27;})<br />@ApiUnauthorizedResponse({description: &#x27;You are not allowed to delete this passenger&#x27;})<br />@ApiInternalServerErrorResponse({description: &#x27;Something went wrong while deleting the passenger&#x27;})<br /></code>
+                    <code>@Delete(&#x27;:id&#x27;)<br />@Serialize(PassengerDto)<br />@UseGuards(AuthGuard)<br />@ApiOkResponse({description: &#x27;The passenger was deleted successfully&#x27;})<br />@ApiBadRequestResponse({description: &#x27;Failed to delete the passenger&#x27;})<br />@ApiNotFoundResponse({description: &#x27;Passenger not found&#x27;})<br />@ApiUnauthorizedResponse({description: &#x27;You are not allowed to delete this passenger&#x27;})<br />@ApiInternalServerErrorResponse({description: &#x27;Something went wrong while deleting the passenger&#x27;})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="201"
-                            class="link-to-prism">src/passengers/passengers.controller.ts:201</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="236"
+                            class="link-to-prism">src/passengers/passengers.controller.ts:236</a></div>
                 </td>
             </tr>
 
@@ -318,14 +322,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Get(&#x27;/me&#x27;)<br />@UseGuards(AuthGuard)<br />@ApiOkResponse({description: &#x27;The passenger was returned successfully&#x27;})<br />@ApiNotFoundResponse({description: &#x27;Passenger not found&#x27;})<br />@ApiInternalServerErrorResponse({description: &#x27;Something went wrong while getting the passenger&#x27;})<br /></code>
+                    <code>@Get(&#x27;/me&#x27;)<br />@UseGuards(AuthGuard)<br />@ApiOkResponse({description: &#x27;The passenger was returned successfully&#x27;})<br />@ApiBadRequestResponse({description: &#x27;Failed to get the passenger&#x27;})<br />@ApiInternalServerErrorResponse({description: &#x27;Something went wrong while getting the passenger&#x27;})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="119"
-                            class="link-to-prism">src/passengers/passengers.controller.ts:119</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="152"
+                            class="link-to-prism">src/passengers/passengers.controller.ts:152</a></div>
                 </td>
             </tr>
 
@@ -345,6 +349,96 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <tr>
+                                    <td>user</td>
+                                    <td>
+                                                <code><a href="../classes/User.html" target="_self" >User</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>unknown</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getPassengerById"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>getPassengerById</b></span>
+                        <a href="#getPassengerById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getPassengerById(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, user: <a href="../classes/User.html" target="_self">User</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get(&#x27;/unique/:id&#x27;)<br />@UseGuards(AdminGuard)<br />@ApiOkResponse({description: &#x27;The passenger was returned successfully&#x27;})<br />@ApiNotFoundResponse({description: &#x27;Passenger not found&#x27;})<br />@ApiInternalServerErrorResponse({description: &#x27;Something went wrong while getting the passenger&#x27;})<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="118"
+                            class="link-to-prism">src/passengers/passengers.controller.ts:118</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
                                 <tr>
                                     <td>user</td>
                                     <td>
@@ -442,14 +536,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Patch(&#x27;:id&#x27;)<br />@UseGuards(AuthGuard)<br />@ApiOkResponse({description: &#x27;The passenger was updated successfully&#x27;})<br />@ApiBadRequestResponse({description: &#x27;Failed to update the passenger&#x27;})<br />@ApiNotFoundResponse({description: &#x27;Passenger not found&#x27;})<br />@ApiUnauthorizedResponse({description: &#x27;You are not allowed to update this passenger&#x27;})<br />@ApiInternalServerErrorResponse({description: &#x27;Something went wrong while updating the passenger&#x27;})<br /></code>
+                    <code>@Patch(&#x27;:id&#x27;)<br />@Serialize(PassengerDto)<br />@UseGuards(AuthGuard)<br />@ApiOkResponse({description: &#x27;The passenger was updated successfully&#x27;})<br />@ApiBadRequestResponse({description: &#x27;Failed to update the passenger&#x27;})<br />@ApiNotFoundResponse({description: &#x27;Passenger not found&#x27;})<br />@ApiUnauthorizedResponse({description: &#x27;You are not allowed to update this passenger&#x27;})<br />@ApiInternalServerErrorResponse({description: &#x27;Something went wrong while updating the passenger&#x27;})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="155"
-                            class="link-to-prism">src/passengers/passengers.controller.ts:155</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="189"
+                            class="link-to-prism">src/passengers/passengers.controller.ts:189</a></div>
                 </td>
             </tr>
 
@@ -560,7 +654,6 @@ import { UpdatePassengerDto } from &#x27;./dtos/update-passenger.dto&#x27;;
 import { PassengersService } from &#x27;./passengers.service&#x27;;
 
 @ApiTags(&#x27;passengers&#x27;)
-@Serialize(PassengerDto)
 @Controller({
   path: &#x27;api/passengers&#x27;,
   version: &#x27;1&#x27;,
@@ -570,6 +663,7 @@ export class PassengersController {
 
   // LAST TIME REVIEWED: 2022-04-09
   @Post()
+  @Serialize(PassengerDto)
   @UseGuards(AdminGuard)
   @ApiCreatedResponse({
     description: &#x27;The passenger was created successfully&#x27;,
@@ -631,9 +725,8 @@ export class PassengersController {
       });
   }
 
-  // LAST TIME REVIEWED: 2022-04-09
-  @Get(&#x27;/me&#x27;)
-  @UseGuards(AuthGuard)
+  @Get(&#x27;/unique/:id&#x27;)
+  @UseGuards(AdminGuard)
   @ApiOkResponse({
     description: &#x27;The passenger was returned successfully&#x27;,
   })
@@ -643,13 +736,17 @@ export class PassengersController {
   @ApiInternalServerErrorResponse({
     description: &#x27;Something went wrong while getting the passenger&#x27;,
   })
-  async getPassenger(@CurrentUser() user: User) {
+  async getPassengerById(
+    @Param(&#x27;id&#x27;, ParseIntPipe) id: number,
+    @CurrentUser() user: User,
+  ) {
     return this.passengersService
-      .findByUser(user)
+      .findOne(id)
       .then((res) &#x3D;&gt; {
         return res;
       })
       .catch((err) &#x3D;&gt; {
+        console.log(err.response?.statusCode);
         switch (err.response?.statusCode) {
           case 404:
             throw new NotFoundException(&#x27;Passenger not found&#x27;);
@@ -662,7 +759,38 @@ export class PassengersController {
   }
 
   // LAST TIME REVIEWED: 2022-04-09
+  @Get(&#x27;/me&#x27;)
+  @UseGuards(AuthGuard)
+  @ApiOkResponse({
+    description: &#x27;The passenger was returned successfully&#x27;,
+  })
+  @ApiBadRequestResponse({
+    description: &#x27;Failed to get the passenger&#x27;,
+  })
+  @ApiInternalServerErrorResponse({
+    description: &#x27;Something went wrong while getting the passenger&#x27;,
+  })
+  async getPassenger(@CurrentUser() user: User) {
+    return this.passengersService
+      .findByUser(user)
+      .then((res) &#x3D;&gt; {
+        return res;
+      })
+      .catch((err) &#x3D;&gt; {
+        switch (err.response?.statusCode) {
+          case 400:
+            throw new BadRequestException(&#x27;Failed to get the passenger&#x27;);
+          default:
+            throw new InternalServerErrorException(
+              &#x27;Something went wrong while getting the passenger&#x27;,
+            );
+        }
+      });
+  }
+
+  // LAST TIME REVIEWED: 2022-04-09
   @Patch(&#x27;:id&#x27;)
+  @Serialize(PassengerDto)
   @UseGuards(AuthGuard)
   @ApiOkResponse({
     description: &#x27;The passenger was updated successfully&#x27;,
@@ -709,6 +837,7 @@ export class PassengersController {
 
   // LAST TIME REVIEWED: 2022-04-09
   @Delete(&#x27;:id&#x27;)
+  @Serialize(PassengerDto)
   @UseGuards(AuthGuard)
   @ApiOkResponse({
     description: &#x27;The passenger was deleted successfully&#x27;,

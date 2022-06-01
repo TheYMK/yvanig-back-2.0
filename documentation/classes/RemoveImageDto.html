@@ -45,7 +45,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li >EmailVerificationDto</li>
+  <li >RemoveImageDto</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -63,7 +63,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/users/dtos/email-verification.dto.ts</code>
+            <code>src/cloudinary/dtos/remove-image.dto.ts</code>
         </p>
 
 
@@ -84,10 +84,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#email" >email</a>
-                            </li>
-                            <li>
-                                <a href="#isRegistration" >isRegistration</a>
+                                <a href="#public_id" >public_id</a>
                             </li>
                         </ul>
                     </td>
@@ -112,10 +109,10 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="email"></a>
+                    <a name="public_id"></a>
                     <span class="name">
-                        <span ><b>email</b></span>
-                        <a href="#email"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>public_id</b></span>
+                        <a href="#public_id"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
@@ -130,48 +127,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiProperty({type: String, description: &#x27;the email of the user&#x27;, default: &#x27;johndoe@email.com&#x27;})<br />@IsString()<br />@IsNotEmpty()<br />@IsEmail()<br />@IsOptional()<br />
+                            @ApiProperty({type: String, description: &#x27;The public id of the image to remove&#x27;, default: &#x27;&#x27;})<br />@IsString()<br />@IsNotEmpty()<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/users/dtos/email-verification.dto.ts:20</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="isRegistration"></a>
-                    <span class="name">
-                        <span ><b>isRegistration</b></span>
-                        <a href="#isRegistration"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <b>Decorators : </b>
-                        <br />
-                        <code>
-                            @ApiProperty({type: Boolean, description: &#x27;the action type&#x27;, default: true})<br />@IsBoolean()<br />@IsOptional()<br />
-                        </code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/users/dtos/email-verification.dto.ts:29</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/cloudinary/dtos/remove-image.dto.ts:12</a></div>
                         </td>
                     </tr>
 
@@ -191,34 +153,17 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty } from &#x27;@nestjs/swagger&#x27;;
-import {
-  IsBoolean,
-  IsEmail,
-  IsNotEmpty,
-  IsOptional,
-  IsString,
-} from &#x27;class-validator&#x27;;
+import { IsNotEmpty, IsString } from &#x27;class-validator&#x27;;
 
-export class EmailVerificationDto {
+export class RemoveImageDto {
   @ApiProperty({
     type: String,
-    description: &#x27;the email of the user&#x27;,
-    default: &#x27;johndoe@email.com&#x27;,
+    description: &#x27;The public id of the image to remove&#x27;,
+    default: &#x27;&#x27;,
   })
   @IsString()
   @IsNotEmpty()
-  @IsEmail()
-  @IsOptional()
-  email: string;
-
-  @ApiProperty({
-    type: Boolean,
-    description: &#x27;the action type&#x27;,
-    default: true,
-  })
-  @IsBoolean()
-  @IsOptional()
-  isRegistration: boolean;
+  public_id: string;
 }
 </code></pre>
     </div>
@@ -258,7 +203,7 @@ export class EmailVerificationDto {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
-            var COMPODOC_CURRENT_PAGE_URL = 'EmailVerificationDto.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'RemoveImageDto.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

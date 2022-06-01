@@ -38,7 +38,7 @@
 
 <ol class="breadcrumb">
   <li>Controllers</li>
-  <li >AppController</li>
+  <li >SettingsController</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -56,7 +56,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app.controller.ts</code>
+            <code>src/settings/settings.controller.ts</code>
         </p>
 
 
@@ -79,10 +79,10 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#getStats" >getStats</a>
+                                <a href="#getSettings" >getSettings</a>
                             </li>
                             <li>
-                                <a href="#welcomeMessage" >welcomeMessage</a>
+                                <a href="#updateSettings" >updateSettings</a>
                             </li>
                         </ul>
                     </td>
@@ -105,16 +105,16 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getStats"></a>
+                    <a name="getSettings"></a>
                     <span class="name">
-                        <span ><b>getStats</b></span>
-                        <a href="#getStats"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>getSettings</b></span>
+                        <a href="#getSettings"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>getStats()</code>
+<code>getSettings()</code>
                 </td>
             </tr>
 
@@ -122,14 +122,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Get(&#x27;/stats&#x27;)<br />@UseGuards(AdminGuard)<br />@ApiBadRequestResponse({description: &#x27;Failed to get flights stats | Failed to get users stats | Failed to get bookings stats&#x27;})<br />@ApiInternalServerErrorResponse({description: &#x27;Something went wrong while getting stats&#x27;})<br /></code>
+                    <code>@Get()<br />@UseGuards(AdminGuard)<br />@ApiBadRequestResponse({description: &#x27;Failed to get settings&#x27;})<br />@ApiInternalServerErrorResponse({description: &#x27;Something went wrong while updating the settings&#x27;})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
                     <div class="io-line">Defined in <a href="" data-line="36"
-                            class="link-to-prism">src/app.controller.ts:36</a></div>
+                            class="link-to-prism">src/settings/settings.controller.ts:36</a></div>
                 </td>
             </tr>
 
@@ -149,16 +149,16 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="welcomeMessage"></a>
+                    <a name="updateSettings"></a>
                     <span class="name">
-                        <span ><b>welcomeMessage</b></span>
-                        <a href="#welcomeMessage"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>updateSettings</b></span>
+                        <a href="#updateSettings"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>welcomeMessage()</code>
+<code>updateSettings(body: <a href="../classes/UpdateSettingsDto.html" target="_self">UpdateSettingsDto</a>)</code>
                 </td>
             </tr>
 
@@ -166,14 +166,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Get()<br /></code>
+                    <code>@Patch()<br />@UseGuards(AdminGuard)<br />@ApiOkResponse({description: &#x27;The settings were updated successfully&#x27;})<br />@ApiBadRequestResponse({description: &#x27;Failed to update the settings&#x27;})<br />@ApiInternalServerErrorResponse({description: &#x27;Something went wrong while updating the settings&#x27;})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="23"
-                            class="link-to-prism">src/app.controller.ts:23</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="62"
+                            class="link-to-prism">src/settings/settings.controller.ts:62</a></div>
                 </td>
             </tr>
 
@@ -182,8 +182,40 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
-                        <b>Returns : </b>    <code>literal type</code>
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>body</td>
+                                    <td>
+                                                <code><a href="../classes/UpdateSettingsDto.html" target="_self" >UpdateSettingsDto</a></code>
+                                    </td>
 
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
                     </div>
                 </td>
             </tr>
@@ -195,61 +227,78 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
   BadRequestException,
+  Body,
   Controller,
   Get,
   InternalServerErrorException,
+  Patch,
   UseGuards,
 } from &#x27;@nestjs/common&#x27;;
 import {
   ApiBadRequestResponse,
   ApiInternalServerErrorResponse,
+  ApiOkResponse,
+  ApiTags,
 } from &#x27;@nestjs/swagger&#x27;;
-import { AppService } from &#x27;./app.service&#x27;;
-import { AdminGuard } from &#x27;./guards/admin.guard&#x27;;
+import { AdminGuard } from &#x27;src/guards/admin.guard&#x27;;
+import { UpdateSettingsDto } from &#x27;./dtos/update-settings.dto&#x27;;
+import { SettingsService } from &#x27;./settings.service&#x27;;
 
+@ApiTags(&#x27;settings&#x27;)
 @Controller({
-  path: &#x27;/api&#x27;,
+  path: &#x27;api/settings&#x27;,
   version: &#x27;1&#x27;,
 })
-export class AppController {
-  constructor(private readonly appService: AppService) {}
+export class SettingsController {
+  constructor(private settingsService: SettingsService) {}
 
   @Get()
-  welcomeMessage(): { message: string } {
-    return this.appService.getWelcomeMessage();
-  }
-
-  @Get(&#x27;/stats&#x27;)
   @UseGuards(AdminGuard)
   @ApiBadRequestResponse({
-    description:
-      &#x27;Failed to get flights stats | Failed to get users stats | Failed to get bookings stats&#x27;,
+    description: &#x27;Failed to get settings&#x27;,
   })
   @ApiInternalServerErrorResponse({
-    description: &#x27;Something went wrong while getting stats&#x27;,
+    description: &#x27;Something went wrong while updating the settings&#x27;,
   })
-  getStats() {
-    return this.appService
-      .getStats()
-      .then((res) &#x3D;&gt; {
-        return res;
-      })
-      .catch((err) &#x3D;&gt; {
-        switch (err.response?.statusCode) {
-          case 400:
-            if (err.response?.message &#x3D;&#x3D;&#x3D; &#x27;Failed to get flights stats&#x27;) {
-              throw new BadRequestException(&#x27;Failed to get flights stats&#x27;);
-            } else if (err.response?.message &#x3D;&#x3D;&#x3D; &#x27;Failed to get users stats&#x27;) {
-              throw new BadRequestException(&#x27;Failed to get users stats&#x27;);
-            } else {
-              throw new BadRequestException(&#x27;Failed to get bookings stats&#x27;);
-            }
-          default:
-            throw new InternalServerErrorException(
-              &#x27;Something went wrong while getting stats&#x27;,
-            );
-        }
-      });
+  getSettings() {
+    try {
+      return this.settingsService.getSettings();
+    } catch (err) {
+      switch (err.response?.statusCode) {
+        case 400:
+          throw new BadRequestException(&#x27;Failed to get settings&#x27;);
+        default:
+          throw new InternalServerErrorException(
+            &#x27;Something went wrong while updating settings&#x27;,
+          );
+      }
+    }
+  }
+
+  @Patch()
+  @UseGuards(AdminGuard)
+  @ApiOkResponse({
+    description: &#x27;The settings were updated successfully&#x27;,
+  })
+  @ApiBadRequestResponse({
+    description: &#x27;Failed to update the settings&#x27;,
+  })
+  @ApiInternalServerErrorResponse({
+    description: &#x27;Something went wrong while updating the settings&#x27;,
+  })
+  updateSettings(@Body() body: UpdateSettingsDto) {
+    try {
+      return this.settingsService.updateSettings(body);
+    } catch (err) {
+      switch (err.response?.statusCode) {
+        case 400:
+          throw new BadRequestException(&#x27;Failed to update settings&#x27;);
+        default:
+          throw new InternalServerErrorException(
+            &#x27;Something went wrong while updating settings&#x27;,
+          );
+      }
+    }
   }
 }
 </code></pre>
@@ -297,7 +346,7 @@ export class AppController {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'controller';
-            var COMPODOC_CURRENT_PAGE_URL = 'AppController.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'SettingsController.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

@@ -29,19 +29,16 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content injectable">
+               <div class="content controller">
                    <div class="content-data">
 
 
 
 
 
-
-
-
 <ol class="breadcrumb">
-  <li>Injectables</li>
-  <li >AppService</li>
+  <li>Controllers</li>
+  <li >CloudinaryController</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -59,8 +56,10 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app.service.ts</code>
+            <code>src/cloudinary/cloudinary.controller.ts</code>
         </p>
+
+
 
 
 
@@ -81,10 +80,11 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#getStats" >getStats</a>
+                                <a href="#remove" >remove</a>
                             </li>
                             <li>
-                                <a href="#getWelcomeMessage" >getWelcomeMessage</a>
+                                    <span class="modifier">Async</span>
+                                <a href="#upload" >upload</a>
                             </li>
                         </ul>
                     </td>
@@ -99,79 +99,6 @@
 </section>
 
             <section>
-    <h3 id="constructor">Constructor</h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-<code>constructor(flightsService: <a href="../injectables/FlightsService.html" target="_self">FlightsService</a>, usersService: <a href="../injectables/UsersService.html" target="_self">UsersService</a>, bookingsService: <a href="../injectables/BookingsService.html" target="_self">BookingsService</a>)</code>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/app.service.ts:7</a></div>
-                            </td>
-                        </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                            <div>
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>flightsService</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/FlightsService.html" target="_self" >FlightsService</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>usersService</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/UsersService.html" target="_self" >UsersService</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>bookingsService</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/BookingsService.html" target="_self" >BookingsService</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-</section>
-
-            <section>
     
     <h3 id="methods">
         Methods
@@ -180,26 +107,33 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getStats"></a>
+                    <a name="remove"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
-                        <span ><b>getStats</b></span>
-                        <a href="#getStats"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>remove</b></span>
+                        <a href="#remove"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getStats()</code>
+                    <code>remove(undefined: <a href="../classes/RemoveImageDto.html" target="_self">RemoveImageDto</a>)</code>
                 </td>
             </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Post(&#x27;/remove&#x27;)<br />@UseGuards(AuthGuard)<br /></code>
+                </td>
+            </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="20"
-                            class="link-to-prism">src/app.service.ts:20</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="43"
+                            class="link-to-prism">src/cloudinary/cloudinary.controller.ts:43</a></div>
                 </td>
             </tr>
 
@@ -208,8 +142,39 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                                <code><a href="../classes/RemoveImageDto.html" target="_self" >RemoveImageDto</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
                         <b>Returns : </b>    <code>unknown</code>
 
+                    </div>
+                    <div class="io-description">
+                        
                     </div>
                 </td>
             </tr>
@@ -219,24 +184,33 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getWelcomeMessage"></a>
+                    <a name="upload"></a>
                     <span class="name">
-                        <span ><b>getWelcomeMessage</b></span>
-                        <a href="#getWelcomeMessage"><span class="icon ion-ios-link"></span></a>
+                        <span class="modifier">Async</span>
+                        <span ><b>upload</b></span>
+                        <a href="#upload"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>getWelcomeMessage()</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>upload(undefined: <a href="../classes/UploadImageDto.html" target="_self">UploadImageDto</a>)</code>
                 </td>
             </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Post(&#x27;/upload&#x27;)<br />@UseGuards(AuthGuard)<br /></code>
+                </td>
+            </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="14"
-                            class="link-to-prism">src/app.service.ts:14</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="23"
+                            class="link-to-prism">src/cloudinary/cloudinary.controller.ts:23</a></div>
                 </td>
             </tr>
 
@@ -245,50 +219,114 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
-                        <b>Returns : </b>    <code>literal type</code>
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                                <code><a href="../classes/UploadImageDto.html" target="_self" >UploadImageDto</a></code>
+                                    </td>
 
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>unknown</code>
+
+                    </div>
+                    <div class="io-description">
+                        
                     </div>
                 </td>
             </tr>
         </tbody>
     </table>
-</section>
-
-    </div>
+</section>    </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { BookingsService } from &#x27;./bookings/bookings.service&#x27;;
-import { FlightsService } from &#x27;./flights/flights.service&#x27;;
-import { UsersService } from &#x27;./users/users.service&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  BadRequestException,
+  Body,
+  Controller,
+  InternalServerErrorException,
+  Post,
+  UseGuards,
+} from &#x27;@nestjs/common&#x27;;
+import { AuthGuard } from &#x27;src/guards/auth.guard&#x27;;
+import { CloudinaryService } from &#x27;./cloudinary.service&#x27;;
+import { RemoveImageDto } from &#x27;./dtos/remove-image.dto&#x27;;
+import { UploadImageDto } from &#x27;./dtos/upload-image.dto&#x27;;
 
-@Injectable()
-export class AppService {
-  constructor(
-    private flightsService: FlightsService,
-    private usersService: UsersService,
-    private bookingsService: BookingsService,
-  ) {}
+@Controller({
+  path: &#x27;api/cloudinary&#x27;,
+  version: &#x27;1&#x27;,
+})
+export class CloudinaryController {
+  constructor(private cloudinaryService: CloudinaryService) {}
 
-  getWelcomeMessage(): { message: string } {
-    return {
-      message: &#x27;Welcome to the YVANIG Tour API V1&#x27;,
-    };
+  @Post(&#x27;/upload&#x27;)
+  @UseGuards(AuthGuard)
+  async upload(@Body() { image }: UploadImageDto) {
+    return this.cloudinaryService
+      .upload(image)
+      .then((res) &#x3D;&gt; {
+        return res;
+      })
+      .catch((err) &#x3D;&gt; {
+        switch (err.response?.statusCode) {
+          case 400:
+            throw new BadRequestException(&#x27;Failed to upload image&#x27;);
+          default:
+            throw new InternalServerErrorException(
+              &#x27;Something went wrong while uploading image&#x27;,
+            );
+        }
+      });
   }
 
-  async getStats() {
-    const flightsStats &#x3D; await this.flightsService.getStats();
-    const usersStats &#x3D; await this.usersService.getStats();
-    const bookingsStats &#x3D; await this.bookingsService.getStats();
-
-    return { flightsStats, usersStats, bookingsStats };
+  @Post(&#x27;/remove&#x27;)
+  @UseGuards(AuthGuard)
+  async remove(@Body() { public_id }: RemoveImageDto) {
+    return this.cloudinaryService
+      .remove(public_id)
+      .then((res) &#x3D;&gt; {
+        return res;
+      })
+      .catch((err) &#x3D;&gt; {
+        switch (err.response?.statusCode) {
+          case 400:
+            throw new BadRequestException(&#x27;Failed to remove image&#x27;);
+          default:
+            throw new InternalServerErrorException(
+              &#x27;Something went wrong while removing image&#x27;,
+            );
+        }
+      });
   }
 }
 </code></pre>
     </div>
-
 </div>
+
+
+
 
 
 
@@ -327,8 +365,8 @@ export class AppService {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'AppService.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'controller';
+            var COMPODOC_CURRENT_PAGE_URL = 'CloudinaryController.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

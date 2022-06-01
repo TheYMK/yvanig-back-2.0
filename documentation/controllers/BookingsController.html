@@ -98,6 +98,10 @@
                                     <span class="modifier">Async</span>
                                 <a href="#updateBooking" >updateBooking</a>
                             </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#updateBookingStatus" >updateBookingStatus</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -144,8 +148,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="64"
-                            class="link-to-prism">src/bookings/bookings.controller.ts:64</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="65"
+                            class="link-to-prism">src/bookings/bookings.controller.ts:65</a></div>
                 </td>
             </tr>
 
@@ -234,8 +238,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="255"
-                            class="link-to-prism">src/bookings/bookings.controller.ts:255</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="287"
+                            class="link-to-prism">src/bookings/bookings.controller.ts:287</a></div>
                 </td>
             </tr>
 
@@ -324,8 +328,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="119"
-                            class="link-to-prism">src/bookings/bookings.controller.ts:119</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="120"
+                            class="link-to-prism">src/bookings/bookings.controller.ts:120</a></div>
                 </td>
             </tr>
 
@@ -402,8 +406,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="157"
-                            class="link-to-prism">src/bookings/bookings.controller.ts:157</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="158"
+                            class="link-to-prism">src/bookings/bookings.controller.ts:158</a></div>
                 </td>
             </tr>
 
@@ -492,8 +496,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="209"
-                            class="link-to-prism">src/bookings/bookings.controller.ts:209</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="210"
+                            class="link-to-prism">src/bookings/bookings.controller.ts:210</a></div>
                 </td>
             </tr>
 
@@ -529,6 +533,108 @@
                                     <td>body</td>
                                     <td>
                                                 <code><a href="../classes/UpdateBookingDto.html" target="_self" >UpdateBookingDto</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>user</td>
+                                    <td>
+                                                <code><a href="../classes/User.html" target="_self" >User</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>unknown</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateBookingStatus"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>updateBookingStatus</b></span>
+                        <a href="#updateBookingStatus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateBookingStatus(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, body: <a href="../classes/UpdateBookingStatusDto.html" target="_self">UpdateBookingStatusDto</a>, user: <a href="../classes/User.html" target="_self">User</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Patch(&#x27;/update-status/:id&#x27;)<br />@Serialize(BookingDto)<br />@UseGuards(AdminGuard)<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="255"
+                            class="link-to-prism">src/bookings/bookings.controller.ts:255</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>body</td>
+                                    <td>
+                                                <code><a href="../classes/UpdateBookingStatusDto.html" target="_self" >UpdateBookingStatusDto</a></code>
                                     </td>
 
                                     <td>
@@ -603,6 +709,7 @@ import { BookingsService } from &#x27;./bookings.service&#x27;;
 import { BookingDto } from &#x27;./dtos/booking.dto&#x27;;
 import { CreateBookingDto } from &#x27;./dtos/create-booking.dto&#x27;;
 import { GetBookingsDto } from &#x27;./dtos/get-bookings.dto&#x27;;
+import { UpdateBookingStatusDto } from &#x27;./dtos/update-booking-status.dto&#x27;;
 import { UpdateBookingDto } from &#x27;./dtos/update-booking.dto&#x27;;
 
 // LAST TIME REVIEWED: 2022-04-10
@@ -814,6 +921,37 @@ export class BookingsController {
           default:
             throw new InternalServerErrorException(
               &#x27;Something went wrong while updating the booking&#x27;,
+            );
+        }
+      });
+  }
+
+  @Patch(&#x27;/update-status/:id&#x27;)
+  @Serialize(BookingDto)
+  @UseGuards(AdminGuard)
+  async updateBookingStatus(
+    @Param(&#x27;id&#x27;, ParseIntPipe) id: number,
+    @Body() body: UpdateBookingStatusDto,
+    @CurrentUser() user: User,
+  ) {
+    return this.bookingsService
+      .updateBookingStatus(id, body.status, user)
+      .then((res) &#x3D;&gt; {
+        return res;
+      })
+      .catch((err) &#x3D;&gt; {
+        switch (err.response?.statusCode) {
+          case 404:
+            if (err.response?.message &#x3D;&#x3D;&#x3D; &#x27;Booking not found&#x27;) {
+              throw new NotFoundException(&#x27;Booking not found&#x27;);
+            } else if (err.response?.message &#x3D;&#x3D;&#x3D; &#x27;Passenger not found&#x27;) {
+              throw new NotFoundException(&#x27;Passenger not found&#x27;);
+            }
+          case 400:
+            throw new BadRequestException(&#x27;Failed to update booking status&#x27;);
+          default:
+            throw new InternalServerErrorException(
+              &#x27;Somthing went wrong while updating booking status&#x27;,
             );
         }
       });

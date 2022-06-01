@@ -102,6 +102,12 @@
                                 <a href="#signOut" >signOut</a>
                             </li>
                             <li>
+                                <a href="#updateUser" >updateUser</a>
+                            </li>
+                            <li>
+                                <a href="#verifyEmail" >verifyEmail</a>
+                            </li>
+                            <li>
                                 <a href="#whoAmI" >whoAmI</a>
                             </li>
                         </ul>
@@ -150,8 +156,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="118"
-                            class="link-to-prism">src/users/users.controller.ts:118</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="125"
+                            class="link-to-prism">src/users/users.controller.ts:125</a></div>
                 </td>
             </tr>
 
@@ -240,8 +246,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="156"
-                            class="link-to-prism">src/users/users.controller.ts:156</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="163"
+                            class="link-to-prism">src/users/users.controller.ts:163</a></div>
                 </td>
             </tr>
 
@@ -330,8 +336,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="55"
-                            class="link-to-prism">src/users/users.controller.ts:55</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="62"
+                            class="link-to-prism">src/users/users.controller.ts:62</a></div>
                 </td>
             </tr>
 
@@ -408,8 +414,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="86"
-                            class="link-to-prism">src/users/users.controller.ts:86</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="93"
+                            class="link-to-prism">src/users/users.controller.ts:93</a></div>
                 </td>
             </tr>
 
@@ -486,8 +492,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="192"
-                            class="link-to-prism">src/users/users.controller.ts:192</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="199"
+                            class="link-to-prism">src/users/users.controller.ts:199</a></div>
                 </td>
             </tr>
 
@@ -574,8 +580,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="225"
-                            class="link-to-prism">src/users/users.controller.ts:225</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="300"
+                            class="link-to-prism">src/users/users.controller.ts:300</a></div>
                 </td>
             </tr>
 
@@ -627,6 +633,182 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="updateUser"></a>
+                    <span class="name">
+                        <span ><b>updateUser</b></span>
+                        <a href="#updateUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateUser(user: <a href="../classes/User.html" target="_self">User</a>, body: <a href="../classes/UpdateUserDto.html" target="_self">UpdateUserDto</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Patch(&#x27;update&#x27;)<br />@UseGuards(AuthGuard)<br />@ApiOkResponse({description: &#x27;The user was updated successfully&#x27;})<br />@ApiBadRequestResponse({description: &#x27;Failed to update user&#x27;})<br />@ApiNotFoundResponse({description: &#x27;User not found&#x27;})<br />@ApiInternalServerErrorResponse({description: &#x27;Something went wrong while updating the user&#x27;})<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="232"
+                            class="link-to-prism">src/users/users.controller.ts:232</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>user</td>
+                                    <td>
+                                                <code><a href="../classes/User.html" target="_self" >User</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>body</td>
+                                    <td>
+                                                <code><a href="../classes/UpdateUserDto.html" target="_self" >UpdateUserDto</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="verifyEmail"></a>
+                    <span class="name">
+                        <span ><b>verifyEmail</b></span>
+                        <a href="#verifyEmail"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>verifyEmail(user: <a href="../classes/User.html" target="_self">User</a>, body: <a href="../classes/VerifyEmailDto.html" target="_self">VerifyEmailDto</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Patch(&#x27;/email/verify&#x27;)<br />@UseGuards(AuthGuard)<br />@ApiOkResponse({description: &#x27;The email was verified successfully&#x27;})<br />@ApiBadRequestResponse({description: &#x27;Failed to verify email | Invalid token&#x27;})<br />@ApiNotFoundResponse({description: &#x27;User not found&#x27;})<br />@ApiInternalServerErrorResponse({description: &#x27;Something went wrong while verifying the email&#x27;})<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="264"
+                            class="link-to-prism">src/users/users.controller.ts:264</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>user</td>
+                                    <td>
+                                                <code><a href="../classes/User.html" target="_self" >User</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>body</td>
+                                    <td>
+                                                <code><a href="../classes/VerifyEmailDto.html" target="_self" >VerifyEmailDto</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="whoAmI"></a>
                     <span class="name">
                         <span ><b>whoAmI</b></span>
@@ -650,8 +832,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="217"
-                            class="link-to-prism">src/users/users.controller.ts:217</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="292"
+                            class="link-to-prism">src/users/users.controller.ts:292</a></div>
                 </td>
             </tr>
 
@@ -711,6 +893,7 @@
   HttpCode,
   InternalServerErrorException,
   NotFoundException,
+  Patch,
   Post,
   Session,
   UnauthorizedException,
@@ -732,9 +915,12 @@ import { CurrentUser } from &#x27;./decorators/current-user.decorator&#x27;;
 import { CreateUserDto } from &#x27;./dtos/create-user.dto&#x27;;
 import { EmailVerificationDto } from &#x27;./dtos/email-verification.dto&#x27;;
 import { PasswordResetDto } from &#x27;./dtos/password-reset.dto&#x27;;
+import { UpdateUserDto } from &#x27;./dtos/update-user.dto&#x27;;
 import { UserCredentialsDto } from &#x27;./dtos/user-credentials.dto&#x27;;
 import { UserDto } from &#x27;./dtos/user.dto&#x27;;
+import { VerifyEmailDto } from &#x27;./dtos/verify-email.dto&#x27;;
 import { User } from &#x27;./user.entity&#x27;;
+import { UsersService } from &#x27;./users.service&#x27;;
 
 @ApiTags(&#x27;users&#x27;)
 @Serialize(UserDto)
@@ -743,7 +929,10 @@ import { User } from &#x27;./user.entity&#x27;;
   version: &#x27;1&#x27;,
 })
 export class UsersController {
-  constructor(private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private userService: UsersService,
+  ) {}
 
   // LAST TIME REVIEWED: 2022-04-09
   @Post(&#x27;/send-email-verification&#x27;)
@@ -759,7 +948,7 @@ export class UsersController {
   })
   async sendEmailVerification(@Body() body: EmailVerificationDto) {
     return this.authService
-      .sendEmailVerification(body.email)
+      .sendEmailVerification(body.email, body.isRegistration)
       .then((res) &#x3D;&gt; {
         return res;
       })
@@ -910,6 +1099,74 @@ export class UsersController {
           default:
             throw new InternalServerErrorException(
               &#x27;Something went wrong while logging in the user&#x27;,
+            );
+        }
+      });
+  }
+
+  @Patch(&#x27;update&#x27;)
+  @UseGuards(AuthGuard)
+  @ApiOkResponse({
+    description: &#x27;The user was updated successfully&#x27;,
+  })
+  @ApiBadRequestResponse({
+    description: &#x27;Failed to update user&#x27;,
+  })
+  @ApiNotFoundResponse({ description: &#x27;User not found&#x27; })
+  @ApiInternalServerErrorResponse({
+    description: &#x27;Something went wrong while updating the user&#x27;,
+  })
+  updateUser(@CurrentUser() user: User, @Body() body: UpdateUserDto) {
+    return this.userService
+      .update(user, body)
+      .then((res) &#x3D;&gt; {
+        return res;
+      })
+      .catch((err) &#x3D;&gt; {
+        switch (err.response?.statusCode) {
+          case 400:
+            throw new BadRequestException(&#x27;Failed to update user&#x27;);
+          case 404:
+            throw new NotFoundException(&#x27;User not found&#x27;);
+          default:
+            throw new InternalServerErrorException(
+              &#x27;Something went wrong while updating the user&#x27;,
+            );
+        }
+      });
+  }
+
+  @Patch(&#x27;/email/verify&#x27;)
+  @UseGuards(AuthGuard)
+  @ApiOkResponse({
+    description: &#x27;The email was verified successfully&#x27;,
+  })
+  @ApiBadRequestResponse({
+    description: &#x27;Failed to verify email | Invalid token&#x27;,
+  })
+  @ApiNotFoundResponse({ description: &#x27;User not found&#x27; })
+  @ApiInternalServerErrorResponse({
+    description: &#x27;Something went wrong while verifying the email&#x27;,
+  })
+  verifyEmail(@CurrentUser() user: User, @Body() body: VerifyEmailDto) {
+    return this.authService
+      .verifyEmail(user, body.token)
+      .then((res) &#x3D;&gt; {
+        return res;
+      })
+      .catch((err) &#x3D;&gt; {
+        switch (err.response?.statusCode) {
+          case 400:
+            if (err.response?.message &#x3D;&#x3D;&#x3D; &#x27;Invalid token&#x27;) {
+              throw new BadRequestException(&#x27;Invalid token&#x27;);
+            } else if (err.response?.message &#x3D;&#x3D;&#x3D; &#x27;Failed to verify user&#x27;) {
+              throw new BadRequestException(&#x27;Failed to verify email&#x27;);
+            }
+          case 404:
+            throw new NotFoundException(&#x27;User not found&#x27;);
+          default:
+            throw new InternalServerErrorException(
+              &#x27;Something went wrong while verifying the email&#x27;,
             );
         }
       });
