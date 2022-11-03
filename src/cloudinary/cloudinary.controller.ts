@@ -6,11 +6,13 @@ import {
   Post,
   UseGuards,
 } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { AuthGuard } from 'src/guards/auth.guard';
 import { CloudinaryService } from './cloudinary.service';
 import { RemoveImageDto } from './dtos/remove-image.dto';
 import { UploadImageDto } from './dtos/upload-image.dto';
 
+@ApiTags('cloudinary')
 @Controller({
   path: 'api/cloudinary',
   version: '1',

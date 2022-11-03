@@ -7,7 +7,7 @@ import {
   Length,
 } from 'class-validator';
 import { DocumentTypes, Genders } from '../../passengers/passenger.entity';
-import { BookingTypes } from '../booking.entity';
+import { BookingTypes, PaymentMethods } from '../booking.entity';
 
 export class CreateBookingDto {
   // Everything needed to create a passenger
@@ -31,6 +31,16 @@ export class CreateBookingDto {
   @IsNotEmpty()
   @Length(1, 200)
   document_number: string;
+
+  @ApiProperty({
+    type: String,
+    description: 'the phone number of the user',
+    default: '+33650578840',
+  })
+  @IsString()
+  @IsNotEmpty()
+  @Length(1, 200)
+  phone_number: string;
 
   @ApiProperty({
     type: String,
@@ -61,6 +71,16 @@ export class CreateBookingDto {
   @IsNotEmpty()
   @IsEnum(BookingTypes)
   booking_type: BookingTypes;
+
+  @ApiProperty({
+    type: String,
+    description: 'bank_card | moneygram | western_union | paypal',
+    enum: PaymentMethods,
+  })
+  @IsString()
+  @IsNotEmpty()
+  @IsEnum(PaymentMethods)
+  payment_method: PaymentMethods;
 
   @ApiProperty({
     type: Number,

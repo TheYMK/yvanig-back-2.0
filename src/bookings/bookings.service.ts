@@ -49,6 +49,7 @@ export class BookingsService {
           document_number: booking.document_number,
           date_of_birth: booking.date_of_birth,
           gender: booking.gender,
+          phone_number: booking.phone_number,
         },
         user,
       );
@@ -69,6 +70,7 @@ export class BookingsService {
       newBooking.flight = foundFlight;
       newBooking.seat = foundSeat;
       newBooking.passenger = passenger;
+      newBooking.payment_method = booking.payment_method;
 
       const createdBooking = await this.repo.save(newBooking);
 

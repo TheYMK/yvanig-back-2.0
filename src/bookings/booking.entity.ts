@@ -28,6 +28,13 @@ export enum BookingStatuses {
   PENDING = 'pending',
 }
 
+export enum PaymentMethods {
+  BANK_CARD = 'bank_card',
+  MONEYGRAM = 'moneygram',
+  WESTERN_UNION = 'western_union',
+  PAYPAL = 'paypal',
+}
+
 @Entity()
 @Unique(['passenger', 'flight'])
 export class Booking {
@@ -40,6 +47,13 @@ export class Booking {
     nullable: false,
   })
   booking_type: BookingTypes;
+
+  @Column({
+    type: 'enum',
+    enum: PaymentMethods,
+    nullable: false,
+  })
+  payment_method: PaymentMethods;
 
   @Column({
     type: 'numeric',
