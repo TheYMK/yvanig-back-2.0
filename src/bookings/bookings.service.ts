@@ -107,6 +107,40 @@ export class BookingsService {
     }
   }
 
+  async findAllByUser(options: Partial<GetBookingsDto>, user: User) {
+    const page = parseInt(options.page) || 0;
+    const limit = parseInt(options.limit) || 10;
+    const foundPassenger = await this.passengersService.findByUser(user);
+    if (foundPassenger.length === 0) {
+      throw new NotFoundException('Passenger not found');
+    }
+    try {
+      const bookings = await this.repo.find({
+        skip: page * limit,
+        take: limit,
+        order: { created_at: 'DESC' },
+        relations: ['flight', 'seat', 'passenger'],
+        where: {
+          passenger: foundPassenger[0],
+        },
+      });
+
+      console.log(bookings);
+
+      const totalCount = (
+        await this.repo.find({
+          where: {
+            passenger: foundPassenger[0],
+          },
+        })
+      ).length;
+
+      return { bookings, total_count: totalCount };
+    } catch (err) {
+      throw new BadRequestException('Failed to get the bookings');
+    }
+  }
+
   // Find a booking by id
   async findOne(id: number, user: User) {
     const booking = await this.repo.findOne(id, {

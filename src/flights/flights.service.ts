@@ -75,8 +75,6 @@ export class FlightsService {
       delete filterOptions.departure_date;
     }
 
-    console.log('[options]: ', options);
-
     try {
       const flights = await this.repo.find({
         skip: page * limit,

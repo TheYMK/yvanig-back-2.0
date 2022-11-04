@@ -136,6 +136,43 @@ export class BookingsController {
       });
   }
 
+  @Get('/me')
+  @UseGuards(AuthGuard)
+  @ApiOkResponse({
+    description: 'The bookings were found successfully',
+  })
+  @ApiBadRequestResponse({
+    description: 'Failed to get the bookings',
+  })
+  @ApiNotFoundResponse({
+    description: 'Passenger not found',
+  })
+  @ApiInternalServerErrorResponse({
+    description: 'Something went wrong while getting the bookings',
+  })
+  async getAllBookingsForUser(
+    @Query() query: GetBookingsDto,
+    @CurrentUser() user: User,
+  ) {
+    return this.bookingsService
+      .findAllByUser(query, user)
+      .then((res) => {
+        return res;
+      })
+      .catch((err) => {
+        switch (err.response?.statusCode) {
+          case 400:
+            throw new BadRequestException('Failed to get the bookings');
+          case 404:
+            throw new NotFoundException('Passenger not found');
+          default:
+            throw new InternalServerErrorException(
+              'Something went wrong while getting the bookings',
+            );
+        }
+      });
+  }
+
   // LAST TIME REVIEWED: 2022-04-10
   // Returns a booking
   @Get('/:id')

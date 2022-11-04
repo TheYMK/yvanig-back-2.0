@@ -26,9 +26,9 @@ export class AuthService {
   async sendEmailVerification(email: string, isRegistration: boolean) {
     const token = this.jwtService.sign({ email });
 
-    let subject = `YVANIG TOUR | Veuillez confirmer votre email`;
-    let registrationMetaText = `Merci d'avoir rejoint YVANIG TOUR. Nous avons besoin d'un peu plus d'informations pour compléter votre inscription, y compris une confirmation de votre adresse e-mail.`;
-    let simpleValidationMetaText = `Une confirmation de votre adresse e-mail est requise avoir accès aux fonctionnalités de YVANIG TOUR. Veuillez confirmer votre adresse e-mail en cliquant sur le lien ci-dessous.`;
+    let subject = `YVANIG Agency | Veuillez confirmer votre email`;
+    let registrationMetaText = `Merci d'avoir rejoint YVANIG Agency. Nous avons besoin d'un peu plus d'informations pour compléter votre inscription, y compris une confirmation de votre adresse e-mail.`;
+    let simpleValidationMetaText = `Une confirmation de votre adresse e-mail est requise avoir accès aux fonctionnalités de YVANIG Agency. Veuillez confirmer votre adresse e-mail en cliquant sur le lien ci-dessous.`;
 
     let registrationLink = `${this.configService.get(
       'WEBSITE_URL',
@@ -38,6 +38,7 @@ export class AuthService {
       'WEBSITE_URL',
     )}/auth/email/validate?token=${token}`;
 
+    console.log('[email from] : ', process.env.EMAIL);
     const emailData = {
       from: process.env.EMAIL,
       to: email,
@@ -131,15 +132,6 @@ export class AuthService {
                                     </td>
                                   </tr>
                                 </table>
-                                <table class="image_block" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                  <tr>
-                                    <td style="padding-left:15px;padding-right:15px;width:100%;">
-                                      <div align="center" style="line-height:10px"><a href="${this.configService.get(
-                                        'WEBSITE_URL',
-                                      )}" target="_blank" style="outline:none" tabindex="-1"><img src="https://d15k2d11r6t6rl.cloudfront.net/public/users/BeeFree/beefree-10t6qah1e6rc/logo.png" style="display: block; height: auto; border: 0; width: 208px; max-width: 100%;" width="208" alt="Yvanig Logo" title="Yvanig Tour"></a></div>
-                                    </td>
-                                  </tr>
-                                </table>
                               </td>
                             </tr>
                           </tbody>
@@ -148,7 +140,7 @@ export class AuthService {
                     </tr>
                   </tbody>
                 </table>
-                <table class="row row-2" align="center" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #008080;">
+                <table class="row row-2" align="center" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #fca867;">
                   <tbody>
                     <tr>
                       <td>
@@ -207,7 +199,7 @@ export class AuthService {
                                           <p style="margin: 0;">Pour finaliser votre inscription, cliquez sur le bouton ci-dessous.</p>
                                           <p style="margin: 0; mso-line-height-alt: 21px;">&nbsp;</p>
                                           <p style="margin: 0;">Si vous rencontrez des difficultés pour vous connecter à votre compte, contactez-nous à</p>
-                                          <p style="margin: 0;"><a href="mailto:yvanig-tour@gmail.com?subject=Je%20rencontre%20des%20probl%C3%A8mes%20de%20connexion" target="_blank" title="yvanig-tour@gmail.com" style="text-decoration: underline; color: #8a3b8f;" rel="noopener">yvanig-tour@gmail.com</a></p>
+                                          <p style="margin: 0;"><a href="mailto:yvanigagency@gmail.com?subject=Je%20rencontre%20des%20probl%C3%A8mes%20de%20connexion" target="_blank" title="yvanigagency@gmail.com" style="text-decoration: underline; color: #8a3b8f;" rel="noopener">yvanigagency@gmail.com</a></p>
                                         </div>
                                       </div>
                                     </td>
@@ -220,9 +212,9 @@ export class AuthService {
                                         isRegistration
                                           ? registrationLink
                                           : simpleValidationLink
-                                      }" style="height:42px;width:243px;v-text-anchor:middle;" arcsize="120%" stroke="false" fillcolor="#ff5f46"><w:anchorlock/><v:textbox inset="0px,0px,0px,0px"><center style="color:#ffffff; font-family:Arial, sans-serif; font-size:16px"><![endif]--><a href="${
+                                      }" style="height:42px;width:243px;v-text-anchor:middle;" arcsize="120%" stroke="false" fillcolor="#fca867"><w:anchorlock/><v:textbox inset="0px,0px,0px,0px"><center style="color:#ffffff; font-family:Arial, sans-serif; font-size:16px"><![endif]--><a href="${
         isRegistration ? registrationLink : simpleValidationLink
-      }" target="_blank" style="text-decoration:none;display:inline-block;color:#ffffff;background-color:#ff5f46;border-radius:50px;width:auto;border-top:0px solid #2B2D2D;border-right:0px solid #2B2D2D;border-bottom:0px solid #2B2D2D;border-left:0px solid #2B2D2D;padding-top:5px;padding-bottom:5px;font-family:Arial, Helvetica Neue, Helvetica, sans-serif;text-align:center;mso-border-alt:none;word-break:keep-all;"><span style="padding-left:20px;padding-right:20px;font-size:16px;display:inline-block;letter-spacing:normal;"><span style="font-size: 16px; line-height: 2; word-break: break-word; mso-line-height-alt: 32px;"><strong>Je confirme mon adresse email</strong></span></span></a>
+      }" target="_blank" style="text-decoration:none;display:inline-block;color:#ffffff;background-color:#fca867;border-radius:50px;width:auto;border-top:0px solid #2B2D2D;border-right:0px solid #2B2D2D;border-bottom:0px solid #2B2D2D;border-left:0px solid #2B2D2D;padding-top:5px;padding-bottom:5px;font-family:Arial, Helvetica Neue, Helvetica, sans-serif;text-align:center;mso-border-alt:none;word-break:keep-all;"><span style="padding-left:20px;padding-right:20px;font-size:16px;display:inline-block;letter-spacing:normal;"><span style="font-size: 16px; line-height: 2; word-break: break-word; mso-line-height-alt: 32px;"><strong>Je confirme mon adresse email</strong></span></span></a>
                                       <!--[if mso]></center></v:textbox></v:roundrect><![endif]-->
                                     </td>
                                   </tr>
@@ -232,7 +224,7 @@ export class AuthService {
                                 <table class="image_block" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
                                   <tr>
                                     <td style="width:100%;padding-right:0px;padding-left:0px;padding-top:5px;padding-bottom:5px;">
-                                      <div align="center" style="line-height:10px"><img src="https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/BeeProAgency/784379_768130/Pink%20Beige%20White%20Email%20Marketing%20Cheatsheet%20Facebook%20Post%20%281%29.png" style="display: block; height: auto; border: 0; width: 415px; max-width: 100%;" width="415" alt="Services Company" title="Services Company"></div>
+                                      <div align="center" style="line-height:10px"><img src="https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/BeeProAgency/784379_768130/Pink%20Beige%20White%20Email%20Marketing%20Cheatsheet%20Facebook%20Post%20%282%29.png" style="display: block; height: auto; border: 0; width: 415px; max-width: 100%;" width="415" alt="Services Company" title="Services Company"></div>
                                     </td>
                                   </tr>
                                 </table>
@@ -333,7 +325,7 @@ export class AuthService {
     const emailData = {
       from: process.env.EMAIL,
       to: email,
-      subject: `YVANIG TOUR | Réinitialisation de votre mot de passe`,
+      subject: `YVANIG Agency | Réinitialisation de votre mot de passe`,
       text: `Vous recevez cet email car vous avez demandé une réinitialisation de votre mot de passe.`,
       html: `
       <!DOCTYPE html>
@@ -423,15 +415,6 @@ export class AuthService {
                                     </td>
                                   </tr>
                                 </table>
-                                <table class="image_block" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                  <tr>
-                                    <td style="padding-left:15px;padding-right:15px;width:100%;">
-                                      <div align="center" style="line-height:10px"><a href="${this.configService.get(
-                                        'WEBSITE_URL',
-                                      )}" target="_blank" style="outline:none" tabindex="-1"><img src="https://d15k2d11r6t6rl.cloudfront.net/public/users/BeeFree/beefree-10t6qah1e6rc/logo.png" style="display: block; height: auto; border: 0; width: 208px; max-width: 100%;" width="208" alt="Yvanig Logo" title="Yvanig Tour"></a></div>
-                                    </td>
-                                  </tr>
-                                </table>
                               </td>
                             </tr>
                           </tbody>
@@ -440,7 +423,7 @@ export class AuthService {
                     </tr>
                   </tbody>
                 </table>
-                <table class="row row-2" align="center" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #008080;">
+                <table class="row row-2" align="center" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #fca867;">
                   <tbody>
                     <tr>
                       <td>
@@ -499,7 +482,7 @@ export class AuthService {
                                           <p style="margin: 0;">Pour réinitialiser votre mot de passe, cliquez sur le bouton ci-dessous.</p>
                                           <p style="margin: 0; mso-line-height-alt: 21px;">&nbsp;</p>
                                           <p style="margin: 0;">Si vous rencontrez des difficultés pour vous connecter à votre compte, contactez-nous à</p>
-                                          <p style="margin: 0;"><a href="mailto:yvanig-tour@gmail.com?subject=Je%20rencontre%20des%20probl%C3%A8mes%20de%20connexion" target="_blank" title="yvanig-tour@gmail.com" style="text-decoration: underline; color: #8a3b8f;" rel="noopener">yvanig-tour@gmail.com</a></p>
+                                          <p style="margin: 0;"><a href="mailto:yvanigagency@gmail.com?subject=Je%20rencontre%20des%20probl%C3%A8mes%20de%20connexion" target="_blank" title="yvanigagency@gmail.com" style="text-decoration: underline; color: #8a3b8f;" rel="noopener">yvanigagency@gmail.com</a></p>
                                         </div>
                                       </div>
                                     </td>
@@ -510,9 +493,9 @@ export class AuthService {
                                     <td style="padding-bottom:15px;padding-left:15px;padding-right:15px;padding-top:10px;text-align:left;">
                                       <!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="${this.configService.get(
                                         'WEBSITE_URL',
-                                      )}/auth/password/reset?token=${token}" style="height:42px;width:243px;v-text-anchor:middle;" arcsize="120%" stroke="false" fillcolor="#ff5f46"><w:anchorlock/><v:textbox inset="0px,0px,0px,0px"><center style="color:#ffffff; font-family:Arial, sans-serif; font-size:16px"><![endif]--><a href="${this.configService.get(
+                                      )}/auth/password/reset?token=${token}" style="height:42px;width:243px;v-text-anchor:middle;" arcsize="120%" stroke="false" fillcolor="#fca867"><w:anchorlock/><v:textbox inset="0px,0px,0px,0px"><center style="color:#ffffff; font-family:Arial, sans-serif; font-size:16px"><![endif]--><a href="${this.configService.get(
         'WEBSITE_URL',
-      )}/auth/password/reset?token=${token}" target="_blank" style="text-decoration:none;display:inline-block;color:#ffffff;background-color:#ff5f46;border-radius:50px;width:auto;border-top:0px solid #2B2D2D;border-right:0px solid #2B2D2D;border-bottom:0px solid #2B2D2D;border-left:0px solid #2B2D2D;padding-top:5px;padding-bottom:5px;font-family:Arial, Helvetica Neue, Helvetica, sans-serif;text-align:center;mso-border-alt:none;word-break:keep-all;"><span style="padding-left:20px;padding-right:20px;font-size:16px;display:inline-block;letter-spacing:normal;"><span style="font-size: 16px; line-height: 2; word-break: break-word; mso-line-height-alt: 32px;"><strong>Je réinitialise mon mot de passe</strong></span></span></a>
+      )}/auth/password/reset?token=${token}" target="_blank" style="text-decoration:none;display:inline-block;color:#ffffff;background-color:#fca867;border-radius:50px;width:auto;border-top:0px solid #2B2D2D;border-right:0px solid #2B2D2D;border-bottom:0px solid #2B2D2D;border-left:0px solid #2B2D2D;padding-top:5px;padding-bottom:5px;font-family:Arial, Helvetica Neue, Helvetica, sans-serif;text-align:center;mso-border-alt:none;word-break:keep-all;"><span style="padding-left:20px;padding-right:20px;font-size:16px;display:inline-block;letter-spacing:normal;"><span style="font-size: 16px; line-height: 2; word-break: break-word; mso-line-height-alt: 32px;"><strong>Je réinitialise mon mot de passe</strong></span></span></a>
                                       <!--[if mso]></center></v:textbox></v:roundrect><![endif]-->
                                     </td>
                                   </tr>
@@ -522,7 +505,7 @@ export class AuthService {
                                 <table class="image_block" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
                                   <tr>
                                     <td style="width:100%;padding-right:0px;padding-left:0px;padding-top:5px;padding-bottom:5px;">
-                                      <div align="center" style="line-height:10px"><img src="https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/BeeProAgency/784379_768130/Pink%20Beige%20White%20Email%20Marketing%20Cheatsheet%20Facebook%20Post%20%281%29.png" style="display: block; height: auto; border: 0; width: 415px; max-width: 100%;" width="415" alt="Services Company" title="Services Company"></div>
+                                      <div align="center" style="line-height:10px"><img src="https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/BeeProAgency/784379_768130/Pink%20Beige%20White%20Email%20Marketing%20Cheatsheet%20Facebook%20Post%20%282%29.png" style="display: block; height: auto; border: 0; width: 415px; max-width: 100%;" width="415" alt="Services Company" title="Services Company"></div>
                                     </td>
                                   </tr>
                                 </table>

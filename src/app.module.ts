@@ -15,6 +15,7 @@ import { CloudinaryModule } from './cloudinary/cloudinary.module';
 import { SettingsModule } from './settings/settings.module';
 import { BlogsModule } from './blogs/blogs.module';
 import { ThrottlerModule } from '@nestjs/throttler';
+import { ContactModule } from './contact/contact.module';
 
 @Module({
   imports: [
@@ -51,6 +52,7 @@ import { ThrottlerModule } from '@nestjs/throttler';
     CloudinaryModule,
     SettingsModule,
     BlogsModule,
+    ContactModule,
   ],
   controllers: [AppController],
   providers: [
