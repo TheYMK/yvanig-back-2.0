@@ -26,6 +26,16 @@ export class CreatePassengerDto {
 
   @ApiProperty({
     type: String,
+    description: 'the phone number of the user',
+    default: '+33650578840',
+  })
+  @IsString()
+  @IsNotEmpty()
+  @Length(1, 200)
+  phone_number: string;
+
+  @ApiProperty({
+    type: String,
     description: 'the date of birth of the passenger',
     default: '1990-01-01',
   })

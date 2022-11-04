@@ -9,7 +9,7 @@ export function sendEmailWithNodemailer(emailData: any) {
     secure: false,
     requireTLS: true,
     auth: {
-      user: 'kaymkassai269',
+      user: 'yvanigagency',
       pass: process.env.GMAIL_APP_PASSWORD,
     },
     tls: {

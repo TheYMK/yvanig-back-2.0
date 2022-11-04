@@ -23,6 +23,7 @@ import {
   ApiTags,
   ApiUnauthorizedResponse,
 } from '@nestjs/swagger';
+import { ThrottlerGuard } from '@nestjs/throttler';
 import { AdminGuard } from 'src/guards/admin.guard';
 import { AuthGuard } from 'src/guards/auth.guard';
 import { Serialize } from 'src/interceptors/serialize.interceptor';
@@ -127,6 +128,43 @@ export class BookingsController {
         switch (err.response?.statusCode) {
           case 400:
             throw new BadRequestException('Failed to get the bookings');
+          default:
+            throw new InternalServerErrorException(
+              'Something went wrong while getting the bookings',
+            );
+        }
+      });
+  }
+
+  @Get('/me')
+  @UseGuards(AuthGuard)
+  @ApiOkResponse({
+    description: 'The bookings were found successfully',
+  })
+  @ApiBadRequestResponse({
+    description: 'Failed to get the bookings',
+  })
+  @ApiNotFoundResponse({
+    description: 'Passenger not found',
+  })
+  @ApiInternalServerErrorResponse({
+    description: 'Something went wrong while getting the bookings',
+  })
+  async getAllBookingsForUser(
+    @Query() query: GetBookingsDto,
+    @CurrentUser() user: User,
+  ) {
+    return this.bookingsService
+      .findAllByUser(query, user)
+      .then((res) => {
+        return res;
+      })
+      .catch((err) => {
+        switch (err.response?.statusCode) {
+          case 400:
+            throw new BadRequestException('Failed to get the bookings');
+          case 404:
+            throw new NotFoundException('Passenger not found');
           default:
             throw new InternalServerErrorException(
               'Something went wrong while getting the bookings',

@@ -6,7 +6,11 @@ import {
   IsOptional,
   IsString,
 } from 'class-validator';
-import { BookingStatuses, BookingTypes } from '../booking.entity';
+import {
+  BookingStatuses,
+  BookingTypes,
+  PaymentMethods,
+} from '../booking.entity';
 
 export class UpdateBookingDto {
   // Everything needed to create a booking
@@ -20,6 +24,17 @@ export class UpdateBookingDto {
   @IsEnum(BookingTypes)
   @IsOptional()
   booking_type: BookingTypes;
+
+  @ApiProperty({
+    type: String,
+    description: 'bank_card | moneygram | western_union | paypal',
+    enum: PaymentMethods,
+  })
+  @IsString()
+  @IsNotEmpty()
+  @IsEnum(PaymentMethods)
+  @IsOptional()
+  payment_method: PaymentMethods;
 
   @ApiProperty({
     type: String,

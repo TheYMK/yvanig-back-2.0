@@ -13,6 +13,9 @@ import { BookingsModule } from './bookings/bookings.module';
 import { EventEmitterModule } from '@nestjs/event-emitter';
 import { CloudinaryModule } from './cloudinary/cloudinary.module';
 import { SettingsModule } from './settings/settings.module';
+import { BlogsModule } from './blogs/blogs.module';
+import { ThrottlerModule } from '@nestjs/throttler';
+import { ContactModule } from './contact/contact.module';
 
 @Module({
   imports: [
@@ -36,6 +39,10 @@ import { SettingsModule } from './settings/settings.module';
       // disable throwing uncaughtException if an error event is emitted and it has no listeners
       ignoreErrors: false,
     }),
+    ThrottlerModule.forRoot({
+      ttl: 60,
+      limit: 1
+    }),
     TypeOrmModule.forRoot(),
     UsersModule,
     FlightsModule,
@@ -44,6 +51,8 @@ import { SettingsModule } from './settings/settings.module';
     BookingsModule,
     CloudinaryModule,
     SettingsModule,
+    BlogsModule,
+    ContactModule,
   ],
   controllers: [AppController],
   providers: [

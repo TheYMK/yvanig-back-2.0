@@ -45,6 +45,14 @@ export class Passenger {
   document_number: string;
 
   @Column({
+    type: 'varchar',
+    unique: true,
+    length: 200,
+    nullable: false,
+  })
+  phone_number: string;
+
+  @Column({
     type: 'date',
     nullable: false,
   })

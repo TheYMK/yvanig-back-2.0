@@ -16,7 +16,6 @@ export class EmailVerificationDto {
   @IsString()
   @IsNotEmpty()
   @IsEmail()
-  @IsOptional()
   email: string;
 
   @ApiProperty({

@@ -1,5 +1,5 @@
 import { Expose, Transform } from 'class-transformer';
-import { BookingTypes } from '../booking.entity';
+import { BookingTypes, PaymentMethods } from '../booking.entity';
 
 export class BookingDto {
   @Expose()
@@ -7,6 +7,9 @@ export class BookingDto {
 
   @Expose()
   booking_type: BookingTypes;
+
+  @Expose()
+  payment_method: PaymentMethods;
 
   @Expose()
   price: number;

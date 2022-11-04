@@ -12,6 +12,9 @@ export class PassengerDto {
   document_number: string;
 
   @Expose()
+  phone_number: string;
+
+  @Expose()
   date_of_birth: string;
 
   @Expose()
