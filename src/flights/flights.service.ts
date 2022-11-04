@@ -56,11 +56,33 @@ export class FlightsService {
   async findAll(options: Partial<GetFlightsDto>) {
     const page = parseInt(options.page) || 0;
     const limit = parseInt(options.limit) || 10;
+
+    let filterOptions = {
+      origin: options.filterByOrigin,
+      destination: options.filterByDestination,
+      departure_date: options.filterByDepartureDate,
+    };
+
+    if (!options.filterByOrigin) {
+      delete filterOptions.origin;
+    }
+
+    if (!options.filterByDestination) {
+      delete filterOptions.destination;
+    }
+
+    if (!options.filterByDepartureDate) {
+      delete filterOptions.departure_date;
+    }
+
+    console.log('[options]: ', options);
+
     try {
       const flights = await this.repo.find({
         skip: page * limit,
         take: limit,
         order: { created_at: 'DESC' },
+        where: filterOptions,
       });
       const totalCount = await (await this.repo.find()).length;
 

@@ -11,6 +11,30 @@ export class GetFlightsDto {
   page: string;
 
   @ApiProperty({
+    default: '',
+    required: false,
+  })
+  @IsOptional()
+  @IsString()
+  filterByOrigin: string;
+
+  @ApiProperty({
+    default: '',
+    required: false,
+  })
+  @IsOptional()
+  @IsString()
+  filterByDestination: string;
+
+  @ApiProperty({
+    default: '',
+    required: false,
+  })
+  @IsOptional()
+  @IsString()
+  filterByDepartureDate: string;
+
+  @ApiProperty({
     default: 10,
     required: false,
   })
