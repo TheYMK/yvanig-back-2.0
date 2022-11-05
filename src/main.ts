@@ -17,6 +17,7 @@ async function bootstrap() {
       'http://164.92.221.176:3000',
       'http://164.92.221.176:5173',
       'http://yvanig-agency.com',
+      'https://yvanig-agency.com',
     ],
     credentials: true,
   });
