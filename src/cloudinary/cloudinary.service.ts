@@ -1,12 +1,5 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
-import * as cloudinary from 'cloudinary';
-
-// config
-cloudinary.v2.config({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET,
-});
+import { v2 } from 'cloudinary';
 
 @Injectable()
 export class CloudinaryService {
@@ -14,7 +7,7 @@ export class CloudinaryService {
 
   async upload(image: string) {
     try {
-      let result = await cloudinary.v2.uploader.upload(image, {
+      let result = await v2.uploader.upload(image, {
         public_id: `${Date.now()}`,
         resource_type: 'auto',
       });
@@ -29,7 +22,7 @@ export class CloudinaryService {
   }
 
   async remove(public_id: string) {
-    cloudinary.v2.uploader.destroy(public_id, (err, result) => {
+    v2.uploader.destroy(public_id, (err, result) => {
       if (err) {
         console.log(err);
         throw new BadRequestException('Failed to remove image');
